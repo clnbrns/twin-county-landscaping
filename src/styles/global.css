@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-brand-cream text-brand-ink font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading text-brand-ink;
+  }
+  h1 { @apply text-4xl md:text-5xl font-bold leading-tight; }
+  h2 { @apply text-3xl md:text-4xl font-bold leading-tight; }
+  h3 { @apply text-xl md:text-2xl font-semibold; }
+  a { @apply text-brand-green-dark hover:text-brand-green; }
+}
+
+@layer base {
+  /* Prevent iOS Safari from zooming when focusing form fields */
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .container-x { @apply max-w-content mx-auto px-4 md:px-8; }
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-brand-green-dark text-white hover:bg-brand-ink;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-brand-green-dark border-2 border-brand-green-dark hover:bg-brand-green-tint;
+  }
+}

@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { AREAS, AREA_BY_SLUG } from '../../data/areas';
+import { SERVICES } from '../../data/services';
+
+export function getStaticPaths() {
+  return AREAS.map((a) => ({ params: { slug: a.slug } }));
+}
+
+const { slug } = Astro.params;
+const area = AREA_BY_SLUG[slug as string];
+
+const title = `Landscaping & Hardscape Services in ${area.city}, ${area.state} | Twin County Outdoor Services`;
+const description = `Landscape design, retaining walls, hardscaping, sod, and drainage services in ${area.city}, ${area.state}. Free in-person quotes from Twin County Outdoor Services.`;
+---
+<Base title={title} description={description} path={`/areas/${area.slug}`}>
+  <Breadcrumb items={[
+    { label: 'Home', href: '/' },
+    { label: 'Service Areas', href: '/areas' },
+    { label: `${area.city}, ${area.state}` },
+  ]} />
+
+  <section class="container-x py-12">
+    <h1>Landscaping & Hardscape Services in {area.city}, {area.state}</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">{area.intro}</p>
+
+    {area.neighborhoods.length > 0 && (
+      <div class="mt-8">
+        <h2 class="text-2xl">Neighborhoods we serve in {area.city}</h2>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {area.neighborhoods.map((n) => (
+            <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="mt-12">
+      <h2>Services available in {area.city}</h2>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {SERVICES.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} />)}
+      </div>
+    </div>
+
+    <div class="mt-12 grid lg:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2>About Twin County in {area.city}</h2>
+        <p class="mt-3 text-brand-muted">We've worked throughout {area.city} and the surrounding communities. Lucas walks every property in person and provides a detailed written proposal with full scope of work — no remote quotes, no guessing.</p>
+        <p class="mt-3 text-brand-muted">[PLACEHOLDER] Local project photos from {area.city} coming as projects are documented.</p>
+      </div>
+      <QuoteForm compact />
+    </div>
+  </section>
+
+  <CTABanner title={`Ready for your ${area.city} project?`} />
+</Base>

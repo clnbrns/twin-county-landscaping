@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { AREAS } from '../../data/areas';
+---
+<Base
+  title="Service Areas | Twin County Outdoor Services — Western DFW"
+  description="Twin County Outdoor Services provides landscaping, hardscape, and drainage services across Aledo, Benbrook, Weatherford, Fort Worth, Brock, and Western DFW."
+  path="/areas"
+>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Service Areas' }]} />
+  <section class="container-x py-12">
+    <h1>Where We Work</h1>
+    <p class="mt-3 text-lg text-brand-muted max-w-2xl">Based in Aledo, serving Western DFW and Parker County. Click any city for local project photos and the neighborhoods we work in.</p>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {AREAS.map((a) => (
+        <a href={`/areas/${a.slug}`} class="block bg-white p-6 border border-brand-green-tint rounded-lg hover:border-brand-green-dark hover:shadow-md transition no-underline">
+          <h3>{a.city}, {a.state}</h3>
+          <p class="text-sm text-brand-muted mt-2">{a.intro.slice(0, 120)}…</p>
+          <span class="inline-block mt-3 text-brand-green-dark font-semibold text-sm">View {a.city} →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <CTABanner />
+</Base>

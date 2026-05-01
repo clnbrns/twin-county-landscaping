@@ -1,0 +1,50 @@
+---
+import { SITE } from '../data/site';
+import { SERVICES } from '../data/services';
+import { AREAS } from '../data/areas';
+---
+
+<footer class="bg-brand-green-dark text-white mt-16">
+  <div class="container-x py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+      <div class="font-heading font-bold text-lg mb-2">{SITE.name}</div>
+      <p class="text-sm text-white/80 mb-4">Aledo's landscaping and hardscape contractor. Owner-operated. Serving Western DFW.</p>
+      <p class="text-sm"><a href={SITE.phoneHref} class="text-white underline">{SITE.phone}</a></p>
+      <p class="text-sm"><a href={`mailto:${SITE.email}`} class="text-white underline break-all">{SITE.email}</a></p>
+      <p class="text-sm mt-2 text-white/70">Aledo, TX</p>
+    </div>
+
+    <div>
+      <div class="font-heading font-semibold mb-3">Services</div>
+      <ul class="space-y-1 text-sm">
+        {SERVICES.map((s) => (
+          <li><a href={`/services/${s.slug}`} class="text-white/90 hover:text-white no-underline">{s.name}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <div class="font-heading font-semibold mb-3">Service Areas</div>
+      <ul class="space-y-1 text-sm">
+        {AREAS.map((a) => (
+          <li><a href={`/areas/${a.slug}`} class="text-white/90 hover:text-white no-underline">{a.city}, {a.state}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <div class="font-heading font-semibold mb-3">Company</div>
+      <ul class="space-y-1 text-sm">
+        <li><a href="/about" class="text-white/90 hover:text-white no-underline">About</a></li>
+        <li><a href="/projects" class="text-white/90 hover:text-white no-underline">Projects</a></li>
+        <li><a href="/contact" class="text-white/90 hover:text-white no-underline">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/20">
+    <div class="container-x py-4 text-xs text-white/70 flex flex-col md:flex-row justify-between gap-2">
+      <div>© {new Date().getFullYear()} {SITE.name} · Aledo, TX · {SITE.phone}</div>
+      <div>Built by <a href="https://burnsbuilt.co" class="text-white underline">{SITE.builtBy}</a></div>
+    </div>
+  </div>
+</footer>

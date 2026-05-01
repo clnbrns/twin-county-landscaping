@@ -1,0 +1,83 @@
+---
+import { SITE } from '../data/site';
+import { SERVICES } from '../data/services';
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-brand-green-tint">
+  <div class="container-x flex items-center justify-between py-3 gap-3">
+    <a href="/" class="flex items-center gap-2 text-brand-green-dark font-heading font-bold no-underline shrink-0">
+      <img src="/images/logo.png" alt="Twin County Outdoor Services" width="44" height="44" class="w-10 h-10 md:w-11 md:h-11 object-contain" />
+      <span class="hidden sm:inline text-base md:text-lg leading-tight">Twin County <span class="hidden md:inline">Outdoor Services</span></span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+      <div class="relative group">
+        <button class="text-brand-ink hover:text-brand-green-dark py-2">Services ▾</button>
+        <div class="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg border border-brand-green-tint rounded-md w-64 py-2">
+          {SERVICES.map((s) => (
+            <a href={`/services/${s.slug}`} class="block px-4 py-2 text-brand-ink hover:bg-brand-green-tint no-underline">{s.name}</a>
+          ))}
+        </div>
+      </div>
+      <a href="/areas" class="text-brand-ink hover:text-brand-green-dark no-underline">Areas</a>
+      <a href="/projects" class="text-brand-ink hover:text-brand-green-dark no-underline">Projects</a>
+      <a href="/about" class="text-brand-ink hover:text-brand-green-dark no-underline">About</a>
+      <a href="/contact" class="text-brand-ink hover:text-brand-green-dark no-underline">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="/contact" class="hidden sm:inline-flex btn-primary !py-2 !px-3 text-sm no-underline">Get a Quote</a>
+      <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded border border-brand-green-tint text-brand-green-dark">
+        <svg id="mobile-menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="mobile-menu-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-brand-green-tint bg-white max-h-[80vh] overflow-y-auto">
+    <nav class="container-x py-3 text-base">
+      <a href="/" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Home</a>
+
+      <details class="border-b border-brand-green-tint/60">
+        <summary class="py-3 text-brand-ink cursor-pointer select-none flex items-center justify-between">
+          <span>Services</span>
+          <span class="text-brand-green-dark text-sm">▾</span>
+        </summary>
+        <div class="pl-3 pb-2">
+          <a href="/services" class="block py-2 text-brand-green-dark font-semibold no-underline">All services →</a>
+          {SERVICES.map((s) => (
+            <a href={`/services/${s.slug}`} class="block py-2 text-brand-ink no-underline">{s.name}</a>
+          ))}
+        </div>
+      </details>
+
+      <a href="/areas" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Service Areas</a>
+      <a href="/projects" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Projects</a>
+      <a href="/about" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">About</a>
+      <a href="/contact" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Contact</a>
+
+      <div class="mt-3 grid grid-cols-2 gap-2">
+        <a href={SITE.phoneHref} class="btn-secondary !py-3 text-sm no-underline">📞 Call</a>
+        <a href={SITE.smsHref} class="btn-secondary !py-3 text-sm no-underline">💬 Text</a>
+      </div>
+      <a href="/contact" class="btn-primary w-full mt-2 no-underline">Get a Free Quote</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+  if (btn && menu && iconOpen && iconClose) {
+    btn.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+    });
+  }
+</script>

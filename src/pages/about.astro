@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { SITE } from '../data/site';
+---
+<Base
+  title={`About ${SITE.owner} | ${SITE.name} — Aledo, TX`}
+  description="Lucas Bartholomew started Twin County Outdoor Services to do landscape and hardscape work the right way. Aledo born and raised, owner-operated, in person on every job."
+  path="/about"
+>
+  <section class="container-x py-16">
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <div class="aspect-[4/5] bg-brand-green-tint rounded-lg overflow-hidden">
+        <img src="/images/placeholder-hero.svg" alt={`${SITE.owner}, owner of ${SITE.name}`} class="w-full h-full object-cover" />
+      </div>
+      <div>
+        <div class="text-sm uppercase tracking-wider text-brand-green-dark font-semibold">Meet the owner</div>
+        <h1 class="mt-2">Lucas Bartholomew</h1>
+        <p class="mt-4 text-lg text-brand-muted">Aledo born and raised. Started Twin County Outdoor Services to do landscape work the way he'd want it done at his own house — in person, on time, and honest about the whole process.</p>
+
+        <div class="mt-6 space-y-4 text-brand-ink">
+          <p>You've probably seen the truck around town. We work Aledo neighborhoods every week — Walsh, Morningstar, Parks of Aledo, Bella Ranch — and across Parker County and Western DFW.</p>
+          <p>Every quote starts with Lucas walking your property in person. You'll get a detailed written proposal with full scope of work — and for clients who can't be there, a Loom video walkthrough so you see exactly what we're proposing.</p>
+          <p>If something goes wrong on a job, we tell you. Then we fix it. That's how we've kept every Google review at 5 stars.</p>
+          <p class="italic text-brand-muted">PS — Lucas brings dog treats to every quote. Your dog will like him.</p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <a href="/contact" class="btn-primary no-underline">Request a Free Quote</a>
+          <a href={SITE.phoneHref} class="btn-secondary no-underline">📞 {SITE.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Base>

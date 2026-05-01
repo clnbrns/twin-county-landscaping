@@ -1,0 +1,85 @@
+---
+import { SERVICES } from '../data/services';
+export interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+<form
+  name="quote"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  class:list={['bg-white rounded-lg p-6 md:p-8 shadow-md border border-brand-green-tint', compact && 'p-5']}
+>
+  <input type="hidden" name="form-name" value="quote" />
+  <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm font-semibold text-brand-ink">Name *</span>
+      <input required name="name" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
+    </label>
+    <label class="block">
+      <span class="text-sm font-semibold text-brand-ink">Phone *</span>
+      <input required type="tel" name="phone" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
+    </label>
+    <label class="block md:col-span-2">
+      <span class="text-sm font-semibold text-brand-ink">Email *</span>
+      <input required type="email" name="email" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
+    </label>
+  </div>
+
+  <fieldset class="mt-4">
+    <legend class="text-sm font-semibold text-brand-ink mb-2">What are you interested in?</legend>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+      {SERVICES.map((s) => (
+        <label class="flex items-center gap-2">
+          <input type="checkbox" name="services" value={s.name} class="accent-brand-green" />
+          <span>{s.name}</span>
+        </label>
+      ))}
+      <label class="flex items-center gap-2">
+        <input type="checkbox" name="services" value="Other" class="accent-brand-green" />
+        <span>Other</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <label class="block mt-4">
+    <span class="text-sm font-semibold text-brand-ink">Tell us about your project</span>
+    <textarea name="message" rows="4" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none"></textarea>
+  </label>
+
+  <label class="block mt-4">
+    <span class="text-sm font-semibold text-brand-ink">Estimated budget</span>
+    <select name="budget" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none bg-white">
+      <option value="">Select a range</option>
+      <option>Under $3,000</option>
+      <option>$3,000 – $10,000</option>
+      <option>$10,000 – $25,000</option>
+      <option>$25,000+</option>
+      <option>Not sure yet</option>
+    </select>
+    <span class="block text-xs text-brand-muted mt-1">Helps us scope your project before the walkthrough. Turf jobs start at $3,000.</span>
+  </label>
+
+  <fieldset class="mt-4">
+    <legend class="text-sm font-semibold text-brand-ink mb-2">What matters most to you?</legend>
+    <div class="grid sm:grid-cols-3 gap-2 text-sm">
+      <label class="flex items-center gap-2 px-3 py-2 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark">
+        <input type="radio" name="priority" value="quality" class="accent-brand-green" />
+        <span>Best quality</span>
+      </label>
+      <label class="flex items-center gap-2 px-3 py-2 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark">
+        <input type="radio" name="priority" value="balance" class="accent-brand-green" />
+        <span>Quality &amp; price</span>
+      </label>
+      <label class="flex items-center gap-2 px-3 py-2 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark">
+        <input type="radio" name="priority" value="price" class="accent-brand-green" />
+        <span>Lowest price</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <button type="submit" class="btn-primary w-full mt-5">Request My Free Quote</button>
+  <p class="text-xs text-brand-muted mt-3">Lucas will reach out within 24 hours to schedule an in-person walkthrough.</p>
+</form>

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SERVICES } from '../../data/services';
+---
+<Base
+  title="Landscaping & Hardscape Services in Aledo, TX | Twin County Outdoor Services"
+  description="Full-service landscape and hardscape contractor serving Aledo, Benbrook, Weatherford, and Western DFW. Retaining walls, sod, drainage, paver patios, and complete yard makeovers."
+  path="/services"
+>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
+  <section class="container-x py-12">
+    <h1>Our Services</h1>
+    <p class="mt-3 text-lg text-brand-muted max-w-2xl">From design through installation, we handle the whole yard. Click into any service for the full story.</p>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {SERVICES.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} />)}
+    </div>
+  </section>
+  <CTABanner />
+</Base>

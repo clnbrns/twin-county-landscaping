@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { PROJECTS, PROJECT_BY_SLUG } from '../../data/projects';
+import { SERVICE_BY_SLUG } from '../../data/services';
+
+export function getStaticPaths() {
+  return PROJECTS.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const project = PROJECT_BY_SLUG[slug as string];
+const services = project.services.map((s) => SERVICE_BY_SLUG[s]).filter(Boolean);
+
+const title = `${project.title} | ${project.city}, TX | Twin County Outdoor Services`;
+const description = project.summary;
+---
+<Base title={title} description={description} path={`/projects/${project.slug}`}>
+  <Breadcrumb items={[
+    { label: 'Home', href: '/' },
+    { label: 'Projects', href: '/projects' },
+    { label: project.title },
+  ]} />
+
+  <section class="container-x py-12">
+    <div class="text-sm uppercase tracking-wider text-brand-green-dark font-semibold">
+      {project.neighborhood ? `${project.neighborhood}, ${project.city}` : project.city}
+    </div>
+    <h1 class="mt-2">{project.title}</h1>
+    <p class="mt-3 text-lg text-brand-muted max-w-3xl">{project.summary}</p>
+
+    <div class="mt-8 aspect-[16/9] bg-brand-green-tint rounded-lg overflow-hidden">
+      <img src={project.hero} alt={project.title} class="w-full h-full object-cover" />
+    </div>
+
+    {project.beforeImage && project.afterImage && (
+      <div class="mt-10">
+        <h2 class="text-2xl">Before & After</h2>
+        <div class="mt-4">
+          <BeforeAfterSlider before={project.beforeImage} after={project.afterImage} alt={project.title} />
+        </div>
+      </div>
+    )}
+
+    <div class="mt-10 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-4">
+        {project.story.map((p) => <p class="text-brand-ink">{p}</p>)}
+      </div>
+      <aside class="bg-brand-green-tint p-6 rounded-lg self-start">
+        <div class="text-sm font-semibold uppercase tracking-wider text-brand-green-dark">Services performed</div>
+        <ul class="mt-3 space-y-1">
+          {services.map((s) => <li><a href={`/services/${s.slug}`}>{s.name}</a></li>)}
+        </ul>
+        <div class="mt-5 text-sm font-semibold uppercase tracking-wider text-brand-green-dark">Location</div>
+        <p class="mt-1 text-brand-ink">{project.neighborhood ? `${project.neighborhood} · ` : ''}{project.city}, TX</p>
+      </aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your own project?" />
+</Base>

@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroSection from '../components/HeroSection.astro';
+import QuickQuoteBar from '../components/QuickQuoteBar.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+import TestimonialBlock from '../components/TestimonialBlock.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import { SERVICES } from '../data/services';
+import { PROJECTS } from '../data/projects';
+import { SITE } from '../data/site';
+
+const featuredServices = SERVICES.slice(0, 6);
+const featuredProjects = PROJECTS.slice(0, 2);
+---
+<Base
+  title="Landscaping & Hardscape Services in Aledo, TX | Twin County Outdoor Services"
+  description="Twin County Outdoor Services is Aledo's trusted landscaping and hardscape contractor. Retaining walls, sod, French drains, paver patios, and complete yard makeovers across Western DFW."
+  path="/"
+>
+  <HeroSection
+    eyebrow="Aledo, TX · Owner-Operated"
+    title="Aledo's Landscaping & Hardscape Contractor"
+    subtitle="Serving Aledo, Benbrook, Weatherford, Fort Worth and Western DFW. Free quotes. Detailed proposals. Work that lasts."
+  />
+
+  <QuickQuoteBar />
+
+  <div class="bg-brand-green-tint border-y border-brand-green-dark/10">
+    <div class="container-x py-3 text-center text-sm text-brand-ink font-medium">
+      ★ 5-Star Rated &nbsp;·&nbsp; Aledo, TX &nbsp;·&nbsp; Owner-Operated &nbsp;·&nbsp; Free Quotes &nbsp;·&nbsp; Serving Western DFW
+    </div>
+  </div>
+
+  <section class="container-x py-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2>What we build</h2>
+      <p class="text-brand-muted mt-2">From full landscape design to drainage solutions, we handle the whole yard.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {featuredServices.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} />)}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/services" class="btn-secondary no-underline">View all services</a>
+    </div>
+  </section>
+
+  <section class="bg-white border-y border-brand-green-tint">
+    <div class="container-x py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div class="aspect-[4/5] bg-brand-green-tint rounded-lg overflow-hidden">
+        <img src="/images/placeholder-hero.svg" alt={`${SITE.owner}, owner of ${SITE.name}`} class="w-full h-full object-cover" />
+      </div>
+      <div>
+        <div class="text-sm uppercase tracking-wider text-brand-green-dark font-semibold">About Twin County</div>
+        <h2 class="mt-2">Aledo born and bred.</h2>
+        <p class="mt-4 text-brand-muted">Lucas Bartholomew started Twin County Outdoor Services to do landscape work the right way: in person, on time, and with the kind of communication you'd expect from a neighbor — because he is one.</p>
+        <p class="mt-3 text-brand-muted">Every quote is in person. Lucas walks the property himself, hands you a detailed written proposal, and stays in touch through the entire job. (And he brings dog treats.)</p>
+        <a href="/about" class="btn-secondary mt-6 no-underline">Meet Lucas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="flex items-end justify-between mb-8 gap-4">
+      <div>
+        <h2>Recent work</h2>
+        <p class="text-brand-muted mt-2">A few projects from across Western DFW.</p>
+      </div>
+      <a href="/projects" class="hidden md:inline text-brand-green-dark font-semibold no-underline">View all projects →</a>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      {featuredProjects.map((p) => <ProjectCard slug={p.slug} title={p.title} city={p.city} summary={p.summary} image={p.hero} />)}
+    </div>
+  </section>
+
+  <section class="bg-brand-bg border-y border-brand-green-tint">
+    <div class="container-x py-16">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2>Why Twin County</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { t: 'Aledo Local', d: 'Born, raised, and based in Aledo.' },
+          { t: 'Always In Person', d: 'Lucas walks every job and quote.' },
+          { t: '5-Star Work', d: 'Every review on Google is 5 stars.' },
+          { t: 'Transparent Pricing', d: 'Detailed written proposals, every time.' },
+        ].map((b) => (
+          <div class="bg-white p-6 rounded-lg border border-brand-green-tint">
+            <div class="font-heading font-bold text-brand-green-dark text-lg">{b.t}</div>
+            <p class="text-sm text-brand-muted mt-2">{b.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialBlock />
+  <ServiceAreaMap />
+  <CTABanner />
+</Base>

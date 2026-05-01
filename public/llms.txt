@@ -1,0 +1,46 @@
+# Twin County Outdoor Services
+
+> Owner-operated landscape and hardscape contractor based in Aledo, Texas. Serves Aledo, Benbrook, Weatherford, Fort Worth, Brock, Possum Kingdom Lake, Graford, and the broader Western DFW / Parker County area. Owner Lucas Bartholomew quotes every job in person and provides a detailed written proposal.
+
+Specialties: retaining walls, landscape design and installation, paver and concrete hardscaping, sod installation, French drains and drainage, plant and flower bed installation, tree services, irrigation, stone borders, rock beds, mulch installation, leveling and grading, residential concrete.
+
+Contact: (817) 818-9028 — call or text. Free in-person quotes. $3,000 minimum for turf jobs.
+
+## Core pages
+
+- [Home](https://twincountyoutdoorservices.com/): Overview of services, service areas, and recent work.
+- [About Lucas Bartholomew](https://twincountyoutdoorservices.com/about): The owner's story — Aledo born and raised, owner-operated, in person on every job.
+- [Contact / Free Quote](https://twincountyoutdoorservices.com/contact): Quote request form, click-to-call, click-to-text. Lucas responds within 24 hours.
+- [Projects](https://twincountyoutdoorservices.com/projects): Portfolio of completed landscape, hardscape, and drainage work across Western DFW.
+
+## Services
+
+- [Landscape Design & Installation](https://twincountyoutdoorservices.com/services/landscape-design): Full yard makeovers designed in CAD and built in-house.
+- [Retaining Walls](https://twincountyoutdoorservices.com/services/retaining-walls): Engineered single- and multi-tier walls with proper drainage, optional integrated staircases and lighting.
+- [Hardscaping](https://twincountyoutdoorservices.com/services/hardscaping): Paver patios, walkways, and connector paths with proper base prep.
+- [Sod Installation](https://twincountyoutdoorservices.com/services/sod-installation): Bermuda, Zoysia, and St. Augustine sod on graded, prepped soil. Up to 10,000+ sq ft per install. $3,000 minimum.
+- [French Drains & Drainage](https://twincountyoutdoorservices.com/services/french-drains): French drains, catch basins, downspout extensions, and regrading for permanent drainage fixes.
+- [Plant Design & Installation](https://twincountyoutdoorservices.com/services/plant-installation): Trees, shrubs, perennials selected for North Texas climate and clay soil.
+- [Tree Services](https://twincountyoutdoorservices.com/services/tree-services): Trimming, shaping, deadwood, and removals.
+- [Irrigation](https://twincountyoutdoorservices.com/services/irrigation): System extensions, repairs, and zone additions. Complex new installs subcontracted to licensed irrigators.
+- [Stone Borders](https://twincountyoutdoorservices.com/services/stone-borders): Natural stone bed and tree-ring borders set on a proper base.
+- [Rock Beds](https://twincountyoutdoorservices.com/services/rock-beds): Decorative rock beds with quality weed barrier and edging.
+- [Mulch Installation](https://twincountyoutdoorservices.com/services/mulch-installation): Bed reset and fresh mulch at proper depth for weed suppression.
+- [Leveling & Grading](https://twincountyoutdoorservices.com/services/leveling-grading): Yard grading for drainage, sod prep, or hardscape prep.
+- [Residential Concrete](https://twincountyoutdoorservices.com/services/residential-concrete): Poured concrete pads, walkways, and small-scale flatwork.
+- [Flower Bed Installation](https://twincountyoutdoorservices.com/services/flower-beds): New beds with edging, soil amendment, planting, and mulch.
+
+## Service areas
+
+- [Aledo, TX](https://twincountyoutdoorservices.com/areas/aledo-tx): Walsh, Morningstar, Parks of Aledo, Bella Ranch, Bella Crossing, Bella Flora, La Madera, McDavid Springs.
+- [Benbrook, TX](https://twincountyoutdoorservices.com/areas/benbrook-tx): Whitestone Ranch, Westpark, Timbercreek, Ridglea Hills border.
+- [Weatherford, TX](https://twincountyoutdoorservices.com/areas/weatherford-tx): Silverado, Ranches at Parker Heights, Greenwood, Downtown Weatherford.
+- [Fort Worth, TX](https://twincountyoutdoorservices.com/areas/fort-worth-tx): Monticello, University West, Bella Vista, TCU Area.
+- [Brock, TX](https://twincountyoutdoorservices.com/areas/brock-tx): Brock ISD area and surrounding Parker County.
+- [Possum Kingdom Lake, TX](https://twincountyoutdoorservices.com/areas/possum-kingdom-lake-tx): The Cliffs, Hells Gate, Costello Island, Sportsmans World.
+- [Graford, TX](https://twincountyoutdoorservices.com/areas/graford-tx): Graford and surrounding Palo Pinto County.
+
+## Optional
+
+- [Full content (llms-full.txt)](https://twincountyoutdoorservices.com/llms-full.txt): Concatenated full-text of every service and area page for deeper context.
+- [Sitemap](https://twincountyoutdoorservices.com/sitemap-index.xml): Machine-readable URL index.

@@ -1,0 +1,36 @@
+---
+const reviews = [
+  {
+    quote: '[PLACEHOLDER] Lucas walked our property himself, gave us a written proposal, and the crew showed up exactly when he said they would. The retaining wall looks incredible.',
+    name: 'Sarah M.',
+    location: 'Walsh, Aledo',
+  },
+  {
+    quote: '[PLACEHOLDER] We had standing water in the backyard for years. Twin County installed a French drain system and it has not pooled once since. Worth every penny.',
+    name: 'Mike & Janet R.',
+    location: 'Weatherford',
+  },
+  {
+    quote: '[PLACEHOLDER] Best contractor experience we have had. Honest, communicative, and the work speaks for itself.',
+    name: 'David L.',
+    location: 'Benbrook',
+  },
+];
+---
+<section class="bg-brand-green-tint">
+  <div class="container-x py-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2>What our neighbors say</h2>
+      <p class="text-brand-muted mt-2">5-star rated across Aledo and Western DFW.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {reviews.map((r) => (
+        <figure class="bg-white p-6 rounded-lg shadow-sm border border-white">
+          <div class="text-brand-green-dark text-lg mb-2">★★★★★</div>
+          <blockquote class="text-brand-ink">"{r.quote}"</blockquote>
+          <figcaption class="mt-4 text-sm text-brand-muted">— {r.name}, {r.location}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

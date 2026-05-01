@@ -1,0 +1,17 @@
+---
+import { AREAS } from '../data/areas';
+---
+<section class="container-x py-16">
+  <div class="text-center max-w-2xl mx-auto mb-8">
+    <h2>Where we work</h2>
+    <p class="text-brand-muted mt-2">Based in Aledo, serving Western DFW and Parker County.</p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+    {AREAS.map((a) => (
+      <a href={`/areas/${a.slug}`} class="block bg-white border border-brand-green-tint rounded-md p-4 text-center hover:border-brand-green-dark hover:bg-brand-green-tint transition-colors no-underline">
+        <div class="font-heading font-semibold text-brand-ink">{a.city}</div>
+        <div class="text-xs text-brand-muted">{a.state}</div>
+      </a>
+    ))}
+  </div>
+</section>

@@ -5,16 +5,22 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "start": "serve dist -l ${PORT:-4321} --no-clipboard --single",
     "build": "astro build",
     "postbuild": "node scripts/ping-indexnow.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.0.0",
     "@astrojs/sitemap": "^3.2.0",
     "@astrojs/tailwind": "^5.1.0",
+    "astro": "^5.0.0",
+    "serve": "^14.2.4",
     "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "heic-convert": "^2.1.0",
+    "netlify-cli": "^26.0.1",
+    "sharp": "^0.34.5"
   }
 }

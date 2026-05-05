@@ -4,6 +4,7 @@ import CTABanner from '../../components/CTABanner.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import QuoteForm from '../../components/QuoteForm.astro';
 import { SERVICES, SERVICE_BY_SLUG } from '../../data/services';
+import { SERVICE_IMAGES } from '../../data/serviceImages';
 
 export function getStaticPaths() {
   return SERVICES.map((s) => ({ params: { slug: s.slug } }));
@@ -12,9 +13,47 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const service = SERVICE_BY_SLUG[slug as string];
 const related = service.related.map((r) => SERVICE_BY_SLUG[r]).filter(Boolean);
+const images = SERVICE_IMAGES[service.slug];
+const hero = images?.gallery[0] ?? '/images/placeholder-hero.svg';
+const gallery = images?.gallery.slice(1) ?? [];
 
-const title = `${service.name} in Aledo, TX | Twin County Outdoor Services`;
-const description = `${service.short} Serving Aledo, Benbrook, Weatherford, Fort Worth, and Western DFW. Free in-person quotes from Twin County Outdoor Services.`;
+const SEO_OVERRIDES: Record<string, { title?: string; description?: string; aka?: string[] }> = {
+  'retaining-walls': {
+    title: 'Retaining Wall Contractors in Aledo & Western DFW | Twin County',
+    description: 'Retaining wall contractors near you in Aledo, Fort Worth, Weatherford, and Western DFW. Block, stone, and poured walls engineered for drainage and decades of life.',
+    aka: ['retaining wall contractors', 'retaining wall builders', 'segmental wall installation'],
+  },
+  'hardscaping': {
+    title: 'Hardscape Contractors & Patio Installation Near Aledo, TX | Twin County',
+    description: 'Hardscape contractors near you. Paver patios, flagstone patios, walkways, and concrete pads installed across Aledo, Fort Worth, Weatherford, and Western DFW.',
+    aka: ['hardscape contractors near me', 'patio installation near me', 'flagstone patio installation', 'paver patio contractors'],
+  },
+  'sod-installation': {
+    title: 'Sod Installation Near Aledo, TX & Western DFW | Twin County',
+    description: 'Sod installation near you in Aledo, Fort Worth, Weatherford, and Western DFW. Bermuda, Zoysia, and St. Augustine — graded, prepped, and laid right. $3,000 minimum.',
+    aka: ['sod installation near me', 'sod company near me', 'new sod installation'],
+  },
+  'french-drains': {
+    title: 'Drainage Specialist Near Aledo, TX & Western DFW | Twin County',
+    description: 'Drainage specialist near you. French drains, surface drains, regrading, and downspout extensions to fix standing water and erosion across Aledo and Western DFW.',
+    aka: ['drainage specialist near me', 'french drain installation', 'yard drainage contractors'],
+  },
+  'landscape-design': {
+    title: 'Landscape Design & Backyard Landscaping in Aledo, TX | Twin County',
+    description: 'Backyard landscaping and full landscape design across Aledo, Fort Worth, Weatherford, and Western DFW. CAD-designed plans, plant selection, and complete in-house installation.',
+    aka: ['backyard landscaping', 'backyard design', 'landscape designers near me', 'best landscapers near me'],
+  },
+  'stone-borders': {
+    title: 'Stone Borders & Lawn Edging in Aledo, TX | Twin County',
+    description: 'Natural stone borders and lawn edging across Aledo, Fort Worth, Weatherford, and Western DFW. Clean, durable bed and tree-ring edging set to last.',
+    aka: ['lawn edging', 'stone landscape edging', 'natural stone borders'],
+  },
+};
+
+const seo = SEO_OVERRIDES[service.slug] ?? {};
+const title = seo.title ?? `${service.name} in Aledo, TX | Twin County Outdoor Services`;
+const description = seo.description ?? `${service.short} Serving Aledo, Benbrook, Weatherford, Fort Worth, and Western DFW. Free in-person quotes from Twin County Outdoor Services.`;
+const aka = seo.aka ?? [];
 ---
 <Base title={title} description={description} path={`/services/${service.slug}`}>
   <Breadcrumb items={[
@@ -26,12 +65,28 @@ const description = `${service.short} Serving Aledo, Benbrook, Weatherford, Fort
   <section class="container-x py-12">
     <h1>{service.name} in Aledo, TX</h1>
     <p class="mt-4 text-lg text-brand-muted max-w-3xl">{service.intro}</p>
+    {aka.length > 0 && (
+      <p class="mt-3 text-sm text-brand-muted max-w-3xl">Also known as: {aka.join(' · ')}.</p>
+    )}
 
     <div class="mt-10 grid lg:grid-cols-3 gap-10">
       <div class="lg:col-span-2 space-y-10">
         <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
-          <img src="/images/placeholder-hero.svg" alt={`${service.name} project in Aledo, TX`} class="w-full h-full object-cover" />
+          <img src={hero} alt={`${service.name} project in Aledo, TX`} class="w-full h-full object-cover" />
         </div>
+
+        {gallery.length > 0 && (
+          <div>
+            <h2>Recent {service.name.toLowerCase()} work</h2>
+            <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+              {gallery.map((src) => (
+                <div class="aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                  <img src={src} alt={`${service.name} project photo`} loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div>
           <h2>What's included</h2>

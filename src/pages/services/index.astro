@@ -4,19 +4,21 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { SERVICES } from '../../data/services';
+import { SERVICE_IMAGES } from '../../data/serviceImages';
 ---
 <Base
   title="Landscaping & Hardscape Services in Aledo, TX | Twin County Outdoor Services"
-  description="Full-service landscape and hardscape contractor serving Aledo, Benbrook, Weatherford, and Western DFW. Retaining walls, sod, drainage, paver patios, and complete yard makeovers."
+  description="Looking for landscaping companies near you in Aledo, Fort Worth, Weatherford, or anywhere in Western DFW? Twin County offers landscape design, retaining walls, sod, drainage, paver patios, and front-yard refreshes."
   path="/services"
 >
   <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
   <section class="container-x py-12">
     <h1>Our Services</h1>
     <p class="mt-3 text-lg text-brand-muted max-w-2xl">From design through installation, we handle the whole yard. Click into any service for the full story.</p>
+    <p class="mt-3 text-sm text-brand-muted max-w-2xl"><span class="font-semibold text-brand-ink">What we don't do:</span> Twin County is project-based — we design, install, and build. We don't offer weekly mowing or ongoing lawn maintenance contracts.</p>
 
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {SERVICES.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} />)}
+      {SERVICES.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} image={SERVICE_IMAGES[s.slug]?.card} />)}
     </div>
   </section>
   <CTABanner />

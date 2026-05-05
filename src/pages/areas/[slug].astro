@@ -6,6 +6,7 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import QuoteForm from '../../components/QuoteForm.astro';
 import { AREAS, AREA_BY_SLUG } from '../../data/areas';
 import { SERVICES } from '../../data/services';
+import { SERVICE_IMAGES } from '../../data/serviceImages';
 
 export function getStaticPaths() {
   return AREAS.map((a) => ({ params: { slug: a.slug } }));
@@ -42,7 +43,7 @@ const description = `Landscape design, retaining walls, hardscaping, sod, and dr
     <div class="mt-12">
       <h2>Services available in {area.city}</h2>
       <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {SERVICES.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} />)}
+        {SERVICES.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} image={SERVICE_IMAGES[s.slug]?.card} />)}
       </div>
     </div>
 

@@ -15,6 +15,7 @@ export const AREAS: Area[] = [
       'Aledo is home. Lucas was born and raised here, and Twin County Outdoor Services is built on Aledo work — from Walsh and Morningstar to the Parks of Aledo, Bella Ranch, and beyond. If you have driven past our truck on a job site, you already know us.',
     neighborhoods: [
       'Walsh',
+      'Walsh Ranch',
       'Morningstar',
       'Parks of Aledo',
       'Bella Ranch',
@@ -22,6 +23,9 @@ export const AREAS: Area[] = [
       'Bella Flora',
       'La Madera',
       'McDavid Springs',
+      'Annetta',
+      'Annetta North',
+      'Annetta South',
     ],
   },
   {
@@ -46,7 +50,7 @@ export const AREAS: Area[] = [
     state: 'TX',
     intro:
       'We work the western side of Fort Worth regularly — Monticello, University West, Bella Vista, and the neighborhoods bordering Benbrook. Our crew is set up for both established homes that need a refresh and new builds that need everything.',
-    neighborhoods: ['Monticello', 'University West', 'Bella Vista', 'TCU Area'],
+    neighborhoods: ['Monticello', 'University West', 'Bella Vista', 'TCU Area', 'Walsh Ranch'],
   },
   {
     slug: 'brock-tx',
@@ -63,6 +67,30 @@ export const AREAS: Area[] = [
     intro:
       'We work lake homes and weekend properties around Possum Kingdom Lake — from full landscape installs and retaining walls on sloped lakefront lots to drainage and hardscape work that holds up to the elements out there.',
     neighborhoods: ['The Cliffs', 'Hells Gate', 'Costello Island', 'Sportsmans World'],
+  },
+  {
+    slug: 'hudson-oaks-tx',
+    city: 'Hudson Oaks',
+    state: 'TX',
+    intro:
+      'Hudson Oaks sits right between Aledo and Weatherford on I-20 — a regular service area for us. Newer subdivisions and a mix of established homes give us a steady mix of full landscape installs, drainage corrections, and hardscape projects.',
+    neighborhoods: ['Hudson Oaks proper', 'Lakes of Aledo (border)', 'I-20 corridor'],
+  },
+  {
+    slug: 'willow-park-tx',
+    city: 'Willow Park',
+    state: 'TX',
+    intro:
+      'Willow Park is just east of Weatherford and an easy drive from our Aledo base. We work everything from front-yard refreshes to full backyard builds — retaining walls, paver patios, sod, drainage, and the rest.',
+    neighborhoods: ['Crown Pointe', 'Trinity Meadows', 'Squaw Creek Park area'],
+  },
+  {
+    slug: 'springtown-tx',
+    city: 'Springtown',
+    state: 'TX',
+    intro:
+      'Springtown and northern Parker County are part of our regular service area. Acreage properties are common out here, which means bigger sod jobs, longer drainage runs, and full landscape design work — exactly the kind of project we are built for.',
+    neighborhoods: ['Springtown proper', 'Reno (border)', 'Northern Parker County'],
   },
   {
     slug: 'graford-tx',

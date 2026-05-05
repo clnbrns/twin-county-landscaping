@@ -8,3 +8,13 @@ dist/
 *.log
 .vscode/
 .idea/
+
+# Source photos — too large for git; keep local. Processed WebPs in public/ are committed.
+src/assets/
+
+# Generated PDF exports
+twin-county-*.pdf
+site-pdf/
+
+# Unused (we deploy via Netlify, not Railway)
+railway.json

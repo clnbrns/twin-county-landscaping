@@ -8,6 +8,7 @@ import CTABanner from '../components/CTABanner.astro';
 import TestimonialBlock from '../components/TestimonialBlock.astro';
 import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 import { SERVICES } from '../data/services';
+import { SERVICE_IMAGES } from '../data/serviceImages';
 import { PROJECTS } from '../data/projects';
 import { SITE } from '../data/site';
 
@@ -15,14 +16,15 @@ const featuredServices = SERVICES.slice(0, 6);
 const featuredProjects = PROJECTS.slice(0, 2);
 ---
 <Base
-  title="Landscaping & Hardscape Services in Aledo, TX | Twin County Outdoor Services"
-  description="Twin County Outdoor Services is Aledo's trusted landscaping and hardscape contractor. Retaining walls, sod, French drains, paver patios, and complete yard makeovers across Western DFW."
+  title="Landscaping Company Near Aledo, TX & Western DFW | Twin County Outdoor Services"
+  description="Looking for a landscaping company near you in Aledo, Fort Worth, Weatherford, or anywhere in Western DFW? Twin County Outdoor Services builds retaining walls, paver patios, French drains, sod, and full landscape designs — including front-yard refreshes and complete backyard makeovers."
   path="/"
 >
   <HeroSection
-    eyebrow="Aledo, TX · Owner-Operated"
-    title="Aledo's Landscaping & Hardscape Contractor"
+    eyebrow="Aledo & Western DFW · Owner-Operated"
+    title="Aledo & Western DFW Landscaping & Hardscape Contractor"
     subtitle="Serving Aledo, Benbrook, Weatherford, Fort Worth and Western DFW. Free quotes. Detailed proposals. Work that lasts."
+    image="/images/lucas-truck.webp"
   />
 
   <QuickQuoteBar />
@@ -39,7 +41,7 @@ const featuredProjects = PROJECTS.slice(0, 2);
       <p class="text-brand-muted mt-2">From full landscape design to drainage solutions, we handle the whole yard.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {featuredServices.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} />)}
+      {featuredServices.map((s) => <ServiceCard slug={s.slug} name={s.name} short={s.short} image={SERVICE_IMAGES[s.slug]?.card} />)}
     </div>
     <div class="text-center mt-8">
       <a href="/services" class="btn-secondary no-underline">View all services</a>
@@ -49,7 +51,7 @@ const featuredProjects = PROJECTS.slice(0, 2);
   <section class="bg-white border-y border-brand-green-tint">
     <div class="container-x py-16 grid md:grid-cols-2 gap-10 items-center">
       <div class="aspect-[4/5] bg-brand-green-tint rounded-lg overflow-hidden">
-        <img src="/images/placeholder-hero.svg" alt={`${SITE.owner}, owner of ${SITE.name}`} class="w-full h-full object-cover" />
+        <img src="/images/lucas-truck.webp" alt={`${SITE.owner}, owner of ${SITE.name}, with the Twin County truck`} class="w-full h-full object-cover" />
       </div>
       <div>
         <div class="text-sm uppercase tracking-wider text-brand-green-dark font-semibold">About Twin County</div>
@@ -57,6 +59,29 @@ const featuredProjects = PROJECTS.slice(0, 2);
         <p class="mt-4 text-brand-muted">Lucas Bartholomew started Twin County Outdoor Services to do landscape work the right way: in person, on time, and with the kind of communication you'd expect from a neighbor — because he is one.</p>
         <p class="mt-3 text-brand-muted">Every quote is in person. Lucas walks the property himself, hands you a detailed written proposal, and stays in touch through the entire job. (And he brings dog treats.)</p>
         <a href="/about" class="btn-secondary mt-6 no-underline">Meet Lucas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-bg border-y border-brand-green-tint">
+    <div class="container-x py-16">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2>Landscaping ideas for North Texas yards</h2>
+        <p class="text-brand-muted mt-2">Whether you're searching for landscaping ideas for the front of the house or planning a full backyard build, here's where most of our Western DFW projects start.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {[
+          { t: 'Front-yard curb appeal', d: 'Fresh beds, stone borders, mulch, and the right plants for a clean front-of-house refresh.', href: '/services/flower-beds' },
+          { t: 'Backyard makeovers', d: 'Full backyard transformations — sod, patios, retaining walls, lighting, and drainage in one project.', href: '/services/landscape-design' },
+          { t: 'Solving water problems', d: 'Standing water, soggy spots, and erosion fixed with proper French drains and regrading.', href: '/services/french-drains' },
+          { t: 'Outdoor living spaces', d: 'Paver patios, walkways, and concrete pads built for daily use and Texas weather.', href: '/services/hardscaping' },
+        ].map((i) => (
+          <a href={i.href} class="block bg-white p-5 rounded-lg border border-brand-green-tint hover:border-brand-green-dark hover:shadow-md transition no-underline">
+            <div class="font-heading font-bold text-brand-green-dark">{i.t}</div>
+            <p class="text-sm text-brand-muted mt-2">{i.d}</p>
+            <div class="mt-3 text-sm text-brand-green-dark font-semibold">Learn more →</div>
+          </a>
+        ))}
       </div>
     </div>
   </section>

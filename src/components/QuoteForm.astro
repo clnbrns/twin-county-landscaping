@@ -2,6 +2,18 @@
 import { SERVICES } from '../data/services';
 export interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
+
+const SHORT_LABELS: Record<string, string> = {
+  'landscape-design': 'Landscape Design',
+  'sod-installation': 'Sod',
+  'french-drains': 'French Drains',
+  'plant-installation': 'Plant Design',
+  'tree-services': 'Tree Service',
+  'mulch-installation': 'Mulch',
+  'leveling-grading': 'Leveling',
+  'residential-concrete': 'Concrete',
+  'flower-beds': 'Flower Beds',
+};
 ---
 <form
   name="quote"
@@ -30,14 +42,14 @@ const { compact = false } = Astro.props;
 
   <fieldset class="mt-4">
     <legend class="text-sm font-semibold text-brand-ink mb-2">What are you interested in?</legend>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-1.5 text-sm">
       {SERVICES.map((s) => (
-        <label class="flex items-center gap-2">
+        <label class="flex items-center gap-2 whitespace-nowrap">
           <input type="checkbox" name="services" value={s.name} class="accent-brand-green" />
-          <span>{s.name}</span>
+          <span>{SHORT_LABELS[s.slug] ?? s.name}</span>
         </label>
       ))}
-      <label class="flex items-center gap-2">
+      <label class="flex items-center gap-2 whitespace-nowrap">
         <input type="checkbox" name="services" value="Other" class="accent-brand-green" />
         <span>Other</span>
       </label>

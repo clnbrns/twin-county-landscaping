@@ -1,17 +1,66 @@
 ---
 import { AREAS } from '../data/areas';
+
+const REGIONS = [
+  {
+    name: 'Western DFW',
+    slugs: ['aledo-tx', 'benbrook-tx', 'fort-worth-tx'],
+  },
+  {
+    name: 'Parker County',
+    slugs: ['weatherford-tx', 'willow-park-tx', 'hudson-oaks-tx', 'brock-tx', 'springtown-tx', 'graford-tx'],
+  },
+  {
+    name: 'Lake Country',
+    slugs: ['possum-kingdom-lake-tx'],
+  },
+];
+
+const AREA_BY_SLUG = Object.fromEntries(AREAS.map((a) => [a.slug, a]));
 ---
 <section class="container-x py-16">
-  <div class="text-center max-w-2xl mx-auto mb-8">
+  <div class="text-center max-w-2xl mx-auto mb-10">
     <h2>Where we work</h2>
-    <p class="text-brand-muted mt-2">Based in Aledo, serving Western DFW and Parker County.</p>
+    <p class="text-brand-muted mt-2">Based in Aledo. We serve the full Western DFW corridor, Parker County, and out to Possum Kingdom Lake — with neighborhoods we know by name.</p>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
-    {AREAS.map((a) => (
-      <a href={`/areas/${a.slug}`} class="block bg-white border border-brand-green-tint rounded-md p-4 text-center hover:border-brand-green-dark hover:bg-brand-green-tint transition-colors no-underline">
-        <div class="font-heading font-semibold text-brand-ink">{a.city}</div>
-        <div class="text-xs text-brand-muted">{a.state}</div>
-      </a>
+
+  <div class="space-y-10">
+    {REGIONS.map((region) => (
+      <div>
+        <div class="flex items-baseline gap-3 mb-4">
+          <h3 class="text-xl text-brand-green-dark">{region.name}</h3>
+          <span class="text-sm text-brand-muted">{region.slugs.length} {region.slugs.length === 1 ? 'area' : 'areas'}</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {region.slugs.map((slug) => {
+            const a = AREA_BY_SLUG[slug];
+            if (!a) return null;
+            return (
+              <a href={`/areas/${a.slug}`} class="block bg-white border border-brand-green-tint rounded-lg p-5 hover:border-brand-green-dark hover:shadow-md transition no-underline">
+                <div class="flex items-baseline justify-between gap-2">
+                  <div class="font-heading font-semibold text-brand-ink text-lg">{a.city}</div>
+                  <div class="text-xs text-brand-muted">{a.state}</div>
+                </div>
+                {a.neighborhoods.length > 0 && (
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    {a.neighborhoods.slice(0, 4).map((n) => (
+                      <span class="px-2 py-0.5 bg-brand-green-tint text-brand-ink rounded text-xs">{n}</span>
+                    ))}
+                    {a.neighborhoods.length > 4 && (
+                      <span class="px-2 py-0.5 text-brand-muted text-xs">+{a.neighborhoods.length - 4} more</span>
+                    )}
+                  </div>
+                )}
+                <div class="mt-3 text-sm text-brand-green-dark font-semibold">View {a.city} →</div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
     ))}
   </div>
+
+  <p class="text-center text-sm text-brand-muted mt-10">
+    Don't see your town? <a href="/contact" class="text-brand-green-dark font-semibold">Ask Lucas</a> — if it's a reasonable drive from Aledo, the answer is usually yes.
+  </p>
 </section>

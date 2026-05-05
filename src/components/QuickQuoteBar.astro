@@ -19,9 +19,9 @@ import { SITE } from '../data/site';
       >
         <input type="hidden" name="form-name" value="quick-quote" />
         <p class="hidden"><label>Skip: <input name="bot-field" /></label></p>
-        <input required name="name" placeholder="Your name" class="px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
-        <input required type="tel" name="phone" placeholder="Phone number" class="px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
-        <select name="service" class="px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none bg-white">
+        <input required name="name" placeholder="Your name" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none" />
+        <input required type="tel" name="phone" placeholder="Phone number" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none" />
+        <select name="service" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none bg-white">
           <option value="">What service?</option>
           {SERVICES.map((s) => <option value={s.name}>{s.name}</option>)}
           <option value="Other">Other / not sure</option>

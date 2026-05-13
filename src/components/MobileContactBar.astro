@@ -1,17 +1,17 @@
 ---
 import { SITE } from '../data/site';
 ---
-<div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-brand-green-tint shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
+<div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-brand-green-tint shadow-[0_-4px_12px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom)]">
   <div class="grid grid-cols-3 text-center text-sm font-semibold">
-    <a href={SITE.phoneHref} class="py-3 text-brand-green-dark border-r border-brand-green-tint no-underline flex items-center justify-center gap-1">
+    <a href={SITE.phoneHref} class="py-3 text-brand-green-dark border-r border-brand-green-tint no-underline flex items-center justify-center gap-1 active:bg-brand-green-tint/40 transition-colors">
       <span aria-hidden="true">📞</span> Call
     </a>
-    <a href={SITE.smsHref} class="py-3 text-brand-green-dark border-r border-brand-green-tint no-underline flex items-center justify-center gap-1">
+    <a href={SITE.smsHref} class="py-3 text-brand-green-dark border-r border-brand-green-tint no-underline flex items-center justify-center gap-1 active:bg-brand-green-tint/40 transition-colors">
       <span aria-hidden="true">💬</span> Text
     </a>
-    <a href="/contact" class="py-3 bg-brand-green-dark text-white no-underline flex items-center justify-center gap-1">
+    <a href="/contact" class="py-3 bg-brand-green-dark text-white no-underline flex items-center justify-center gap-1 active:opacity-90 transition-opacity">
       Quote →
     </a>
   </div>
 </div>
-<div class="md:hidden h-14" aria-hidden="true"></div>
+<div class="md:hidden h-16" aria-hidden="true" style="padding-bottom: env(safe-area-inset-bottom)"></div>

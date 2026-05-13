@@ -6,7 +6,7 @@ import { SERVICES } from '../data/services';
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-brand-green-tint">
   <div class="container-x flex items-center justify-between py-3 gap-3">
     <a href="/" class="flex items-center gap-2 text-brand-green-dark font-heading font-bold no-underline shrink-0">
-      <img src="/images/logo.png" alt="Twin County Outdoor Services" width="44" height="44" class="w-10 h-10 md:w-11 md:h-11 object-contain" />
+      <img src="/images/logo.png" alt="Twin County Outdoor Services logo" width="44" height="44" class="w-9 h-9 md:w-11 md:h-11 object-contain" />
       <span class="hidden sm:inline text-base md:text-lg leading-tight">Twin County <span class="hidden md:inline">Outdoor Services</span></span>
     </a>
 
@@ -27,7 +27,7 @@ import { SERVICES } from '../data/services';
 
     <div class="flex items-center gap-2">
       <a href="/contact" class="hidden sm:inline-flex btn-primary !py-2 !px-3 text-sm no-underline">Get a Quote</a>
-      <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded border border-brand-green-tint text-brand-green-dark">
+      <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded border border-brand-green-tint text-brand-green-dark active:bg-brand-green-tint/40 transition-colors">
         <svg id="mobile-menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         <svg id="mobile-menu-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
       </button>
@@ -36,25 +36,25 @@ import { SERVICES } from '../data/services';
 
   <div id="mobile-menu" class="lg:hidden hidden border-t border-brand-green-tint bg-white max-h-[80vh] overflow-y-auto">
     <nav class="container-x py-3 text-base">
-      <a href="/" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Home</a>
+      <a href="/" class="block py-4 border-b border-brand-green-tint/60 text-brand-ink no-underline active:bg-brand-green-tint/40 transition-colors">Home</a>
 
       <details class="border-b border-brand-green-tint/60">
-        <summary class="py-3 text-brand-ink cursor-pointer select-none flex items-center justify-between">
+        <summary class="py-4 text-brand-ink cursor-pointer select-none flex items-center justify-between active:bg-brand-green-tint/40">
           <span>Services</span>
           <span class="text-brand-green-dark text-sm">▾</span>
         </summary>
         <div class="pl-3 pb-2">
-          <a href="/services" class="block py-2 text-brand-green-dark font-semibold no-underline">All services →</a>
+          <a href="/services" class="block py-3 text-brand-green-dark font-semibold no-underline active:bg-brand-green-tint/40">All services →</a>
           {SERVICES.map((s) => (
-            <a href={`/services/${s.slug}`} class="block py-2 text-brand-ink no-underline">{s.name}</a>
+            <a href={`/services/${s.slug}`} class="block py-3 text-brand-ink no-underline active:bg-brand-green-tint/40">{s.name}</a>
           ))}
         </div>
       </details>
 
-      <a href="/areas" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Service Areas</a>
-      <a href="/projects" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Projects</a>
-      <a href="/about" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">About</a>
-      <a href="/contact" class="block py-3 border-b border-brand-green-tint/60 text-brand-ink no-underline">Contact</a>
+      <a href="/areas" class="block py-4 border-b border-brand-green-tint/60 text-brand-ink no-underline active:bg-brand-green-tint/40 transition-colors">Service Areas</a>
+      <a href="/projects" class="block py-4 border-b border-brand-green-tint/60 text-brand-ink no-underline active:bg-brand-green-tint/40 transition-colors">Projects</a>
+      <a href="/about" class="block py-4 border-b border-brand-green-tint/60 text-brand-ink no-underline active:bg-brand-green-tint/40 transition-colors">About</a>
+      <a href="/contact" class="block py-4 border-b border-brand-green-tint/60 text-brand-ink no-underline active:bg-brand-green-tint/40 transition-colors">Contact</a>
 
       <div class="mt-3 grid grid-cols-2 gap-2">
         <a href={SITE.phoneHref} class="btn-secondary !py-3 text-sm no-underline">📞 Call</a>

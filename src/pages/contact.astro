@@ -13,7 +13,7 @@ import { AREAS } from '../data/areas';
     <div class="max-w-3xl">
       <h1>Get a Free Quote</h1>
       <p class="mt-3 text-lg text-brand-muted">Call, text, or fill out the form — whatever's easiest. Lucas will get back to you within 24 hours.</p>
-      <div class="mt-5 grid grid-cols-2 gap-3 max-w-md">
+      <div class="mt-5 grid grid-cols-2 gap-4 max-w-md">
         <a href={SITE.phoneHref} class="btn-primary !py-3 no-underline">📞 Call Lucas</a>
         <a href={SITE.smsHref} class="btn-secondary !py-3 no-underline">💬 Text Lucas</a>
       </div>
@@ -44,7 +44,7 @@ import { AREAS } from '../data/areas';
 
         <div>
           <h2 class="text-2xl">Where we work</h2>
-          <ul class="mt-3 grid grid-cols-2 gap-2 text-sm">
+          <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-2 text-sm">
             {AREAS.map((a) => <li><a href={`/areas/${a.slug}`}>{a.city}, {a.state}</a></li>)}
           </ul>
         </div>

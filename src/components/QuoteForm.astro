@@ -28,29 +28,29 @@ const SHORT_LABELS: Record<string, string> = {
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <label class="block">
       <span class="text-sm font-semibold text-brand-ink">Name *</span>
-      <input required name="name" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
+      <input required name="name" autocomplete="name" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
     </label>
     <label class="block">
       <span class="text-sm font-semibold text-brand-ink">Phone *</span>
-      <input required type="tel" name="phone" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
+      <input required type="tel" name="phone" autocomplete="tel" inputmode="tel" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
     </label>
     <label class="block md:col-span-2">
       <span class="text-sm font-semibold text-brand-ink">Email *</span>
-      <input required type="email" name="email" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
+      <input required type="email" name="email" autocomplete="email" inputmode="email" class="mt-1 w-full px-3 py-2 border border-brand-green-tint rounded focus:border-brand-green-dark focus:outline-none" />
     </label>
   </div>
 
   <fieldset class="mt-4">
     <legend class="text-sm font-semibold text-brand-ink mb-2">What are you interested in?</legend>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-1.5 text-sm">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-3 text-sm">
       {SERVICES.map((s) => (
-        <label class="flex items-center gap-2 whitespace-nowrap">
-          <input type="checkbox" name="services" value={s.name} class="accent-brand-green" />
+        <label class="flex items-center gap-2 whitespace-nowrap py-3">
+          <input type="checkbox" name="services" value={s.name} class="accent-brand-green w-4 h-4" />
           <span>{SHORT_LABELS[s.slug] ?? s.name}</span>
         </label>
       ))}
-      <label class="flex items-center gap-2 whitespace-nowrap">
-        <input type="checkbox" name="services" value="Other" class="accent-brand-green" />
+      <label class="flex items-center gap-2 whitespace-nowrap py-3">
+        <input type="checkbox" name="services" value="Other" class="accent-brand-green w-4 h-4" />
         <span>Other</span>
       </label>
     </div>
@@ -76,17 +76,17 @@ const SHORT_LABELS: Record<string, string> = {
 
   <fieldset class="mt-4">
     <legend class="text-sm font-semibold text-brand-ink mb-2">What matters most to you?</legend>
-    <div class="grid sm:grid-cols-3 gap-2 text-sm">
-      <label class="flex items-center gap-2 px-3 py-2 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark">
-        <input type="radio" name="priority" value="quality" class="accent-brand-green" />
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm">
+      <label class="flex items-center gap-2 px-4 py-3 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark active:bg-brand-green-tint/30">
+        <input type="radio" name="priority" value="quality" class="accent-brand-green w-4 h-4" />
         <span>Best quality</span>
       </label>
-      <label class="flex items-center gap-2 px-3 py-2 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark">
-        <input type="radio" name="priority" value="balance" class="accent-brand-green" />
+      <label class="flex items-center gap-2 px-4 py-3 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark active:bg-brand-green-tint/30">
+        <input type="radio" name="priority" value="balance" class="accent-brand-green w-4 h-4" />
         <span>Quality &amp; price</span>
       </label>
-      <label class="flex items-center gap-2 px-3 py-2 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark">
-        <input type="radio" name="priority" value="price" class="accent-brand-green" />
+      <label class="flex items-center gap-2 px-4 py-3 border border-brand-green-tint rounded cursor-pointer hover:border-brand-green-dark active:bg-brand-green-tint/30">
+        <input type="radio" name="priority" value="price" class="accent-brand-green w-4 h-4" />
         <span>Lowest price</span>
       </label>
     </div>

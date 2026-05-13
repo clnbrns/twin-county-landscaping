@@ -6,7 +6,7 @@ import { SITE } from '../data/site';
   <div class="container-x py-6 md:py-8">
     <div class="grid lg:grid-cols-[1fr_auto] gap-6 items-center">
       <div>
-        <div class="text-sm uppercase tracking-wider text-brand-green-dark font-semibold">Get a free quote in 30 seconds</div>
+        <div class="text-sm md:text-base uppercase tracking-wider text-brand-green-dark font-semibold">Get a free quote in 30 seconds</div>
         <h2 class="text-xl md:text-2xl mt-1">Tell Lucas what you need.</h2>
         <p class="text-sm text-brand-muted mt-1">He'll call or text within 24 hours to set up an in-person walkthrough.</p>
       </div>
@@ -19,14 +19,14 @@ import { SITE } from '../data/site';
       >
         <input type="hidden" name="form-name" value="quick-quote" />
         <p class="hidden"><label>Skip: <input name="bot-field" /></label></p>
-        <input required name="name" placeholder="Your name" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none" />
-        <input required type="tel" name="phone" placeholder="Phone number" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none" />
+        <input required name="name" autocomplete="name" placeholder="Your name" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none" />
+        <input required type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Phone number" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none" />
         <select name="service" class="px-3 py-2 border-2 border-brand-green-dark/30 rounded focus:border-brand-green-dark focus:outline-none bg-white">
           <option value="">What service?</option>
           {SERVICES.map((s) => <option value={s.name}>{s.name}</option>)}
           <option value="Other">Other / not sure</option>
         </select>
-        <button type="submit" class="btn-primary !py-3 !px-4 text-sm whitespace-nowrap sm:col-span-2 lg:col-span-1">Request Quote</button>
+        <button type="submit" class="btn-primary !py-3 !px-4 text-sm whitespace-nowrap w-full sm:w-auto sm:col-span-2 lg:col-span-1">Request Quote</button>
       </form>
     </div>
     <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-end gap-x-4 gap-y-2 text-sm">

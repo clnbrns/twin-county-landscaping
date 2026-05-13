@@ -20,19 +20,21 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative min-h-[70vh] flex items-center bg-brand-ink text-white overflow-hidden">
+<section class="relative min-h-[60vh] md:min-h-[70vh] flex items-center bg-brand-ink text-white overflow-hidden">
   <div class="absolute inset-0">
     <img src={image} alt="" class="w-full h-full object-cover" />
     <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15"></div>
   </div>
-  <div class="relative container-x py-20 md:py-28 max-w-3xl">
+  <div class="relative container-x py-16 md:py-28 max-w-3xl">
     {eyebrow && <div class="uppercase tracking-wider text-sm text-brand-green-tint mb-3">{eyebrow}</div>}
     <h1 class="text-white">{title}</h1>
     {subtitle && <p class="mt-4 text-lg md:text-xl text-white/90 max-w-2xl">{subtitle}</p>}
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href={primaryHref} class="btn-primary no-underline">{primaryLabel}</a>
-      <a href={SITE.phoneHref} class="btn bg-white text-brand-green-dark border-2 border-white hover:bg-brand-green-tint font-semibold no-underline">📞 Call</a>
-      <a href={SITE.smsHref} class="btn bg-white text-brand-green-dark border-2 border-white hover:bg-brand-green-tint font-semibold no-underline">💬 Text</a>
+    <div class="mt-8 space-y-3 sm:space-y-0 sm:flex sm:flex-wrap sm:gap-3">
+      <a href={primaryHref} class="btn-primary block w-full sm:w-auto sm:inline-flex text-center no-underline">{primaryLabel}</a>
+      <div class="grid grid-cols-2 gap-3 sm:contents">
+        <a href={SITE.phoneHref} class="btn text-center bg-white text-brand-green-dark border-2 border-white hover:bg-brand-green-tint font-semibold no-underline">📞 Call</a>
+        <a href={SITE.smsHref} class="btn text-center bg-white text-brand-green-dark border-2 border-white hover:bg-brand-green-tint font-semibold no-underline">💬 Text</a>
+      </div>
     </div>
     <p class="mt-4 text-sm text-white/80">Call, text, or use the form — whatever's easier.</p>
   </div>

@@ -72,16 +72,16 @@ const aka = seo.aka ?? [];
     <div class="mt-10 grid lg:grid-cols-3 gap-10">
       <div class="lg:col-span-2 space-y-10">
         <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
-          <img src={hero} alt={`${service.name} project in Aledo, TX`} class="w-full h-full object-cover" />
+          <img src={hero} alt={`${service.name} project in Aledo, TX`} width="1600" height="1000" class="w-full h-full object-cover" />
         </div>
 
         {gallery.length > 0 && (
           <div>
             <h2>Recent {service.name.toLowerCase()} work</h2>
-            <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+            <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {gallery.map((src) => (
                 <div class="aspect-square bg-brand-green-tint rounded-md overflow-hidden">
-                  <img src={src} alt={`${service.name} project photo`} loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img src={src} alt={`${service.name} project photo`} width="800" height="800" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               ))}
             </div>

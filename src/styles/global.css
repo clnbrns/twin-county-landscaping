@@ -12,9 +12,9 @@
   h1, h2, h3, h4 {
     @apply font-heading text-brand-ink;
   }
-  h1 { @apply text-4xl md:text-5xl font-bold leading-tight; }
-  h2 { @apply text-3xl md:text-4xl font-bold leading-tight; }
-  h3 { @apply text-xl md:text-2xl font-semibold; }
+  h1 { @apply text-3xl sm:text-4xl md:text-5xl font-bold leading-tight; }
+  h2 { @apply text-2xl sm:text-3xl md:text-4xl font-bold leading-tight; }
+  h3 { @apply text-lg sm:text-xl md:text-2xl font-semibold; }
   a { @apply text-brand-green-dark hover:text-brand-green; }
 }
 

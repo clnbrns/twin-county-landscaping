@@ -6,7 +6,7 @@ export interface Props {
 }
 const { before, after, alt = 'Before and after comparison' } = Astro.props;
 ---
-<div class="ba-slider relative w-full aspect-[16/10] overflow-hidden rounded-lg select-none touch-pan-y" style="--ba-pct: 50%;">
+<div class="ba-slider relative w-full aspect-[16/10] overflow-hidden rounded-lg select-none" style="--ba-pct: 50%; touch-action: none;">
   <img src={after} alt={`${alt} — after`} class="absolute inset-0 w-full h-full object-cover" />
   <img src={before} alt={`${alt} — before`} class="ba-before absolute inset-0 w-full h-full object-cover" style="clip-path: inset(0 calc(100% - var(--ba-pct)) 0 0);" />
   <div class="ba-handle absolute top-0 bottom-0 w-1 bg-white shadow-lg pointer-events-none" style="left: var(--ba-pct);"></div>
@@ -25,9 +25,13 @@ const { before, after, alt = 'Before and after comparison' } = Astro.props;
     };
     const start = (clientX: number) => { dragging = true; set(clientX); };
     el.addEventListener('mousedown', (e) => start(e.clientX));
-    el.addEventListener('touchstart', (e) => start(e.touches[0].clientX), { passive: true });
+    el.addEventListener('touchstart', (e) => start(e.touches[0].clientX), { passive: false });
     window.addEventListener('mousemove', (e) => dragging && set(e.clientX));
-    window.addEventListener('touchmove', (e) => dragging && set(e.touches[0].clientX), { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      set(e.touches[0].clientX);
+    }, { passive: false });
     window.addEventListener('mouseup', () => (dragging = false));
     window.addEventListener('touchend', () => (dragging = false));
     window.addEventListener('touchcancel', () => (dragging = false));

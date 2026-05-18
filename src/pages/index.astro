@@ -3,19 +3,16 @@ import Base from '../layouts/Base.astro';
 import HeroSection from '../components/HeroSection.astro';
 import QuickQuoteBar from '../components/QuickQuoteBar.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 import CTABanner from '../components/CTABanner.astro';
 import TestimonialBlock from '../components/TestimonialBlock.astro';
 import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
 import { SERVICES } from '../data/services';
 import { SERVICE_IMAGES } from '../data/serviceImages';
-import { PROJECTS } from '../data/projects';
 import { SITE } from '../data/site';
 import { FEATURED_BEFORE_AFTER } from '../data/beforeAfter';
 
 const featuredServices = SERVICES.slice(0, 6);
-const featuredProjects = PROJECTS.slice(0, 2);
 ---
 <Base
   title="Landscaping Company Near Aledo, TX & Western DFW | Twin County Outdoor Services"
@@ -96,19 +93,6 @@ const featuredProjects = PROJECTS.slice(0, 2);
     <div class="max-w-4xl mx-auto">
       <BeforeAfterSlider before={FEATURED_BEFORE_AFTER.before} after={FEATURED_BEFORE_AFTER.after} alt="Sod installation in Western DFW — before and after" />
       {FEATURED_BEFORE_AFTER.caption && <p class="mt-3 text-center text-sm text-brand-muted">{FEATURED_BEFORE_AFTER.caption}</p>}
-    </div>
-  </section>
-
-  <section class="container-x py-16">
-    <div class="flex items-end justify-between mb-8 gap-4">
-      <div>
-        <h2>Recent work</h2>
-        <p class="text-brand-muted mt-2">A few projects from across Western DFW.</p>
-      </div>
-      <a href="/projects" class="hidden md:inline text-brand-green-dark font-semibold no-underline">View all projects →</a>
-    </div>
-    <div class="grid md:grid-cols-2 gap-6">
-      {featuredProjects.map((p) => <ProjectCard slug={p.slug} title={p.title} city={p.city} summary={p.summary} image={p.hero} />)}
     </div>
   </section>
 

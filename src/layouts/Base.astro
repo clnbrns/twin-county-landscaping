@@ -12,9 +12,10 @@ export interface Props {
   path?: string;
   image?: string;
   schema?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
-const { title, description, path, image, schema } = Astro.props;
+const { title, description, path, image, schema, noindex } = Astro.props;
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -46,6 +47,7 @@ const localBusinessSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <SEOHead title={title} description={description} path={path} image={image} schema={schema ?? localBusinessSchema} />
   </head>
   <body>

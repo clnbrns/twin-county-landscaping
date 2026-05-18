@@ -20,6 +20,7 @@ const images = SERVICE_IMAGES[service.slug];
 // Per-slug hero override (when alphabetical first photo isn't the best opener).
 const HERO_OVERRIDES: Record<string, string> = {
   'tree-services': '/images/services/tree-services/img-1165-gallery.webp',
+  'plant-installation': '/images/services/flower-beds/img-0269-gallery.webp',
 };
 const heroOverride = HERO_OVERRIDES[service.slug];
 const hero = heroOverride ?? images?.gallery[0] ?? '/images/placeholder-hero.svg';

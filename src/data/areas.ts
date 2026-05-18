@@ -100,6 +100,126 @@ export const AREAS: Area[] = [
       'Graford and the surrounding Palo Pinto County area are a regular drive for us. Acreage homes, ranch entrances, and lakeside properties around PK get the same in-person quote and detailed proposal as our Aledo work.',
     neighborhoods: ['Graford', 'Surrounding Palo Pinto County'],
   },
+  {
+    slug: 'cresson-tx',
+    city: 'Cresson',
+    state: 'TX',
+    intro:
+      'Cresson sits at the corner of Parker, Hood, and Johnson counties — a short hop south of Aledo. Acreage homes and ranch properties out here are exactly the kind of work we love: big sod jobs, long drainage runs, retaining walls, and entrance landscaping.',
+    neighborhoods: ['Cresson proper', 'Tri-county area', 'Acreage properties'],
+  },
+  {
+    slug: 'granbury-tx',
+    city: 'Granbury',
+    state: 'TX',
+    intro:
+      'Granbury and the Lake Granbury area are a regular service zone for us. Lakefront homes, sloped lots, retaining walls, and complete landscape design — we bring the same in-person quote and detailed written proposal Aledo customers get.',
+    neighborhoods: ['Lake Granbury', 'DeCordova', 'Pecan Plantation', 'Historic Granbury'],
+  },
+  {
+    slug: 'mineral-wells-tx',
+    city: 'Mineral Wells',
+    state: 'TX',
+    intro:
+      'Mineral Wells and western Palo Pinto County are a regular drive for our team. Acreage properties, drainage challenges on rocky soil, and full landscape builds are common requests — and the kind of project we are built for.',
+    neighborhoods: ['Mineral Wells proper', 'Lake Mineral Wells area', 'Palo Pinto County'],
+  },
+  {
+    slug: 'azle-tx',
+    city: 'Azle',
+    state: 'TX',
+    intro:
+      'Azle and the Eagle Mountain Lake area are part of our regular Western DFW route. Lakefront landscape projects, retaining walls on sloped lots, and full backyard builds are common requests out here.',
+    neighborhoods: ['Eagle Mountain Lake', 'Pelican Bay', 'Cross Timbers', 'Lakeside (border)'],
+  },
+  {
+    slug: 'dallas-tx',
+    city: 'Dallas',
+    state: 'TX',
+    intro:
+      'We take on landscape and hardscape projects in the Dallas area for the right job — generally larger backyard builds, retaining wall systems, and full landscape designs where the scope justifies the drive. Lucas still walks every property in person.',
+    neighborhoods: ['West Dallas', 'Oak Cliff', 'Park Cities (border)', 'Project-based scope'],
+  },
+  {
+    slug: 'north-richland-hills-tx',
+    city: 'North Richland Hills',
+    state: 'TX',
+    intro:
+      'North Richland Hills is part of our broader Tarrant County coverage. Established neighborhoods that need a refresh and newer builds that need everything — we do landscape design, retaining walls, paver patios, drainage, and sod.',
+    neighborhoods: ['Smithfield', 'Glenview', 'Iron Horse', 'Northeast Tarrant'],
+  },
+  {
+    slug: 'white-settlement-tx',
+    city: 'White Settlement',
+    state: 'TX',
+    intro:
+      'White Settlement is right next door to our Western Fort Worth service area. Front-yard refreshes, full backyard builds, drainage corrections, and hardscape installations — we handle the whole yard.',
+    neighborhoods: ['White Settlement proper', 'Westworth Village (border)', 'West Fort Worth corridor'],
+  },
+  {
+    slug: 'lake-worth-tx',
+    city: 'Lake Worth',
+    state: 'TX',
+    intro:
+      'Lake Worth properties — both on the water and inland — are part of our regular Tarrant County service. Lakefront landscaping, sloped-lot retaining walls, drainage, and full landscape design are what we do best.',
+    neighborhoods: ['Lake Worth proper', 'Lakeside (border)', 'Northwest Tarrant County'],
+  },
+  {
+    slug: 'arlington-tx',
+    city: 'Arlington',
+    state: 'TX',
+    intro:
+      'We serve Arlington for project-scope work — full backyard transformations, multi-tier retaining walls, paver patios, and complete landscape design. If the job warrants the drive, Lucas is there in person with a detailed written proposal.',
+    neighborhoods: ['West Arlington', 'Pantego (border)', 'Dalworthington Gardens (border)', 'Project-based scope'],
+  },
+  {
+    slug: 'irving-tx',
+    city: 'Irving',
+    state: 'TX',
+    intro:
+      'Irving projects are part of our extended service area. We take on landscape design, hardscape, and drainage work for clients in Irving when the project scope justifies the drive — same in-person quote and detailed proposal, every time.',
+    neighborhoods: ['Las Colinas', 'Valley Ranch', 'Irving proper', 'Project-based scope'],
+  },
+  {
+    slug: 'saginaw-tx',
+    city: 'Saginaw',
+    state: 'TX',
+    intro:
+      'Saginaw is part of our north Fort Worth route. We work full landscape projects, retaining walls, paver patios, drainage, and sod across the Saginaw and Blue Mound area — both established homes and newer builds.',
+    neighborhoods: ['Saginaw proper', 'Blue Mound (border)', 'North Fort Worth corridor'],
+  },
+  {
+    slug: 'alliance-tx',
+    city: 'Alliance',
+    state: 'TX',
+    intro:
+      'The Alliance Texas corridor — including the surrounding north Fort Worth neighborhoods — is a regular service area for us. Newer master-planned communities and acreage properties alike get full landscape design, hardscape, and drainage work.',
+    neighborhoods: ['Alliance Town Center', 'Heritage', 'Roanoke (border)', 'North Fort Worth'],
+  },
+  {
+    slug: 'keller-tx',
+    city: 'Keller',
+    state: 'TX',
+    intro:
+      'Keller is part of our broader Northeast Tarrant service. Established and newer neighborhoods alike — we handle full landscape design, retaining walls, paver patios, drainage corrections, and complete backyard makeovers.',
+    neighborhoods: ['Keller proper', 'Hidden Lakes', 'Marshall Ridge', 'Northeast Tarrant'],
+  },
+  {
+    slug: 'colleyville-tx',
+    city: 'Colleyville',
+    state: 'TX',
+    intro:
+      'Colleyville projects fit our wheelhouse — larger lots, established neighborhoods, and clients who want premium landscape design and hardscape work done right the first time. Lucas walks every property in person with a detailed written proposal.',
+    neighborhoods: ['Colleyville proper', 'Whittier Heights', 'Creekside', 'Northeast Tarrant'],
+  },
+  {
+    slug: 'grapevine-tx',
+    city: 'Grapevine',
+    state: 'TX',
+    intro:
+      'Grapevine and the surrounding Northeast Tarrant area are part of our extended service zone. We take on landscape design, hardscape, retaining walls, and drainage projects across Grapevine and the neighborhoods bordering Colleyville and Southlake.',
+    neighborhoods: ['Grapevine proper', 'Silver Lake', 'Southlake (border)', 'DFW corridor'],
+  },
 ];
 
 export const AREA_BY_SLUG = Object.fromEntries(AREAS.map((a) => [a.slug, a]));

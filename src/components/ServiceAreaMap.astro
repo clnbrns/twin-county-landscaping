@@ -4,15 +4,27 @@ import { AREAS } from '../data/areas';
 const REGIONS = [
   {
     name: 'Western DFW',
-    slugs: ['aledo-tx', 'benbrook-tx', 'fort-worth-tx'],
+    slugs: ['aledo-tx', 'benbrook-tx', 'fort-worth-tx', 'white-settlement-tx', 'lake-worth-tx', 'azle-tx', 'cresson-tx'],
   },
   {
     name: 'Parker County',
-    slugs: ['weatherford-tx', 'willow-park-tx', 'hudson-oaks-tx', 'brock-tx', 'springtown-tx', 'graford-tx'],
+    slugs: ['weatherford-tx', 'willow-park-tx', 'hudson-oaks-tx', 'brock-tx', 'springtown-tx', 'graford-tx', 'mineral-wells-tx'],
+  },
+  {
+    name: 'North Fort Worth',
+    slugs: ['saginaw-tx', 'alliance-tx'],
+  },
+  {
+    name: 'Northeast Tarrant',
+    slugs: ['keller-tx', 'colleyville-tx', 'grapevine-tx', 'north-richland-hills-tx'],
+  },
+  {
+    name: 'Dallas Metro',
+    slugs: ['dallas-tx', 'irving-tx', 'arlington-tx'],
   },
   {
     name: 'Lake Country',
-    slugs: ['possum-kingdom-lake-tx'],
+    slugs: ['possum-kingdom-lake-tx', 'granbury-tx'],
   },
 ];
 
@@ -21,7 +33,7 @@ const AREA_BY_SLUG = Object.fromEntries(AREAS.map((a) => [a.slug, a]));
 <section class="container-x py-16">
   <div class="text-center max-w-2xl mx-auto mb-10">
     <h2>Where we work</h2>
-    <p class="text-brand-muted mt-2">Based in Aledo. We serve the full Western DFW corridor, Parker County, and out to Possum Kingdom Lake — with neighborhoods we know by name.</p>
+    <p class="text-brand-muted mt-2">Based in Aledo. We serve the full Western DFW corridor, Parker County, North &amp; Northeast Tarrant, the Dallas metro for the right project, and out to the lake country — with neighborhoods we know by name.</p>
   </div>
 
   <div class="space-y-10">

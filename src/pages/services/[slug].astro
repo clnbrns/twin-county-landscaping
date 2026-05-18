@@ -3,8 +3,10 @@ import Base from '../../layouts/Base.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import QuoteForm from '../../components/QuoteForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 import { SERVICES, SERVICE_BY_SLUG } from '../../data/services';
 import { SERVICE_IMAGES } from '../../data/serviceImages';
+import { BEFORE_AFTER } from '../../data/beforeAfter';
 
 export function getStaticPaths() {
   return SERVICES.map((s) => ({ params: { slug: s.slug } }));
@@ -16,6 +18,7 @@ const related = service.related.map((r) => SERVICE_BY_SLUG[r]).filter(Boolean);
 const images = SERVICE_IMAGES[service.slug];
 const hero = images?.gallery[0] ?? '/images/placeholder-hero.svg';
 const gallery = images?.gallery.slice(1) ?? [];
+const beforeAfterPairs = BEFORE_AFTER[service.slug] ?? [];
 
 const SEO_OVERRIDES: Record<string, { title?: string; description?: string; aka?: string[] }> = {
   'retaining-walls': {
@@ -74,6 +77,21 @@ const aka = seo.aka ?? [];
         <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
           <img src={hero} alt={`${service.name} project in Aledo, TX`} width="1600" height="1000" class="w-full h-full object-cover" />
         </div>
+
+        {beforeAfterPairs.length > 0 && (
+          <div>
+            <h2>Before &amp; after</h2>
+            <p class="mt-2 text-brand-muted text-sm">Drag the slider to compare. Real {service.name.toLowerCase()} jobs from Western DFW.</p>
+            <div class="mt-4 space-y-6">
+              {beforeAfterPairs.map((pair) => (
+                <figure>
+                  <BeforeAfterSlider before={pair.before} after={pair.after} alt={`${service.name} before and after`} />
+                  {pair.caption && <figcaption class="mt-2 text-sm text-brand-muted">{pair.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          </div>
+        )}
 
         {gallery.length > 0 && (
           <div>

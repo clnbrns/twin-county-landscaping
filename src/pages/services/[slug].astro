@@ -16,8 +16,14 @@ const { slug } = Astro.params;
 const service = SERVICE_BY_SLUG[slug as string];
 const related = service.related.map((r) => SERVICE_BY_SLUG[r]).filter(Boolean);
 const images = SERVICE_IMAGES[service.slug];
-const hero = images?.gallery[0] ?? '/images/placeholder-hero.svg';
-const gallery = images?.gallery.slice(1) ?? [];
+
+// Per-slug hero override (when alphabetical first photo isn't the best opener).
+const HERO_OVERRIDES: Record<string, string> = {
+  'tree-services': '/images/services/tree-services/img-1165-gallery.webp',
+};
+const heroOverride = HERO_OVERRIDES[service.slug];
+const hero = heroOverride ?? images?.gallery[0] ?? '/images/placeholder-hero.svg';
+const gallery = (images?.gallery ?? []).filter((src) => src !== hero);
 const beforeAfterPairs = BEFORE_AFTER[service.slug] ?? [];
 
 const SEO_OVERRIDES: Record<string, { title?: string; description?: string; aka?: string[] }> = {

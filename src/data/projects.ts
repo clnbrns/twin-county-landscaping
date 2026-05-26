@@ -14,6 +14,25 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: 'benbrook-terraced-garden-walls',
+    title: 'Benbrook Terraced Garden Retaining Walls',
+    city: 'Benbrook',
+    services: ['retaining-walls', 'plant-installation', 'leveling-grading'],
+    hero: '/images/placeholder-project-hero.svg',
+    summary:
+      'A 3-level terraced retaining wall system that turned an unusable sloped backyard into productive raised garden beds for an avid-gardener couple.',
+    story: [
+      'An older couple in Benbrook called us about their backyard slope. They love to plant and garden, but the grade behind the house was steep enough that they had basically written off the entire back portion of the yard. Nothing they planted held, nothing they built lasted, and the slope made it impossible to actually work the soil.',
+      'They were not looking for a decorative wall. They wanted growing space. Real, level, productive garden beds where they could plant tomatoes, flowers, and whatever else they felt like that season — without fighting the hill every time.',
+      'We designed a 3-level terraced retaining wall system that climbs the slope in stages. Each tier holds back the grade above it and creates a flat bed for planting. Three levels gave them three distinct zones to work with, which lets them rotate crops, separate sun and shade plantings, and reach every bed without crouching or climbing.',
+      'The walls are built from gray retaining wall block, set on a compacted base and locked together with construction adhesive between courses for long-term stability. Gray reads clean and modern against the planting — it disappears once the beds fill in, which is what you want from a retaining wall.',
+      'For the growing medium we filled each tier with a custom soil blend: Zoo Poo composted bedding soil mixed with the Bella Flora flower-bed mix. The Zoo Poo brings rich, well-aged organic matter that holds moisture and feeds plants. The Bella Flora mix gives it the drainage and texture you need so roots can actually breathe. Together, it is one of the best beds you can put in for a serious gardener in North Texas clay country.',
+      'The build took 3 days on site — wall layout and base prep, block setting and adhesive cure, then soil import and finish work. By the end of week the couple had three new garden beds ready to plant, and a backyard that finally worked the way they wanted it to.',
+      'If you have a slope that\'s eating up part of your yard, a terraced retaining wall is one of the highest-leverage things you can build. You stop losing soil to erosion, you gain real usable square footage, and you end up with something genuinely better than a flat lot would have given you.',
+    ],
+    gallery: [],
+  },
+  {
     slug: 'benbrook-flagstone-patio',
     title: 'Benbrook Flagstone Patio with Steps',
     city: 'Benbrook',

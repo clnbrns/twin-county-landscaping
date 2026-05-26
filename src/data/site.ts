@@ -5,7 +5,7 @@ export const SITE = {
   phone: '(817) 818-9028',
   phoneHref: 'tel:+18178189028',
   smsHref: 'sms:+18178189028',
-  email: 'lucas@twincountyoutdoorservices.com', // TODO: confirm
+  email: 'twincounty.os@gmail.com',
   city: 'Aledo',
   state: 'TX',
   region: 'Western DFW',

@@ -6,9 +6,7 @@ export default defineConfig({
   site: 'https://twincountyoutdoorservices.com',
   integrations: [
     tailwind(),
-    sitemap({
-      filter: (page) => !page.includes('/projects'),
-    }),
+    sitemap(),
   ],
   redirects: {
     '/about-us': '/about',

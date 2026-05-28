@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     title: 'Benbrook Terraced Garden Retaining Walls',
     city: 'Benbrook',
     services: ['retaining-walls', 'plant-installation', 'leveling-grading'],
-    hero: '/images/placeholder-project-hero.svg',
+    hero: '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp',
     summary:
       'A 3-level terraced retaining wall system that turned an unusable sloped backyard into productive raised garden beds for an avid-gardener couple.',
     story: [
@@ -30,14 +30,19 @@ export const PROJECTS: Project[] = [
       'The build took 3 days on site — wall layout and base prep, block setting and adhesive cure, then soil import and finish work. By the end of week the couple had three new garden beds ready to plant, and a backyard that finally worked the way they wanted it to.',
       'If you have a slope that\'s eating up part of your yard, a terraced retaining wall is one of the highest-leverage things you can build. You stop losing soil to erosion, you gain real usable square footage, and you end up with something genuinely better than a flat lot would have given you.',
     ],
-    gallery: [],
+    gallery: [
+      '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp',
+      '/images/projects/benbrook-terraced-garden-walls/img-2002-gallery.webp',
+      '/images/projects/benbrook-terraced-garden-walls/img-2003-gallery.webp',
+      '/images/projects/benbrook-terraced-garden-walls/img-2005-gallery.webp',
+    ],
   },
   {
     slug: 'benbrook-flagstone-patio',
     title: 'Benbrook Flagstone Patio with Steps',
     city: 'Benbrook',
     services: ['hardscaping', 'leveling-grading'],
-    hero: '/images/placeholder-project-hero.svg',
+    hero: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp',
     summary:
       '1,000 sq ft SilverMist flagstone patio with integrated steps down a backyard slope — safe, durable, and built for grandkids to play on.',
     story: [
@@ -48,7 +53,12 @@ export const PROJECTS: Project[] = [
       'The build took a single day. We excavated the entire loose-rock area down to a proper compacted base, set the steps to handle the grade change cleanly, and laid roughly 1,000 square feet of SilverMist on top. By the end of the day the family had a real patio they could walk across without thinking about it — and a set of steps the grandkids can take without anyone holding their breath.',
       'If you have a slope in your yard that\'s been on the "we\'ll figure it out someday" list, this is exactly the kind of job we love. One day on site, decades of use out of it.',
     ],
-    gallery: [],
+    gallery: [
+      '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp',
+      '/images/projects/benbrook-flagstone-patio/img-2232-gallery.webp',
+      '/images/projects/benbrook-flagstone-patio/img-2234-gallery.webp',
+      '/images/projects/benbrook-flagstone-patio/img-2235-gallery.webp',
+    ],
   },
   {
     slug: 'weatherford-retaining-wall-system',

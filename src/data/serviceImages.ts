@@ -2,8 +2,17 @@
 export type ServiceImages = { card: string; gallery: string[] };
 export const SERVICE_IMAGES: Record<string, ServiceImages> = {
   "flower-beds": {
-    "card": "/images/services/flower-beds/favorite-card.webp",
+    "card": "/images/services/flower-beds/img-1999-card.webp",
     "gallery": [
+      "/images/services/flower-beds/img-1999-gallery.webp",
+      "/images/services/flower-beds/img-2002-gallery.webp",
+      "/images/services/flower-beds/img-2003-gallery.webp",
+      "/images/services/flower-beds/img-2005-gallery.webp",
+      "/images/services/flower-beds/img-2009-gallery.webp",
+      "/images/services/flower-beds/img-2010-gallery.webp",
+      "/images/services/flower-beds/img-2011-gallery.webp",
+      "/images/services/flower-beds/img-2012-gallery.webp",
+      "/images/services/flower-beds/img-2013-gallery.webp",
       "/images/services/flower-beds/favorite-gallery.webp",
       "/images/services/flower-beds/img-0267-gallery.webp",
       "/images/services/flower-beds/img-0268-gallery.webp",

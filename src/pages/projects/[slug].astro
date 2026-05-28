@@ -17,7 +17,7 @@ const services = project.services.map((s) => SERVICE_BY_SLUG[s]).filter(Boolean)
 const title = `${project.title} | ${project.city}, TX | Twin County Outdoor Services`;
 const description = project.summary;
 ---
-<Base title={title} description={description} path={`/projects/${project.slug}`} noindex>
+<Base title={title} description={description} path={`/projects/${project.slug}`}>
   <Breadcrumb items={[
     { label: 'Home', href: '/' },
     { label: 'Projects', href: '/projects' },
@@ -57,6 +57,19 @@ const description = project.summary;
         <p class="mt-1 text-brand-ink">{project.neighborhood ? `${project.neighborhood} · ` : ''}{project.city}, TX</p>
       </aside>
     </div>
+
+    {project.gallery.length > 0 && (
+      <div class="mt-12">
+        <h2 class="text-2xl">Gallery</h2>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+          {project.gallery.map((src) => (
+            <a href={src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+              <img src={src} alt={project.title} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
   </section>
 
   <CTABanner title="Ready for your own project?" />

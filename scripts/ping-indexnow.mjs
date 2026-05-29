@@ -16,14 +16,19 @@ const HOST = 'twincountyoutdoorservices.com';
 const KEY = 'f1b1e4a216a1a2a146a444a55775d57b';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
+// Fire on production builds on Cloudflare Pages OR Netlify.
 const isCloudflarePages = process.env.CF_PAGES === '1';
 const cfBranch = process.env.CF_PAGES_BRANCH;
-const isProd = !isCloudflarePages || cfBranch === 'main';
+const isNetlify = process.env.NETLIFY === 'true';
+const netlifyContext = process.env.CONTEXT; // 'production' | 'deploy-preview' | 'branch-deploy'
+const isCfProd = isCloudflarePages && cfBranch === 'main';
+const isNetlifyProd = isNetlify && netlifyContext === 'production';
+const isProd = isCfProd || isNetlifyProd;
 const force = process.env.INDEXNOW_FORCE === '1';
 
-if (!force && (!isCloudflarePages || !isProd)) {
+if (!force && !isProd) {
   console.log(
-    `[indexnow] skipped — CF_PAGES=${process.env.CF_PAGES ?? 'unset'} branch=${cfBranch ?? 'unset'} (set INDEXNOW_FORCE=1 to override)`
+    `[indexnow] skipped — CF_PAGES=${process.env.CF_PAGES ?? 'unset'} cfBranch=${cfBranch ?? 'unset'} NETLIFY=${process.env.NETLIFY ?? 'unset'} CONTEXT=${netlifyContext ?? 'unset'} (set INDEXNOW_FORCE=1 to override)`
   );
   process.exit(0);
 }

@@ -11,8 +11,12 @@ export const SITE = {
   region: 'Western DFW',
   owner: 'Lucas Bartholomew',
   builtBy: 'Burns Built',
+  googleReviewsUrl: '', // set to Google Business Profile reviews URL when available
+  // Set these once you have the IDs from Google. Empty = not rendered.
+  gaMeasurementId: '', // e.g. 'G-XXXXXXXXXX' from Google Analytics 4
+  googleSiteVerification: '', // meta-tag value from Google Search Console
   social: {
-    facebook: '', // TODO
-    instagram: '', // TODO
+    facebook: '',
+    instagram: '',
   },
 };

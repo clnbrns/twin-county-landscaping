@@ -48,7 +48,19 @@ const localBusinessSchema = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {SITE.googleSiteVerification && <meta name="google-site-verification" content={SITE.googleSiteVerification} />}
     <SEOHead title={title} description={description} path={path} image={image} schema={schema ?? localBusinessSchema} />
+    {SITE.gaMeasurementId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ gaId: SITE.gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', gaId, { anonymize_ip: true });
+        </script>
+      </>
+    )}
   </head>
   <body>
     <Header />

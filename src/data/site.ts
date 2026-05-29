@@ -13,7 +13,7 @@ export const SITE = {
   builtBy: 'Burns Built',
   googleReviewsUrl: '', // set to Google Business Profile reviews URL when available
   // Set these once you have the IDs from Google. Empty = not rendered.
-  gaMeasurementId: '', // e.g. 'G-XXXXXXXXXX' from Google Analytics 4
+  gaMeasurementId: 'G-GRN9D34RB8', // Google Analytics 4 Measurement ID
   googleSiteVerification: '', // meta-tag value from Google Search Console
   social: {
     facebook: '',

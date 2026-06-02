@@ -15,7 +15,7 @@
 /service-areas/frisco-tx          /areas/                    301
 /service-areas/mckinney-tx        /areas/                    301
 /service-areas/denton-tx          /areas/                    301
-/service-areas/ranger-tx          /areas/                    301
+/service-areas/ranger-tx          /areas/ranger-tx/          301
 # Catch-all for any other legacy /service-areas/* URL
 /service-areas/*                  /areas/                    301
 

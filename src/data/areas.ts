@@ -221,6 +221,14 @@ export const AREAS: Area[] = [
     neighborhoods: ['Stephenville proper', 'Tarleton area', 'Erath County acreage'],
   },
   {
+    slug: 'ranger-tx',
+    city: 'Ranger',
+    state: 'TX',
+    intro:
+      'Ranger and Eastland County are part of our regular service area. Acreage homes, ranch entrances, and full landscape builds out here get the same in-person quote and detailed written proposal as our Aledo work — sod, retaining walls, drainage, and complete landscape design.',
+    neighborhoods: ['Ranger proper', 'Lake Leon area', 'Eastland County'],
+  },
+  {
     slug: 'breckenridge-tx',
     city: 'Breckenridge',
     state: 'TX',

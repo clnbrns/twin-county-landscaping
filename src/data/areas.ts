@@ -213,6 +213,22 @@ export const AREAS: Area[] = [
     neighborhoods: ['Colleyville proper', 'Whittier Heights', 'Creekside', 'Northeast Tarrant'],
   },
   {
+    slug: 'stephenville-tx',
+    city: 'Stephenville',
+    state: 'TX',
+    intro:
+      'Stephenville and Erath County are a regular drive for our crew. Acreage homes, ranch entrances, and full landscape builds out here get the same in-person quote and detailed written proposal as our Aledo work — big sod jobs, retaining walls, drainage, and complete landscape design.',
+    neighborhoods: ['Stephenville proper', 'Tarleton area', 'Erath County acreage'],
+  },
+  {
+    slug: 'breckenridge-tx',
+    city: 'Breckenridge',
+    state: 'TX',
+    intro:
+      'Breckenridge and Stephens County are part of our extended service area. Ranch properties, fence and wall systems, sod, drainage, and full landscape design — Lucas walks every property in person and brings the same detailed written proposal regardless of the drive.',
+    neighborhoods: ['Breckenridge proper', 'Lake Daniel area', 'Stephens County'],
+  },
+  {
     slug: 'grapevine-tx',
     city: 'Grapevine',
     state: 'TX',

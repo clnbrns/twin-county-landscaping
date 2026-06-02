@@ -1,0 +1,31 @@
+# Legacy TownSquare URL redirects (preserve SEO equity from old site)
+# Source: GSC export 2026-06-02 — all URLs that had impressions on the old build
+
+# --- Service areas: /service-areas/<city> → /areas/<city>/ ---
+/service-areas/aledo-tx           /areas/aledo-tx/           301
+/service-areas/benbrook-tx        /areas/benbrook-tx/        301
+/service-areas/weatherford-tx     /areas/weatherford-tx/     301
+/service-areas/fort-worth-tx      /areas/fort-worth-tx/      301
+/service-areas/brock-tx           /areas/brock-tx/           301
+/service-areas/azle-tx            /areas/azle-tx/            301
+/service-areas/dallas-tx          /areas/dallas-tx/          301
+/service-areas/stephenville-tx    /areas/stephenville-tx/    301
+/service-areas/breckenridge-tx    /areas/breckenridge-tx/    301
+# Out-of-scope cities from old site → fall back to areas index
+/service-areas/frisco-tx          /areas/                    301
+/service-areas/mckinney-tx        /areas/                    301
+/service-areas/denton-tx          /areas/                    301
+/service-areas/ranger-tx          /areas/                    301
+# Catch-all for any other legacy /service-areas/* URL
+/service-areas/*                  /areas/                    301
+
+# --- Services slug remaps ---
+/services/landscaping             /services/landscape-design/  301
+/services/flowerbeds              /services/flower-beds/       301
+/services/leveling                /services/leveling-grading/  301
+/services/rockbeds                /services/rock-beds/         301
+/services/material-hauling        /services/                   301
+
+# --- Page renames ---
+/about-us                         /about/                      301
+/portfolio                        /projects/                   301

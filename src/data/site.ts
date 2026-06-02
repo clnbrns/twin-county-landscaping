@@ -14,7 +14,7 @@ export const SITE = {
   googleReviewsUrl: '', // set to Google Business Profile reviews URL when available
   // Set these once you have the IDs from Google. Empty = not rendered.
   gaMeasurementId: 'G-GRN9D34RB8', // Google Analytics 4 Measurement ID
-  googleSiteVerification: '', // meta-tag value from Google Search Console
+  googleSiteVerification: 'JOkhY9tyjtifKszaE6SsxAF9h5zd0KCzRi7ZSZxRTo4', // GSC HTML meta tag value
   social: {
     facebook: '',
     instagram: '',

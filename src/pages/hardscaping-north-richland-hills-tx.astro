@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Hardscape & Patio Contractors in North Richland Hills, TX | Twin County';
+const description = 'Hardscape contractors in North Richland Hills, TX — paver patios, flagstone, retaining walls, backyard remodels, and outdoor living. In-person quotes, detailed written proposals.';
+const path = '/hardscaping-north-richland-hills-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard and Pavestone segmental pavers on compacted base. Patterns, borders, banding — built to drain and stay flat.' },
+  { name: 'Flagstone patios & walkways', body: 'SilverMist and Texas-quarried flagstone with mortared or polymeric-sand joints. Premium hardscape look for established NRH yards.' },
+  { name: 'Retaining walls', body: 'Block and natural stone walls for sloped backyards and grade transitions. Engineered with drainage behind every wall.' },
+  { name: 'Backyard remodels', body: 'Complete backyard transformations — patio, walls, plants, lighting, drainage. One crew, one written proposal, one timeline.' },
+  { name: 'Outdoor living & fire features', body: 'Built-in seating walls, fire pits, outdoor kitchens. Anchored to a real patio base — not decorative add-ons.' },
+  { name: 'Drainage built in', body: 'Every patio and wall includes French drains, weep holes, or grading. The #1 reason hardscapes fail is water — we design it out.' },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp', alt: 'Flagstone patio installation' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2232-gallery.webp', alt: 'SilverMist flagstone with gray masonry joints' },
+  { src: '/images/services/hardscaping/img-0040-gallery.webp', alt: 'Paver patio installation' },
+  { src: '/images/services/hardscaping/img-0041-gallery.webp', alt: 'Hardscape walkway' },
+  { src: '/images/services/hardscaping/img-1058-gallery.webp', alt: 'Custom hardscape detail' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2234-gallery.webp', alt: 'Flagstone patio detail' },
+];
+
+const neighborhoods = ['Smithfield', 'Glenview', 'Iron Horse', 'Home Town', 'Forest Glenn', 'Birdville', 'Davis Memorial', 'Richland Hills (border)', 'Watauga (border)', 'Keller (border)', 'Hurst (border)'];
+
+const faqs = [
+  { q: 'How much does a paver patio cost in North Richland Hills?', a: 'Most paver patios in NRH run $15–$30 per square foot installed, depending on paver, base depth, pattern, and borders. Flagstone runs $25–$45/sq ft. Every quote is itemized.' },
+  { q: 'Do you do full backyard remodels in NRH?', a: 'Yes — patio, walls, plants, drainage, lighting, sod. One crew handles every phase. Most complete backyard remodels take 1–3 weeks depending on scope.' },
+  { q: 'How far is NRH from your home base?', a: 'About 30–35 min from Aledo. NRH is part of our regular Tarrant County route — we are out there often.' },
+  { q: 'Do you offer free quotes?', a: 'Yes. Lucas comes to your NRH property in person, walks the site, photographs everything, and writes a detailed proposal. No remote bids.' },
+  { q: 'What size projects do you take in NRH?', a: 'Anything from a $3,000 small patio up through $75,000+ multi-tier backyard transformations with walls, drainage, lighting, and outdoor living. Sweet spot is $10K–$40K.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'North Richland Hills', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Hardscaping North Richland Hills' }]} />
+
+  <section class="container-x py-12">
+    <h1>Hardscape & Patio Contractors in North Richland Hills, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone walkways, retaining walls, backyard remodels, and outdoor living — installed across North Richland Hills and Northeast Tarrant County by a crew that walks every site in person. Real drainage built into every job.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp" alt="Hardscape contractor in North Richland Hills — flagstone patio with steps" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we install in North Richland Hills</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent hardscape work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>NRH neighborhoods we work</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {neighborhoods.map((n) => <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>)}
+          </div>
+        </div>
+
+        <div>
+          <h2>North Richland Hills hardscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your NRH backyard project?" />
+</Base>

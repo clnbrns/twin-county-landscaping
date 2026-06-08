@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Stormwater Drainage Contractors in Aledo, TX | Twin County Outdoor Services';
+const description = 'Stormwater drainage contractors in Aledo, TX. French drains, surface drains, downspout extensions, regrading, and erosion control. In-person quotes from your local Aledo crew.';
+const path = '/drainage-aledo-tx';
+
+const services = [
+  { name: 'French drains', body: 'Subsurface gravel-and-perforated-pipe drains that intercept groundwater and move it away from foundations, patios, and yards.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water from low spots and gutter downspouts before it has time to soak in.' },
+  { name: 'Downspout extensions', body: 'Buried PVC runs that carry roof water out past the foundation — eliminates the #1 cause of basement and crawlspace seepage.' },
+  { name: 'Regrading & swales', body: 'Reshape the yard so water flows where you want it. Critical fix when the original builder grade is wrong.' },
+  { name: 'Erosion control', body: 'Stone-armored swales, riprap, and slope stabilization for properties on grade or near drainage easements.' },
+  { name: 'Foundation drainage', body: 'Perimeter French drains and waterproofing to protect Aledo foundations from the clay soil swell-shrink cycle.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/french-drains/french-drain-gallery.webp', alt: 'French drain installation in Aledo' },
+  { src: '/images/services/french-drains/img-1484-gallery.webp', alt: 'Drainage trench work' },
+  { src: '/images/services/leveling-grading/img-2457-gallery.webp', alt: 'Yard regrading and swale shaping' },
+];
+
+const symptoms = [
+  'Standing water in the yard 24+ hours after a rain',
+  'Soggy spots near downspouts or AC condensate lines',
+  'Water seeping into the garage, crawlspace, or basement',
+  'Erosion gullies forming after heavy rain',
+  'Pavers or patios sinking on one side',
+  'Foundation cracks worsening seasonally',
+  'Standing water near the foundation perimeter',
+  'Mosquito breeding in chronic puddles',
+];
+
+const faqs = [
+  { q: 'How much does a French drain cost in Aledo?', a: 'Most residential French drains in Aledo run $30–$70 per linear foot installed, depending on depth, length, soil type, and whether we have to work around existing landscape or hardscape. Most full systems land in the $2,500–$8,000 range.' },
+  { q: 'Why does my Aledo yard hold water for days after rain?', a: 'Aledo and most of Parker County sits on heavy clay soil with poor natural infiltration. Once the clay saturates, water has nowhere to go except sit on the surface or flow toward the lowest point — often your foundation. Drainage systems give it a designed path to a safe discharge point.' },
+  { q: 'Do I need a permit for drainage work in Aledo?', a: 'Standard residential French drains and surface drains do not require a permit. Larger projects involving drainage easements, public right-of-way, or significant grade changes may. We handle the verification before any work starts.' },
+  { q: 'How long does drainage installation take?', a: 'A typical 80–150 linear foot French drain takes 2–3 days. Larger multi-zone systems with regrading can take a week. Lucas walks you through the timeline in the proposal.' },
+  { q: 'Will you tear up my landscape?', a: 'We remove sod in a strip just wide enough to dig the trench, then re-lay it after backfill. For finished landscape areas, we use a small excavator with care or hand-dig when needed. Cleanup is part of the job — not an extra.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Stormwater Drainage Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Drainage Aledo' }]} />
+
+  <section class="container-x py-12">
+    <h1>Stormwater Drainage Contractors in Aledo, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Aledo clay soil holds water — sometimes for days. We install French drains, surface drains, downspout extensions, and full regrading systems that move stormwater away from your foundation, patio, and lawn. Lucas was raised in Aledo. He knows this soil.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/french-drain-gallery.webp" alt="Stormwater drainage contractor in Aledo, TX — French drain installation" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Aledo</h2>
+          <p class="mt-2 text-brand-muted text-sm">If any of these sound familiar, we should walk the property.</p>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => <li class="flex items-start gap-2"><span class="text-brand-green-dark font-bold mt-0.5">✓</span><span>{s}</span></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent drainage work</h2>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why Twin County for Aledo drainage</h2>
+          <ul class="mt-4 space-y-3 text-brand-muted">
+            <li><strong class="text-brand-ink">Aledo born and raised.</strong> Lucas grew up on this soil. He knows where Aledo water goes, which neighborhoods have the worst grades, and which builder cut corners.</li>
+            <li><strong class="text-brand-ink">In-person diagnosis.</strong> Drainage problems are site-specific. We walk the yard during or right after rain when possible to see where water actually goes.</li>
+            <li><strong class="text-brand-ink">Real engineering.</strong> Trench depth, pipe slope, gravel envelope, fabric wrap, discharge point — all sized to your property, not a one-size-fits-all kit.</li>
+            <li><strong class="text-brand-ink">Cleanup included.</strong> Sod re-laid, landscape restored, no abandoned spoils piles. Job is not done until it looks like we were never there.</li>
+            <li><strong class="text-brand-ink">5-star Google reputation.</strong> Every Google review is 5 stars. Real Aledo and Western DFW homeowners.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Aledo drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Aledo?" />
+</Base>

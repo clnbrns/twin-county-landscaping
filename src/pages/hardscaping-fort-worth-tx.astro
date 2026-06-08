@@ -1,0 +1,203 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Hardscape Contractors in Fort Worth, TX | Twin County Outdoor Services';
+const description = 'Hardscaping in Fort Worth, TX — paver patios, flagstone, walkways, retaining walls, and outdoor living. In-person quotes, detailed written proposals, no remote bids.';
+
+const path = '/hardscaping-fort-worth-tx';
+
+const services = [
+  {
+    name: 'Paver patios',
+    body: 'Belgard-style segmental pavers, sand-set on compacted base. Patterns, borders, banding — built to drain and stay flat.',
+  },
+  {
+    name: 'Flagstone patios & walkways',
+    body: 'SilverMist and Texas-quarried flagstone with mortared or polymeric-sand joints. The signature Fort Worth hardscape look.',
+  },
+  {
+    name: 'Retaining walls',
+    body: 'Segmental block walls, natural stone, and timber. Engineered for drainage, batter, and the soil movement we get in this part of Texas.',
+  },
+  {
+    name: 'Outdoor living & fire features',
+    body: 'Built-in seating walls, fire pits, outdoor kitchens. Anchored to a real patio base — not just decorative stack-stone.',
+  },
+  {
+    name: 'Concrete walkways & pads',
+    body: 'Stamped, broom-finish, or exposed-aggregate concrete poured and finished by our crew. Always paired with proper drainage.',
+  },
+  {
+    name: 'Drainage built into every job',
+    body: 'Hardscapes fail when water gets behind them. Every patio and wall we build includes French drains, weep holes, or surface grading.',
+  },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp', alt: 'Flagstone patio installation in Benbrook, TX' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2232-gallery.webp', alt: 'SilverMist flagstone with gray masonry joints' },
+  { src: '/images/services/hardscaping/img-0040-gallery.webp', alt: 'Paver patio in Fort Worth area' },
+  { src: '/images/services/hardscaping/img-0041-gallery.webp', alt: 'Hardscape walkway with stone borders' },
+  { src: '/images/services/hardscaping/img-1058-gallery.webp', alt: 'Custom hardscape installation' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2234-gallery.webp', alt: 'Benbrook flagstone patio detail' },
+];
+
+const neighborhoods = [
+  'West 7th',
+  'Monticello',
+  'TCU / University West',
+  'Arlington Heights',
+  'Bella Vista',
+  'Tanglewood',
+  'Wedgwood',
+  'Westcliff',
+  'Crestwood',
+  'Ridglea Hills',
+  'Mira Vista',
+  'Westover Hills',
+  'Walsh Ranch',
+  'Benbrook (border)',
+  'White Settlement (border)',
+];
+
+const faqs = [
+  {
+    q: 'How much does a paver patio cost in Fort Worth?',
+    a: 'Most paver patios we install in Fort Worth run $15–$30 per square foot installed, depending on paver choice, base depth, pattern, and any borders or steps. Flagstone runs higher — typically $25–$45 per square foot. Every quote is itemized so you see exactly what you are paying for.',
+  },
+  {
+    q: 'Do you build retaining walls in Fort Worth?',
+    a: 'Yes — block, natural stone, and poured retaining walls across Fort Worth and Western DFW. Most residential walls are segmental block (Belgard, Pavestone) for sloped backyards, terraced gardens, and grade transitions. Every wall is engineered with proper drainage behind it.',
+  },
+  {
+    q: 'How long does a hardscape project take?',
+    a: 'A typical paver patio takes 2 to 5 days from start to finish. A small flagstone patio can be done in a day; a multi-level wall system with drainage might take a week. Lucas walks you through the timeline before any work starts.',
+  },
+  {
+    q: 'Do you offer free quotes?',
+    a: 'Yes. Lucas comes to your Fort Worth property in person, walks the site, and provides a detailed written proposal with full scope of work. No remote bids, no guessing, no upcharges after the fact.',
+  },
+  {
+    q: 'What hardscape materials do you work with?',
+    a: 'Pavers (Belgard, Pavestone, Acker-Stone), flagstone (SilverMist, Oklahoma, Pennsylvania bluestone), natural stone wall block, segmental retaining wall systems, stamped and decorative concrete, and travertine for higher-end projects.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Twin County Outdoor Services',
+    telephone: '(817) 818-9028',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Aledo',
+      addressRegion: 'TX',
+      addressCountry: 'US',
+    },
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Fort Worth',
+    containedInPlace: { '@type': 'State', name: 'Texas' },
+  },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Hardscaping Fort Worth' },
+  ]} />
+
+  <section class="container-x py-12">
+    <h1>Hardscape Contractors in Fort Worth, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone walkways, retaining walls, outdoor living, and concrete — installed across Fort Worth and Western DFW
+      by a crew that walks every site in person. Detailed written proposals. Real drainage built into every job. No remote bids.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img
+            src="/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp"
+            alt="Hardscape contractor in Fort Worth — flagstone patio with steps"
+            width="1600"
+            height="1000"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div>
+          <h2>What we install in Fort Worth</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent hardscape work</h2>
+          <p class="mt-2 text-brand-muted text-sm">Projects from Fort Worth and the surrounding Western DFW area.</p>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Fort Worth neighborhoods we work</h2>
+          <p class="mt-2 text-brand-muted text-sm">A regular service area for our crew — west Fort Worth, central, and the neighborhoods bordering Benbrook and Aledo.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {neighborhoods.map((n) => (
+              <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why Twin County for Fort Worth hardscaping</h2>
+          <ul class="mt-4 space-y-3 text-brand-muted">
+            <li><strong class="text-brand-ink">In-person quotes only.</strong> Lucas walks your property, measures, photographs, and writes a detailed proposal. No remote estimates.</li>
+            <li><strong class="text-brand-ink">Drainage built in.</strong> Every patio and wall includes French drains, weep holes, or grading. The #1 reason hardscapes fail is water — we design it out from day one.</li>
+            <li><strong class="text-brand-ink">One crew, start to finish.</strong> Same team excavates, lays base, sets stone, and finishes. No subcontractor handoffs.</li>
+            <li><strong class="text-brand-ink">5-star Google reputation.</strong> Every Google review we've earned is 5 stars. Real Fort Worth and Western DFW homeowners.</li>
+            <li><strong class="text-brand-ink">Written proposals.</strong> Itemized scope, materials, timeline. You see exactly what you're paying for before signing anything.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Hardscaping Fort Worth FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <QuoteForm compact />
+      </aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your Fort Worth hardscape project?" />
+</Base>

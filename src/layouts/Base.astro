@@ -63,6 +63,21 @@ const localBusinessSchema = {
     )}
   </head>
   <body>
+    {/* Static form stubs for Netlify build-time form detection. Hidden from users. */}
+    <form name="quote" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="services" />
+      <textarea name="message"></textarea>
+      <input type="text" name="budget" />
+      <input type="text" name="priority" />
+    </form>
+    <form name="quick-quote" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="service" />
+    </form>
     <Header />
     <main>
       <slot />

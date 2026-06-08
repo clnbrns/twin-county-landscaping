@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Sod Installation in Aledo, TX | Twin County Outdoor Services';
+const description = 'Sod installation in Aledo, TX. Bermuda, Zoysia, and St. Augustine — graded, prepped, and laid right. $3,000 minimum. In-person quotes from your local Aledo crew.';
+const path = '/sod-installation-aledo-tx';
+
+const grasses = [
+  { name: 'Bermuda (Tifway 419, Celebration)', body: 'Heat-loving, sun-loving, drought-tolerant. The default Aledo lawn. Full sun, mows beautifully, recovers fast from foot traffic.' },
+  { name: 'Zoysia (Empire, Palisades)', body: 'Soft, dense, more shade-tolerant than Bermuda. Slower growth means less mowing. Premium look for established Aledo neighborhoods.' },
+  { name: 'St. Augustine (Raleigh, Floratam)', body: 'Best choice for shadier yards. Lush, broad blade. Needs more water than Bermuda but tolerates partial shade Bermuda hates.' },
+  { name: 'Buffalo grass', body: 'Native Texas grass — minimal water, no fertilizer needed. Used on acreage and ranch landscapes where you want low input.' },
+];
+
+const process = [
+  { step: '1', title: 'Site walk & quote', body: 'Lucas measures the area, evaluates sun exposure and existing grass, recommends the right variety, and writes a detailed proposal.' },
+  { step: '2', title: 'Removal & prep', body: 'Existing turf killed or stripped. Soil tilled or amended where needed. Final grade set with a slope away from the foundation.' },
+  { step: '3', title: 'Sod laid fresh', body: 'Pallets cut and delivered same-day. Laid in a brick pattern with tight seams. Edged clean against beds and hardscape.' },
+  { step: '4', title: 'Roll, water, walk-through', body: 'Rolled for soil contact, deep-watered, and we walk you through the 2-week watering schedule before we leave.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/sod-installation/before-1-gallery.webp', alt: 'Sod installation before in Aledo' },
+  { src: '/images/services/sod-installation/after-1-gallery.webp', alt: 'Sod installation after — fresh Bermuda lawn' },
+  { src: '/images/services/sod-installation/before-2-gallery.webp', alt: 'Aledo yard before sod' },
+  { src: '/images/services/sod-installation/after-2-gallery.webp', alt: 'Aledo yard after sod installation' },
+];
+
+const faqs = [
+  { q: 'How much does sod installation cost in Aledo?', a: 'Sod installation in Aledo starts at $3,000 minimum (small front yard or partial install). Most full yards run $4,500–$12,000 depending on square footage, grass variety, removal of existing turf, and prep work needed. Bermuda is the most affordable; Zoysia runs about 25% higher.' },
+  { q: 'When is the best time to lay sod in Aledo?', a: 'Spring (March–May) and early fall (September–October) are ideal. We install year-round, but summer installs need a strict watering schedule and winter dormant sod takes longer to root. Avoid late summer when possible.' },
+  { q: 'How long until I can walk on the new sod?', a: 'Light foot traffic is fine after about 2 weeks. Heavy use (kids, pets running, mowing) wait 3–4 weeks. Full root establishment takes 6–8 weeks during the growing season.' },
+  { q: 'Do you remove the existing grass?', a: 'Yes — included in the quote. We strip dead turf, kill living turf, or till in weeds depending on the situation. Some Aledo yards just need overseed or patching instead of full sod — we will tell you straight.' },
+  { q: 'What about watering after install?', a: 'You water 3 times a day for the first 7 days, then taper down. We walk you through the schedule before we leave and check in by text in week 1. Most Aledo sprinkler systems handle it fine.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Sod Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Sod Installation Aledo' }]} />
+
+  <section class="container-x py-12">
+    <h1>Sod Installation in Aledo, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Bermuda, Zoysia, St. Augustine, and Buffalo grass — installed properly across Aledo and Western DFW by a crew that grew up on this soil. $3,000 minimum so we can do it right. In-person quotes, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/sod-installation/after-1-gallery.webp" alt="Sod installation in Aledo, TX — fresh Bermuda lawn" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Grass varieties we install in Aledo</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {grasses.map((g) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{g.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{g.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Our sod install process</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {process.map((p) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <div class="text-brand-green-dark font-bold text-2xl">{p.step}</div>
+                <h3 class="text-lg font-semibold text-brand-ink mt-1">{p.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Before &amp; after</h2>
+          <div class="mt-4 grid grid-cols-2 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Aledo sod FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a new lawn in Aledo?" />
+</Base>

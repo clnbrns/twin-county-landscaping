@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Hardscape Contractors in Benbrook, TX | Twin County Outdoor Services';
+const description = 'Hardscape contractors in Benbrook, TX — paver patios, flagstone, retaining walls, and outdoor living. Real Benbrook projects in our portfolio. In-person quotes, written proposals.';
+const path = '/hardscaping-benbrook-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard and Pavestone segmental pavers on a properly compacted base. Patterns, borders, banding — built to drain and stay flat.' },
+  { name: 'Flagstone patios & walkways', body: 'SilverMist and Texas-quarried flagstone with mortared or polymeric-sand joints. Our most-requested Benbrook hardscape.' },
+  { name: 'Retaining walls', body: 'Segmental block and natural stone walls. Engineered for the slope-heavy lots and clay soil common around Benbrook Lake and Whitestone.' },
+  { name: 'Terraced garden walls', body: 'Multi-level walls that turn sloped backyards into usable garden tiers. We have a real Benbrook terraced-garden project in our portfolio.' },
+  { name: 'Outdoor living & fire features', body: 'Built-in seating walls, fire pits, outdoor kitchens. Anchored to a real patio base — not decorative add-ons.' },
+  { name: 'Drainage built in', body: 'Every patio and wall includes French drains, weep holes, or grading. Critical on Benbrook lots with grade changes.' },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp', alt: 'Benbrook flagstone patio' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2232-gallery.webp', alt: 'SilverMist flagstone with gray masonry joints in Benbrook' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2234-gallery.webp', alt: 'Benbrook flagstone patio with steps' },
+  { src: '/images/projects/benbrook-flagstone-patio/img-2235-gallery.webp', alt: 'Benbrook patio detail' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp', alt: 'Benbrook terraced garden retaining walls' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2002-gallery.webp', alt: 'Multi-level retaining walls in Benbrook' },
+];
+
+const neighborhoods = ['Whitestone Ranch', 'Westpark', 'Timbercreek', 'Ridglea Hills (border)', 'Benbrook Lake area', 'Country Day Estates', 'Mira Vista (border)', 'Western Hills'];
+
+const realProjects = [
+  {
+    title: 'Benbrook Flagstone Patio with Steps',
+    body: 'SilverMist flagstone with gray masonry joints replacing a sloped grass area. 1,000 sq ft, completed in 1 day. Older couple wanted a flat, safe surface for grandchildren. Read the full project →',
+    href: '/projects/benbrook-flagstone-patio/',
+  },
+  {
+    title: 'Benbrook Terraced Garden Retaining Walls',
+    body: 'Three-level gray block walls with construction adhesive, Zoo Poo + Bella Flora soil blend, custom irrigation. 3 days. Avid-gardener couple needed usable planting tiers on a steep backyard. Read the full project →',
+    href: '/projects/benbrook-terraced-garden-walls/',
+  },
+];
+
+const faqs = [
+  { q: 'How much does a paver patio cost in Benbrook?', a: 'Most paver patios in Benbrook run $15–$30 per square foot installed. Flagstone runs $25–$45 per square foot. Average Benbrook patio project lands $10,000–$25,000.' },
+  { q: 'Do you do work in Whitestone Ranch?', a: 'Yes — Whitestone Ranch is one of our regular Benbrook neighborhoods. Same in-person quote and detailed written proposal as our Aledo work.' },
+  { q: 'Can you handle the slope-prone lots near Benbrook Lake?', a: 'Yes — sloped lots are some of our most rewarding work. Multi-tier retaining walls, terraced gardens, and patios that step down the grade. See our terraced-garden Benbrook project for an example.' },
+  { q: 'How long does a hardscape project take in Benbrook?', a: 'A simple paver patio takes 2–4 days. A flagstone patio with steps can be 3–5 days. Multi-tier wall systems with drainage typically take 1–2 weeks.' },
+  { q: 'Do you offer free quotes?', a: 'Yes. Lucas comes to your Benbrook property in person, walks the site, photographs everything, and writes a detailed proposal at no charge.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Benbrook', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Hardscaping Benbrook' }]} />
+
+  <section class="container-x py-12">
+    <h1>Hardscape Contractors in Benbrook, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone walkways, retaining walls, terraced gardens, and outdoor living — installed across Benbrook by a crew that has real Benbrook projects in our portfolio. In-person quotes, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp" alt="Hardscape contractor in Benbrook, TX — flagstone patio with steps" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we install in Benbrook</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Real Benbrook projects</h2>
+          <p class="mt-2 text-brand-muted text-sm">These aren't stock photos — they're our work, on actual Benbrook properties.</p>
+          <div class="mt-4 grid sm:grid-cols-2 gap-5">
+            {realProjects.map((p) => (
+              <a href={p.href} class="block bg-white border border-brand-green-tint rounded-lg p-5 hover:border-brand-green-dark transition-colors no-underline">
+                <h3 class="text-lg font-semibold text-brand-ink">{p.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{p.body}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Benbrook project gallery</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Benbrook neighborhoods we work</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {neighborhoods.map((n) => <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>)}
+          </div>
+        </div>
+
+        <div>
+          <h2>Benbrook hardscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your Benbrook hardscape project?" />
+</Base>

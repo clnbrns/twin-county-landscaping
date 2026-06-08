@@ -1,0 +1,117 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'French Drain Installation in Weatherford, TX | Twin County Outdoor Services';
+const description = 'French drain installation in Weatherford, TX. Subsurface drainage, downspout extensions, regrading, and erosion control for Parker County properties. In-person quotes.';
+const path = '/french-drains-weatherford-tx';
+
+const services = [
+  { name: 'French drains', body: 'Perforated PVC in a gravel envelope wrapped with filter fabric. Sized to your soil, length, and discharge point — not a one-size kit.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water and downspout overflow before it has time to soak in.' },
+  { name: 'Downspout extensions', body: 'Buried PVC runs that carry roof water out past the foundation perimeter. The #1 fix for foundation moisture.' },
+  { name: 'Acreage drainage', body: 'Weatherford and Parker County acreage often needs longer runs, multiple zones, and engineered swales. We are set up for it.' },
+  { name: 'Regrading & swales', body: 'Reshape the yard so water flows where you want. Critical when the original builder grade is wrong — common on Parker County builds.' },
+  { name: 'Foundation drainage', body: 'Perimeter French drains to protect Weatherford foundations from clay soil swell-shrink and chronic perimeter moisture.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/french-drains/french-drain-gallery.webp', alt: 'French drain installation in Weatherford' },
+  { src: '/images/services/french-drains/img-1484-gallery.webp', alt: 'Drainage trench work' },
+  { src: '/images/services/leveling-grading/img-2457-gallery.webp', alt: 'Yard regrading and swale shaping' },
+];
+
+const symptoms = [
+  'Standing water in the yard 24+ hours after a rain',
+  'Soggy spots near downspouts',
+  'Water seeping into garage, crawlspace, or basement',
+  'Erosion gullies after heavy rain on sloped lots',
+  'Acreage pasture areas that stay boggy',
+  'Patio or paver settling on one side',
+  'Foundation cracks worsening seasonally',
+  'Standing water at the foundation perimeter',
+];
+
+const faqs = [
+  { q: 'How much does a French drain cost in Weatherford?', a: 'Most residential French drains in Weatherford run $30–$70 per linear foot installed. Larger acreage systems with multiple zones land in the $5,000–$15,000 range. Every quote is itemized with materials and labor broken out.' },
+  { q: 'Why does Parker County hold water so badly?', a: 'Most of Weatherford and Parker County sits on heavy clay soil with very poor natural infiltration. Once the clay saturates, water sits on the surface or flows toward the lowest point — usually the foundation or a low corner of the yard. Engineered drainage gives it a designed path out.' },
+  { q: 'Can you handle drainage on acreage properties?', a: 'Yes — large-lot and acreage drainage is one of our specialties. We have done multi-zone systems on Weatherford-area properties with runs over 300 linear feet, full regrading, and stone-armored swales.' },
+  { q: 'Do I need a permit?', a: 'Standard residential French drains and surface drains do not require a permit in Weatherford. Work that affects drainage easements, public right-of-way, or significant grade changes may. We handle the verification before any work starts.' },
+  { q: 'How long does installation take?', a: 'A typical 100–150 linear foot French drain takes 2–3 days. Larger systems with regrading can take a week. Lucas walks you through the timeline in the written proposal.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'French Drain Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Weatherford', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'French Drains Weatherford' }]} />
+
+  <section class="container-x py-12">
+    <h1>French Drain Installation in Weatherford, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      French drains, downspout extensions, regrading, and full acreage drainage systems for Weatherford and Parker County. Engineered for the heavy clay soil out here — not generic kit installs. In-person diagnosis, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/french-drain-gallery.webp" alt="French drain contractor in Weatherford, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Weatherford</h2>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => <li class="flex items-start gap-2"><span class="text-brand-green-dark font-bold mt-0.5">✓</span><span>{s}</span></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent drainage work</h2>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Weatherford drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Weatherford?" />
+</Base>

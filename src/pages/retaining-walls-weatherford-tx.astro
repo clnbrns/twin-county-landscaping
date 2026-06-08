@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Retaining Wall Contractors in Weatherford, TX | Twin County Outdoor Services';
+const description = 'Retaining wall installation in Weatherford, TX — segmental block, natural stone, and timber walls engineered for drainage and built to last decades. In-person quotes, written proposals.';
+const path = '/retaining-walls-weatherford-tx';
+
+const services = [
+  { name: 'Segmental block walls', body: 'Belgard, Pavestone, and Keystone segmental retaining wall systems. Engineered batter, geogrid where needed, full drainage envelope behind every course.' },
+  { name: 'Natural stone walls', body: 'Hand-set Oklahoma flagstone, sandstone, and limestone. Premium look for Weatherford properties where a builder wall would not fit.' },
+  { name: 'Terraced garden walls', body: 'Multi-level walls that turn sloped lots into usable garden tiers. Sized for plantings, integrated drainage, drip irrigation ready.' },
+  { name: 'Acreage and ranch walls', body: 'Long-run retaining walls for Parker County acreage — entry walls, pasture grade transitions, and driveway approaches built to take Texas weather and ranch traffic.' },
+  { name: 'Erosion-control walls', body: 'Walls placed at the toe of slopes and in drainage swales to lock in soil. Often paired with stone-armored swales and French drains.' },
+  { name: 'Foundation-protection walls', body: 'Short walls and grade transitions placed to keep water and soil moving away from the foundation perimeter — common need on Parker County slope lots.' },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp', alt: 'Terraced retaining wall installation' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2002-gallery.webp', alt: 'Multi-level garden retaining walls' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2005-gallery.webp', alt: 'Gray block retaining wall with garden tiers' },
+  { src: '/images/services/retaining-walls/img-1033-gallery.webp', alt: 'Retaining wall construction' },
+  { src: '/images/services/retaining-walls/img-1081-gallery.webp', alt: 'Block retaining wall detail' },
+  { src: '/images/services/retaining-walls/img-1429-gallery.webp', alt: 'Retaining wall project' },
+];
+
+const faqs = [
+  { q: 'How much does a retaining wall cost in Weatherford?', a: 'Most segmental block walls in Weatherford run $40–$80 per face-foot installed, depending on height, length, block choice, and drainage requirements. Natural stone runs $70–$150 per face-foot. Larger walls over 4 ft typically need engineering — built into the proposal.' },
+  { q: 'Do I need a permit for a retaining wall in Weatherford?', a: 'Walls under 4 ft generally do not require a permit in Weatherford or unincorporated Parker County. Walls 4 ft and above usually need an engineered drawing and a permit. We handle that paperwork as part of the project.' },
+  { q: 'What is your largest wall project?', a: 'We have built multi-tier wall systems totaling over 200 face-feet on Weatherford-area acreage — full drainage, geogrid, engineered batter. Whether you need a 12-foot garden wall or a multi-tier system, the same crew handles it.' },
+  { q: 'How long does a retaining wall take to build?', a: 'Small garden walls under 30 ft can be done in 1–2 days. Larger walls with drainage and excavation typically take 3–7 days. Multi-tier acreage systems can run 2–3 weeks.' },
+  { q: 'What happens if you do not put drainage behind a wall?', a: 'Water builds up behind the wall, freezes and thaws, and the hydrostatic pressure tips the wall forward. Every wall we build includes a gravel drainage envelope and a perforated drain line that exits the wall — non-negotiable.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Retaining Wall Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Weatherford', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+---
+<Base title={title} description={description} path={path} schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Retaining Walls Weatherford' }]} />
+
+  <section class="container-x py-12">
+    <h1>Retaining Wall Contractors in Weatherford, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Segmental block, natural stone, and timber retaining walls — engineered for drainage and built for the heavy clay and slope-prone lots across Weatherford and Parker County. Lucas walks every site in person.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp" alt="Retaining wall contractor in Weatherford, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Weatherford</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent retaining wall work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why drainage matters more than the block</h2>
+          <p class="mt-2 text-brand-muted">A retaining wall is just decorative until you account for water. Every wall we build in Weatherford gets:</p>
+          <ul class="mt-3 space-y-2 text-brand-muted">
+            <li>• Crushed-rock drainage envelope behind every course</li>
+            <li>• Perforated drain pipe at the base, daylighted to grade</li>
+            <li>• Filter fabric between native soil and the gravel</li>
+            <li>• Engineered batter (lean back) for stability</li>
+            <li>• Geogrid reinforcement on walls over 3 ft</li>
+            <li>• Proper backfill compacted in lifts — not dumped</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Weatherford retaining wall FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Need a retaining wall in Weatherford?" />
+</Base>

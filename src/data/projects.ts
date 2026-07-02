@@ -60,6 +60,30 @@ export const PROJECTS: Project[] = [
       '/images/projects/benbrook-flagstone-patio/img-2235-gallery.webp',
     ],
   },
+  {
+    slug: 'aledo-pool-walkway',
+    title: 'Aledo Pool Walkway - Concrete Pavers & Tajas Black Gravel',
+    city: 'Aledo',
+    services: ['rock-beds', 'hardscaping'],
+    hero: '/images/projects/aledo-pool-walkway/img-2441-gallery.webp',
+    summary:
+      'Concrete pavers and Tajas black gravel turned an inaccessible strip behind a pool into a clean, walkable space a couple can actually use.',
+    story: [
+      'A couple in Aledo called us about the area behind their pool. Getting back there meant stepping around the edge or cutting through the yard — there was no real path, just dead space that went unused. They wanted something that would let them walk behind the pool easily and actually enjoy that part of the yard.',
+      'We designed the walkway using two materials that work well together: concrete pavers for the walking surface and Tajas black gravel to fill the bed around them. The pavers give you a solid, defined path that holds up through North Texas summers. The black gravel keeps the space clean and low-maintenance — no mowing, no edging, just a sharp finished look that stays that way.',
+      'The Tajas gravel in particular is one of our go-to materials for jobs like this. It is a dark, angular crushed stone that drains well and compacts just enough to stay in place. Next to concrete pavers, the contrast reads as intentional — it looks like a designed space, not just rocks filling a gap.',
+      'The finished walkway gives the couple easy access around the entire pool perimeter and turns what was essentially wasted footage into usable outdoor space. Projects like this are straightforward in scope but make a real difference in how a backyard actually functions day to day.',
+    ],
+    beforeImage: '/images/projects/aledo-pool-walkway/img-2344-gallery.webp',
+    afterImage: '/images/projects/aledo-pool-walkway/img-2441-gallery.webp',
+    gallery: [
+      '/images/projects/aledo-pool-walkway/img-2441-gallery.webp',
+      '/images/projects/aledo-pool-walkway/img-2438-gallery.webp',
+      '/images/projects/aledo-pool-walkway/img-2442-gallery.webp',
+      '/images/projects/aledo-pool-walkway/img-2443-gallery.webp',
+      '/images/projects/aledo-pool-walkway/img-2344-gallery.webp',
+    ],
+  },
 ];
 
 export const PROJECT_BY_SLUG = Object.fromEntries(PROJECTS.map((p) => [p.slug, p]));

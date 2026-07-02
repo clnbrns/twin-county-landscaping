@@ -2,17 +2,8 @@
 export type ServiceImages = { card: string; gallery: string[] };
 export const SERVICE_IMAGES: Record<string, ServiceImages> = {
   "flower-beds": {
-    "card": "/images/services/flower-beds/img-1999-card.webp",
+    "card": "/images/services/flower-beds/favorite-card.webp",
     "gallery": [
-      "/images/services/flower-beds/img-1999-gallery.webp",
-      "/images/services/flower-beds/img-2002-gallery.webp",
-      "/images/services/flower-beds/img-2003-gallery.webp",
-      "/images/services/flower-beds/img-2005-gallery.webp",
-      "/images/services/flower-beds/img-2009-gallery.webp",
-      "/images/services/flower-beds/img-2010-gallery.webp",
-      "/images/services/flower-beds/img-2011-gallery.webp",
-      "/images/services/flower-beds/img-2012-gallery.webp",
-      "/images/services/flower-beds/img-2013-gallery.webp",
       "/images/services/flower-beds/favorite-gallery.webp",
       "/images/services/flower-beds/img-0267-gallery.webp",
       "/images/services/flower-beds/img-0268-gallery.webp",
@@ -98,6 +89,10 @@ export const SERVICE_IMAGES: Record<string, ServiceImages> = {
       "/images/services/hardscaping/img-1881-gallery.webp",
       "/images/services/hardscaping/img-1882-gallery.webp",
       "/images/services/hardscaping/img-1885-gallery.webp",
+      "/images/services/hardscaping/img-2230-gallery.webp",
+      "/images/services/hardscaping/img-2232-gallery.webp",
+      "/images/services/hardscaping/img-2234-gallery.webp",
+      "/images/services/hardscaping/img-2235-gallery.webp",
       "/images/services/hardscaping/img-9143-gallery.webp",
       "/images/services/hardscaping/img-9148-gallery.webp"
     ]
@@ -140,7 +135,12 @@ export const SERVICE_IMAGES: Record<string, ServiceImages> = {
       "/images/services/rock-beds/img-1524-gallery.webp",
       "/images/services/rock-beds/img-1759-gallery.webp",
       "/images/services/rock-beds/img-1768-gallery.webp",
-      "/images/services/rock-beds/img-1769-gallery.webp"
+      "/images/services/rock-beds/img-1769-gallery.webp",
+      "/images/services/rock-beds/img-2344-gallery.webp",
+      "/images/services/rock-beds/img-2438-gallery.webp",
+      "/images/services/rock-beds/img-2441-gallery.webp",
+      "/images/services/rock-beds/img-2442-gallery.webp",
+      "/images/services/rock-beds/img-2443-gallery.webp"
     ]
   },
   "sod-installation": {
@@ -235,7 +235,12 @@ export const SERVICE_IMAGES: Record<string, ServiceImages> = {
       "/images/services/rock-beds/img-1524-gallery.webp",
       "/images/services/rock-beds/img-1759-gallery.webp",
       "/images/services/rock-beds/img-1768-gallery.webp",
-      "/images/services/rock-beds/img-1769-gallery.webp"
+      "/images/services/rock-beds/img-1769-gallery.webp",
+      "/images/services/rock-beds/img-2344-gallery.webp",
+      "/images/services/rock-beds/img-2438-gallery.webp",
+      "/images/services/rock-beds/img-2441-gallery.webp",
+      "/images/services/rock-beds/img-2442-gallery.webp",
+      "/images/services/rock-beds/img-2443-gallery.webp"
     ]
   }
 };

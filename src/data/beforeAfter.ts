@@ -6,6 +6,13 @@ export type BeforeAfterPair = {
 };
 
 export const BEFORE_AFTER: Record<string, BeforeAfterPair[]> = {
+  'rock-beds': [
+    {
+      before: '/images/projects/aledo-pool-walkway/img-2344-gallery.webp',
+      after: '/images/projects/aledo-pool-walkway/img-2441-gallery.webp',
+      caption: 'Concrete pavers and Tajas black gravel — pool walkway in Aledo, TX.',
+    },
+  ],
   'sod-installation': [
     {
       before: '/images/before-after/sod-1-before.webp',

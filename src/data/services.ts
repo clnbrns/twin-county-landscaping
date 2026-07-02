@@ -28,12 +28,13 @@ export const SERVICES: Service[] = [
     name: 'Retaining Walls',
     short: 'Engineered walls that hold up — built to last decades.',
     intro:
-      'Retaining walls are our highest-volume service for a reason: we build them right. From small garden walls to multi-tier systems with staircases and integrated lighting, we engineer for drainage, frost, and load so your wall is still standing in 30 years.',
+      'Retaining walls are our highest-volume service across Western DFW for a reason: we build them right. We serve Aledo, Keller, Saginaw, North Richland Hills, Azle, Benbrook, Weatherford, and the surrounding area — and we engineer every wall for drainage, frost, and load so it is still standing in 30 years. From small garden walls to multi-tier systems with staircases and integrated lighting, no subcontractors, no random crews. Lucas is on every job.',
     included: [
       'Site evaluation and grade analysis',
       'Block, stone, or poured wall options',
-      'Proper base prep and drainage behind the wall',
+      'Proper compacted base and drainage behind the wall',
       'Multi-tier and integrated staircase capability',
+      'Serving Aledo, Keller, Saginaw, NRH, Azle, Benbrook, Weatherford & more',
       'Optional landscape lighting integration',
     ],
     related: ['hardscaping', 'french-drains', 'landscape-design'],
@@ -73,13 +74,14 @@ export const SERVICES: Service[] = [
     name: 'French Drains & Drainage',
     short: 'If your yard pools water, we fix it permanently.',
     intro:
-      'Standing water, soggy spots, or runoff that erodes your beds — we solve drainage problems for good. Proper French drain systems, surface drains, regrading, and downspout extensions, designed for your specific lot and the heavy clay soils common across Western DFW.',
+      'Standing water, soggy spots, or runoff that erodes your beds — we solve drainage problems for good. We install French drain systems, surface drains, catch basins, and downspout extensions across Aledo, Saginaw, Azle, Keller, Fort Worth, Weatherford, and the rest of Western DFW. Every system is designed for your specific lot and the heavy clay soils common here — clay holds water and the fix has to account for that, not just route it somewhere else.',
     included: [
       'Drainage assessment and grade analysis',
       'French drains with proper fabric and stone',
       'Catch basins and surface drains',
       'Downspout tie-ins and extensions',
       'Regrading where needed',
+      'Serving Aledo, Saginaw, Azle, Keller, Fort Worth, Weatherford & more',
     ],
     related: ['retaining-walls', 'hardscaping', 'sod-installation'],
   },

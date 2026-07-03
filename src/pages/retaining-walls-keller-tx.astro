@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Retaining Wall Contractors in Keller, TX | Twin County Outdoor Services';
+const description = 'Retaining wall contractors in Keller, TX. Engineered block, stone, and terraced walls for slopes, pools, and driveways across north Tarrant County. Free quote.';
+const path = '/retaining-walls-keller-tx';
+
+const services = [
+  { name: 'Segmental block walls', body: 'Belgard, Pavestone, and Keystone block systems engineered for Keller\'s larger lots and slopes. Proper batter, geogrid where needed, and a full drainage envelope behind every course.' },
+  { name: 'Natural stone walls', body: 'Hand-set Oklahoma flagstone, sandstone, and limestone walls. The preferred choice in Hidden Lakes, Marshall Ridge, and Keller Estates where aesthetics match the home investment.' },
+  { name: 'Terraced garden walls', body: 'Multi-level wall systems that convert Keller\'s sloped wooded lots into usable garden tiers. Integrated drainage, room for plantings, and drip irrigation ready.' },
+  { name: 'Pool area retaining walls', body: 'Walls that hold grade around pool decks and spa areas, keeping soil and mulch from washing into the water and protecting the pool shell from hydrostatic pressure.' },
+  { name: 'Driveway & entry walls', body: 'Grade-transition walls at driveway approaches, entry pillars, and front bed edges — common on Keller\'s larger corner lots and homes with significant grade changes from street to garage.' },
+  { name: 'Erosion control on wooded slopes', body: 'Walls and stone-armored swales placed at the toe of wooded slopes to stop soil loss. Often paired with French drains to manage the subsurface water that causes slope movement in the first place.' },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp', alt: 'Terraced retaining wall installation' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2002-gallery.webp', alt: 'Multi-level garden retaining walls' },
+  { src: '/images/services/retaining-walls/img-1033-gallery.webp', alt: 'Retaining wall construction detail' },
+  { src: '/images/services/retaining-walls/img-1081-gallery.webp', alt: 'Block retaining wall with drainage' },
+  { src: '/images/services/retaining-walls/img-1429-gallery.webp', alt: 'Completed retaining wall project' },
+  { src: '/images/services/retaining-walls/img-1768-gallery.webp', alt: 'Stone retaining wall landscaping' },
+];
+
+const drainagePoints = [
+  'Crushed-rock drainage envelope behind every course — not just the base',
+  'Perforated drain pipe at the footing, daylighted to a safe discharge point',
+  'Filter fabric between the native soil and gravel to prevent migration over time',
+  'Engineered batter (lean back) calculated for wall height and soil type',
+  'Geogrid reinforcement on walls over 3 ft to tie the mass into the hillside',
+  'Proper backfill compacted in lifts — not dumped and graded off',
+];
+
+const faqs = [
+  { q: 'How much does a retaining wall cost in Keller?', a: 'Most segmental block walls in Keller run $40–$80 per face-foot installed, depending on height, length, block selection, and drainage complexity. Natural stone walls typically run $70–$150 per face-foot. Walls over 4 ft generally require an engineered drawing — we include that in the proposal rather than billing it separately.' },
+  { q: 'Do I need a permit for a retaining wall in Keller?', a: 'Walls under 4 ft generally do not require a permit in Keller. Walls 4 ft and above typically require an engineered plan and a City of Keller permit. Work near drainage easements or HOA common areas may have additional requirements. We handle the permit verification and paperwork as part of every project.' },
+  { q: 'What neighborhoods in Keller do you work in?', a: 'We work throughout Keller and the surrounding north Tarrant County area — Hidden Lakes, Marshall Ridge, Bear Creek, Keller Estates, Bloomfield Estates, and unincorporated areas between Keller and Southlake. If you\'re in the 76248 or 76262 zip code, we\'re familiar with your terrain.' },
+  { q: 'What is the difference between a decorative wall and a structural retaining wall?', a: 'A decorative wall holds mulch and defines beds. A structural retaining wall holds back significant soil mass — often with hydrostatic water pressure behind it. Structural walls require proper drainage, engineered batter, geogrid on taller sections, and a compacted base. Keller\'s sloped lots almost always need structural walls, not decorative ones.' },
+  { q: 'How long does retaining wall installation take?', a: 'Small garden walls under 30 ft can be done in 1–2 days. Mid-size walls with excavation and drainage typically take 3–5 days. Multi-tier systems on Keller slope lots — with drainage, geogrid, and backfill — can take 1 to 2 weeks. Lucas walks through the timeline in the written proposal before any deposit is collected.' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Retaining Wall Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Keller', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[serviceSchema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Retaining Walls Keller' }]} />
+
+  <section class="container-x py-12">
+    <h1>Retaining Wall Contractors in Keller, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Segmental block, natural stone, and terraced retaining walls — engineered for drainage and built for the sloped wooded lots across Keller and north Tarrant County. Lucas walks every site in person before a proposal goes out.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp" alt="Retaining wall contractor in Keller, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Keller</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent retaining wall work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why drainage matters more than the block</h2>
+          <p class="mt-2 text-brand-muted">A retaining wall is just decorative until you account for water. Keller's clay-heavy soil and wooded slopes mean hydrostatic pressure builds up fast behind any wall that isn't properly drained. Every wall we build gets:</p>
+          <ul class="mt-3 space-y-2 text-brand-muted">
+            {drainagePoints.map((p) => <li class="flex items-start gap-2"><span class="text-brand-green-dark font-bold mt-0.5">•</span><span>{p}</span></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>Keller retaining wall FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Need a retaining wall in Keller?" />
+</Base>

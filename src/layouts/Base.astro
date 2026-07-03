@@ -5,13 +5,14 @@ import Footer from '../components/Footer.astro';
 import MobileContactBar from '../components/MobileContactBar.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { SITE } from '../data/site';
+import { AREAS } from '../data/areas';
 
 export interface Props {
   title: string;
   description: string;
   path?: string;
   image?: string;
-  schema?: Record<string, unknown>;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
 }
 
@@ -28,10 +29,7 @@ const localBusinessSchema = {
     addressRegion: SITE.state,
     addressCountry: 'US',
   },
-  areaServed: ['Aledo', 'Benbrook', 'Weatherford', 'Fort Worth', 'Brock'].map((city) => ({
-    '@type': 'City',
-    name: city,
-  })),
+  areaServed: AREAS.map((a) => ({ '@type': 'City', name: a.city })),
   priceRange: '$$',
 };
 ---
@@ -49,7 +47,7 @@ const localBusinessSchema = {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {SITE.googleSiteVerification && <meta name="google-site-verification" content={SITE.googleSiteVerification} />}
-    <SEOHead title={title} description={description} path={path} image={image} schema={schema ?? localBusinessSchema} />
+    <SEOHead title={title} description={description} path={path} image={image} schema={[localBusinessSchema, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])]} />
     {SITE.gaMeasurementId && (
       <>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaMeasurementId}`}></script>

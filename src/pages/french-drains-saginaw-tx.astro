@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'French Drain Installation in Saginaw, TX | Twin County Outdoor Services';
+const description = 'French drain installation in Saginaw, TX. Fix standing water, downspout overflow, and foundation drainage on Tarrant County lots. In-person diagnosis, free quote.';
+const path = '/french-drains-saginaw-tx';
+
+const services = [
+  { name: 'French drains', body: 'Perforated PVC pipe in a gravel envelope, wrapped with filter fabric and sized to your lot, soil type, and discharge point. Not a home-improvement kit — a designed system.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water at low spots and downspout overflow before it has time to saturate the soil or undercut a foundation.' },
+  { name: 'Downspout extensions', body: 'Buried PVC runs that carry roof water out past the foundation perimeter to a safe discharge point — the single most cost-effective fix for foundation moisture on Saginaw\'s smaller lots.' },
+  { name: 'Neighbor runoff solutions', body: 'Saginaw\'s dense neighborhoods mean your drainage problem is often coming from next door. We design intercept drains that capture adjacent lot runoff before it reaches your yard.' },
+  { name: 'Regrading & swales', body: 'Reshape your yard so water flows where you want it. Critical on older Saginaw builds where the original builder grade has settled or was never right to begin with.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/french-drains/french-drain-gallery.webp', alt: 'French drain installation in Saginaw, TX' },
+  { src: '/images/services/french-drains/img-1484-gallery.webp', alt: 'Drainage trench and gravel envelope work' },
+  { src: '/images/services/leveling-grading/img-2457-gallery.webp', alt: 'Yard regrading and swale shaping' },
+];
+
+const symptoms = [
+  'Standing water in the yard 24+ hours after a rain',
+  'Soggy spots near downspouts or along the foundation',
+  'Water seeping into the garage or along interior walls',
+  'Erosion gullies forming in the lawn after heavy rain',
+  'Patio, driveway, or sidewalk settling or cracking on one side',
+  'Foundation cracks that worsen after wet seasons',
+  'Neighbor\'s runoff draining onto your property',
+  'Perpetually wet low spots in the backyard that kill grass',
+];
+
+const faqs = [
+  { q: 'How much does a French drain cost in Saginaw?', a: 'Most residential French drains in Saginaw run $30–$70 per linear foot installed, depending on depth, pipe size, soil conditions, and discharge point. A typical backyard system on a standard Saginaw lot comes in between $2,500 and $6,000. Every quote is itemized with materials and labor broken out so you know exactly what you\'re paying for.' },
+  { q: 'Why does Tarrant County clay soil cause so many drainage problems?', a: 'Saginaw sits on the same heavy expansive clay that covers most of Tarrant County. When that clay gets saturated it can absorb almost no additional water, so everything sheets toward the lowest point — usually a foundation, a fence line, or your neighbor\'s yard. Engineered drainage gives the water a designed path out rather than letting it find its own way.' },
+  { q: 'My neighbor\'s yard drains onto mine — can you fix that?', a: 'Yes. Intercept French drains placed along the property line or at the high-water mark can capture adjacent lot runoff before it reaches your lawn or foundation. We see this constantly in established Saginaw neighborhoods like Heritage and Lake Country Estates where lots are smaller and grades weren\'t always coordinated between builders.' },
+  { q: 'Do I need a permit for a French drain in Saginaw?', a: 'Standard residential French drains and surface drains generally do not require a permit in Saginaw. Work that affects drainage easements, public right-of-way, or significant regrading may require city review. We verify permit requirements before any work begins so there are no surprises.' },
+  { q: 'How long does installation take on a typical Saginaw lot?', a: 'Most Saginaw residential jobs — 75 to 150 linear feet with a single discharge point — take 1 to 3 days. Systems with multiple zones, catch basins, or significant regrading take 3 to 5 days. Lucas walks you through the timeline in the written proposal before any deposit is collected.' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'French Drain Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Saginaw', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[serviceSchema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'French Drains Saginaw' }]} />
+
+  <section class="container-x py-12">
+    <h1>French Drain Installation in Saginaw, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      French drains, downspout extensions, surface drains, and regrading for Saginaw homeowners dealing with standing water, foundation moisture, and neighbor runoff. Engineered for Tarrant County clay — not a one-size kit install. In-person diagnosis, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/french-drain-gallery.webp" alt="French drain contractor in Saginaw, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Saginaw</h2>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => <li class="flex items-start gap-2"><span class="text-brand-green-dark font-bold mt-0.5">✓</span><span>{s}</span></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent drainage work</h2>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Saginaw drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Saginaw?" />
+</Base>

@@ -45,8 +45,17 @@ const schema = {
   areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
   description,
 };
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
-<Base title={title} description={description} path={path} schema={schema}>
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
   <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Sod Installation Aledo' }]} />
 
   <section class="container-x py-12">

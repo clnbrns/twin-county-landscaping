@@ -6,10 +6,11 @@ export interface Props {
   description: string;
   path?: string;
   image?: string;
-  schema?: Record<string, unknown>;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const { title, description, path = '', image = '/images/og-default.svg', schema } = Astro.props;
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 const canonical = new URL(path, SITE.url).toString();
 const ogImage = new URL(image, SITE.url).toString();
 ---
@@ -30,4 +31,4 @@ const ogImage = new URL(image, SITE.url).toString();
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+{schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}

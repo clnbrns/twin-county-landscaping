@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { BLOG_POSTS, BLOG_BY_SLUG } from '../../data/blog';
+import type { BlogPost } from '../../data/blog';
+
+export async function getStaticPaths() {
+  return BLOG_POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  datePublished: post.publishDate,
+  author: { '@type': 'Person', name: 'Lucas' },
+  publisher: { '@type': 'Organization', name: 'Twin County Outdoor Services' },
+};
+
+const faqSchema = post.faqs
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: post.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a,
+        },
+      })),
+    }
+  : null;
+
+const schema = post.faqs && faqSchema ? [articleSchema, faqSchema] : articleSchema;
+---
+
+<Base
+  title={`${post.title} | Twin County Outdoor Services`}
+  description={post.description}
+  path={`/blog/${post.slug}`}
+  schema={schema}
+>
+  <Breadcrumb
+    items={[
+      { label: 'Home', href: '/' },
+      { label: 'Blog', href: '/blog' },
+      { label: post.title },
+    ]}
+  />
+
+  <article class="container-x py-12">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-semibold uppercase tracking-wide text-brand-green-dark bg-brand-green-tint px-2 py-0.5 rounded">
+          {post.category}
+        </span>
+      </div>
+
+      <h1 class="text-brand-ink">{post.title}</h1>
+
+      <div class="mt-4 flex items-center gap-3 text-sm text-brand-muted">
+        <time datetime={post.publishDate}>{formatDate(post.publishDate)}</time>
+        <span aria-hidden="true">&middot;</span>
+        <span>{post.readTime}</span>
+      </div>
+
+      <div class="mt-8 space-y-6">
+        {post.body.map((paragraph) => (
+          <p class="text-lg text-brand-ink leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+
+      {post.faqs && post.faqs.length > 0 && (
+        <div class="mt-10">
+          <h2 class="text-brand-ink mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            {post.faqs.map((faq) => (
+              <div class="border-l-4 border-brand-green-dark pl-5">
+                <h3 class="text-brand-ink font-semibold mb-2">{faq.q}</h3>
+                <p class="text-brand-muted">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <CTABanner title="Want a free quote on your project?" />
+</Base>

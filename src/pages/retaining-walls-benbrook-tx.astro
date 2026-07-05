@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Retaining Wall Contractors in Benbrook, TX | Twin County Outdoor Services';
+const description = 'Retaining wall installation in Benbrook, TX. Block, stone, and terraced walls for slope lots and garden terracing. Drainage-engineered on every job. Free in-person quote.';
+const path = '/retaining-walls-benbrook-tx';
+
+const services = [
+  { name: 'Segmental block walls', body: 'Belgard, Pavestone, and Keystone segmental systems with engineered batter, geogrid reinforcement, and a full drainage envelope behind every course.' },
+  { name: 'Natural stone walls', body: 'Hand-set Oklahoma flagstone, limestone, and sandstone. A natural fit for older Benbrook neighborhoods with established trees and mature landscaping.' },
+  { name: 'Terraced garden walls', body: 'Multi-level systems that convert sloped Benbrook backyards into level, usable garden tiers. We built the terraced walls project in Benbrook — this is our home turf.' },
+  { name: 'Erosion-control walls', body: 'Walls at slope bases and in swale lines to lock soil in place. Often combined with stone-armored channels and French drains to manage runoff.' },
+  { name: 'Foundation-protection walls', body: 'Short walls and grade transitions that keep water and soil moving away from the foundation perimeter — critical on Benbrook lots with any slope toward the house.' },
+  { name: 'Steps & integrated staircases', body: 'Steps integrated into the wall system for grade transitions between patio levels. Flagstone treads, block risers, or full stone-stair builds.' },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp', alt: 'Benbrook terraced retaining walls' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2002-gallery.webp', alt: 'Multi-level retaining walls Benbrook' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2003-gallery.webp', alt: 'Garden retaining wall tiers' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2005-gallery.webp', alt: 'Block retaining wall Benbrook TX' },
+  { src: '/images/services/retaining-walls/img-1033-gallery.webp', alt: 'Retaining wall construction' },
+  { src: '/images/services/retaining-walls/img-1085-gallery.webp', alt: 'Retaining wall detail' },
+];
+
+const faqs = [
+  {
+    q: 'How much does a retaining wall cost in Benbrook?',
+    a: 'Segmental block walls in Benbrook run $40-80 per face-foot installed. Natural stone runs $70-150 per face-foot. Price depends on height, length, block selection, and drainage requirements. Every proposal is itemized with materials and labor broken out.',
+  },
+  {
+    q: 'Do I need a permit for a retaining wall in Benbrook?',
+    a: 'Walls under 4 ft generally do not require a permit in Benbrook. Walls 4 ft and taller typically need an engineered drawing and a permit from the City of Benbrook. We handle the permit paperwork as part of the project when required.',
+  },
+  {
+    q: 'We have an older Benbrook home with a steep backyard slope — can you fix it?',
+    a: 'Yes — sloped Benbrook backyards are exactly what we build for. We have built terraced wall systems on Benbrook properties that converted unusable hillsides into productive garden tiers. Lucas walks every site before proposing anything.',
+  },
+  {
+    q: 'Why did my neighbor\'s retaining wall fail?',
+    a: 'Usually one of three things: no drainage envelope behind the wall, no geogrid reinforcement on a tall wall, or improper backfill compaction. We engineer all three on every job — the extra work is what separates a 30-year wall from one that tips over in five.',
+  },
+  {
+    q: 'How long does retaining wall installation take in Benbrook?',
+    a: 'Small garden walls under 30 ft take 1-2 days. Larger walls with excavation take 3-7 days. Terraced multi-tier systems can run 1-2 weeks. Lucas walks through the full schedule in the proposal.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Retaining Wall Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Benbrook', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Retaining Walls Benbrook' }]} />
+
+  <section class="container-x py-12">
+    <h1>Retaining Wall Contractors in Benbrook, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Block, stone, and terraced retaining walls for Benbrook and southwest Fort Worth. The terraced garden wall project in Benbrook is ours — this is home turf. Lucas walks every site in person and writes a detailed proposal before anything is scheduled.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp" alt="Retaining wall contractor in Benbrook, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Benbrook</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent Benbrook retaining wall work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Benbrook retaining wall FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Benbrook, Aledo, Fort Worth, Weatherford, and surrounding western Tarrant County.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Need a retaining wall in Benbrook?" />
+</Base>

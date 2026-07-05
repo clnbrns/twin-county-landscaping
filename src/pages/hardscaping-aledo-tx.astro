@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Hardscape Contractors in Aledo, TX | Twin County Outdoor Services';
+const description = 'Hardscape contractors in Aledo, TX. Paver patios, flagstone, walkways, and outdoor living surfaces — properly built for Aledo neighborhoods like Walsh, Morningstar, and Parks of Aledo. Free quote.';
+const path = '/hardscaping-aledo-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard, Pavestone, and Acker-Stone segmental pavers on a properly compacted base. A staple in Walsh Ranch, Morningstar, and Silverado — and the right investment for any Aledo backyard.' },
+  { name: 'Flagstone patios', body: 'SilverMist, Oklahoma, and Texas-quarried flagstone with mortared or polymeric-sand joints. Premium look for established Aledo lots where pavers would feel too uniform.' },
+  { name: 'Side-yard walkways', body: 'The most popular Aledo hardscape request — a clean paver path from driveway to backyard gate that ends the mud-and-dead-grass problem between houses for good.' },
+  { name: 'Concrete pads & surfaces', body: 'Poured concrete for utility surfaces, tool pads, and areas where the budget or load requires it. Properly formed, reinforced, and finished.' },
+  { name: 'Pool decks & coping', body: 'Pool surrounds and coping on a compacted base with expansion gaps. Cool-tone pavers for the Texas summer heat.' },
+  { name: 'Steps & outdoor living', body: 'Integrated stone steps, pergola bases, outdoor kitchen pads, and fire pit areas — all part of the same project scope, engineered together.' },
+];
+
+const whyItFails = [
+  { title: 'Thin base', body: 'Budget installs use 2-3 inches of base. We use 6-8 inches of compacted crushed stone, screeded flat in lifts — the only way to get no settling on Aledo clay.' },
+  { title: 'No edge restraint', body: 'Without a concrete or steel edge holding the field, outer pavers shift and gap within a year. Non-negotiable on every job we do in Aledo.' },
+  { title: 'No drainage', body: 'We slope every surface to drain and add subsurface drainage where the Aledo grade demands it — so water never pools on or under the hardscape.' },
+  { title: 'Wrong joint material', body: 'Standard sand washes out and becomes a weed and fire-ant bed. We use polymeric joint sand that locks in place and stays there.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does a paver patio cost in Aledo?',
+    a: 'Most paver patios in Aledo neighborhoods like Walsh, Morningstar, and Parks of Aledo run $15-30 per square foot installed. Flagstone runs $25-45 per square foot. Full backyard patio projects typically land in the $8,000-$25,000 range depending on size, material, and scope.',
+  },
+  {
+    q: 'What is the most popular hardscape project in Aledo right now?',
+    a: 'Side-yard walkways. In newer Aledo subdivisions the gap between houses is often narrow — enough for a path but not enough to maintain as lawn. A paver walkway from the driveway to the back gate eliminates the mud, dead grass, and erosion problem permanently. We do a lot of these in Walsh and Morningstar.',
+  },
+  {
+    q: 'Do I need a permit for a patio in Aledo?',
+    a: 'Residential patios and walkways in Aledo generally do not require a permit. Covered structures (pergolas, patio covers) may require one from the City of Aledo or Parker County. We verify before any work starts.',
+  },
+  {
+    q: 'How do pavers hold up on Aledo clay soil?',
+    a: 'Pavers handle clay movement much better than poured concrete because they flex slightly as the base expands and contracts. The key is the base prep — 6-8 inches of compacted crushed stone is non-negotiable. Anything less and you will be releveling sections within a few years.',
+  },
+  {
+    q: 'How long does a hardscape project take?',
+    a: 'Side-yard walkways can be done in 1-2 days. A 300-500 sq ft patio takes 2-4 days. Larger patios with steps, drainage, and outdoor living elements can take a full week. Lucas walks through the full timeline in the written proposal.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Hardscaping Aledo' }]} />
+
+  <section class="container-x py-12">
+    <h1>Hardscape Contractors in Aledo, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone, side-yard walkways, and outdoor living surfaces for Walsh Ranch, Morningstar, Parks of Aledo, and every neighborhood in between. Lucas was raised in Aledo and is on every job — no subcontractors, no guessing on proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/aledo-pool-walkway/img-2441-gallery.webp" alt="Hardscape contractor in Aledo, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Aledo</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why most hardscape fails (and why ours doesn't)</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {whyItFails.map((w) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{w.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent Aledo hardscape work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {[
+              { src: '/images/projects/aledo-pool-walkway/img-2441-gallery.webp', alt: 'Aledo pool walkway pavers' },
+              { src: '/images/projects/aledo-pool-walkway/img-2438-gallery.webp', alt: 'Concrete pavers and black gravel' },
+              { src: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp', alt: 'Flagstone patio near Aledo' },
+              { src: '/images/services/hardscaping/img-0040-gallery.webp', alt: 'Paver patio installation' },
+              { src: '/images/services/hardscaping/img-1158-gallery.webp', alt: 'Paver walkway' },
+              { src: '/images/services/hardscaping/img-1164-gallery.webp', alt: 'Hardscape project detail' },
+            ].map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Aledo hardscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Aledo, Walsh Ranch, Morningstar, Parks of Aledo, Silverado, Bella Ranch, and surrounding western Parker County.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a hardscape project in Aledo?" />
+</Base>

@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Paver Patio Contractors in Benbrook, TX | Twin County Outdoor Services';
+const description = 'Paver patio installation in Benbrook, TX. Flagstone and paver patios on a properly compacted base — built to last on southwest Tarrant County clay. Free in-person quote.';
+const path = '/paver-patios-benbrook-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard, Pavestone, and Acker-Stone segmental pavers on 6-8 inches of compacted base with edge restraint and polymeric joint sand.' },
+  { name: 'Flagstone patios', body: 'SilverMist, Oklahoma, and Texas flagstone — a natural fit for established Benbrook homes where a uniform paver look would feel out of place.' },
+  { name: 'Walkways & side paths', body: 'Paver and flagstone paths with the same base prep as the patio. The right solution for Benbrook side yards that turn to mud every rain.' },
+  { name: 'Steps & grade transitions', body: 'Integrated stone steps for the sloped lots common throughout Benbrook. We built the flagstone stair system in Benbrook — we know this terrain.' },
+  { name: 'Patio extensions & repairs', body: 'Extend an existing patio or reset sections that have settled. We match the existing material where possible and re-prep the base so it does not settle again.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does a paver patio cost in Benbrook?',
+    a: 'Most paver patios in Benbrook run $15-30 per square foot installed. Flagstone runs $25-45 per square foot. A standard backyard patio project typically lands in the $8,000-$22,000 range depending on size, material choice, and whether steps or drainage are included.',
+  },
+  {
+    q: 'Our backyard slopes — can you still install a patio?',
+    a: 'Yes — sloped Benbrook lots are something we handle regularly, including with the terraced and stepped patio systems we have already built in the neighborhood. Grade transitions are built into the project scope, not added as a surprise.',
+  },
+  {
+    q: 'How do pavers hold up on Benbrook clay soil?',
+    a: 'Properly installed pavers handle clay movement much better than poured concrete because they flex slightly with the base. The key is 6-8 inches of compacted crushed stone as a base — not 2-3 inches of sand over bare dirt, which is what budget installs use.',
+  },
+  {
+    q: 'Can you match an existing patio that needs extending?',
+    a: 'Often yes, depending on the paver manufacturer and product line. Lucas will assess the existing material at the site visit and tell you honestly whether a match is achievable or whether a contrast approach is the better-looking option.',
+  },
+  {
+    q: 'How long does patio installation take?',
+    a: 'A 300-500 sq ft patio takes 2-4 days. Flagstone takes longer due to cut-and-fit work. Patios with steps, drainage, or grade transitions can take a week. The written proposal includes a full project timeline.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Paver Patio Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Benbrook', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Paver Patios Benbrook' }]} />
+
+  <section class="container-x py-12">
+    <h1>Paver Patio Contractors in Benbrook, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone patios, walkways, and steps for Benbrook and southwest Fort Worth. The flagstone patio and steps project in Benbrook is ours — we know the terrain, the slopes, and what works on southwest Tarrant County clay.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp" alt="Paver patio contractor in Benbrook, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we install in Benbrook</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent Benbrook patio work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {[
+              { src: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp', alt: 'Benbrook flagstone patio' },
+              { src: '/images/projects/benbrook-flagstone-patio/img-2232-gallery.webp', alt: 'Flagstone with gray mortar joints' },
+              { src: '/images/projects/benbrook-flagstone-patio/img-2234-gallery.webp', alt: 'Patio with integrated steps' },
+              { src: '/images/projects/benbrook-flagstone-patio/img-2235-gallery.webp', alt: 'Benbrook patio detail' },
+              { src: '/images/services/hardscaping/img-0040-gallery.webp', alt: 'Paver patio installation' },
+              { src: '/images/services/hardscaping/img-1158-gallery.webp', alt: 'Paver walkway' },
+            ].map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Benbrook paver patio FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Benbrook, Aledo, Fort Worth, Weatherford, and surrounding southwest Tarrant County.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a patio in Benbrook?" />
+</Base>

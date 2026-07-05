@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'French Drain Installation in Azle, TX | Twin County Outdoor Services';
+const description = 'French drain installation in Azle, TX. Fix standing water, foundation moisture, and soggy yards on western Tarrant County lots. Free in-person diagnosis and quote.';
+const path = '/french-drains-azle-tx';
+
+const services = [
+  { name: 'French drains', body: 'Perforated PVC in a crushed-rock envelope wrapped with filter fabric. Sized to your lot, soil, and discharge point — designed for Texas clay, not a kit install.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water and downspout overflow before it sits against a slab or floods a patio.' },
+  { name: 'Downspout extensions', body: 'Buried PVC runs that carry roof water out past the foundation perimeter — the most common fix for chronic foundation moisture on Azle lots.' },
+  { name: 'Regrading & swales', body: 'Reshape the grade so water flows the right direction. Critical when original grading points toward the house or creates low spots that never drain.' },
+  { name: 'Acreage drainage', body: 'Larger-scale drainage on Azle acreage lots — interceptor drains, swales, and discharge routing for properties where surface water needs to go somewhere specific.' },
+];
+
+const symptoms = [
+  'Standing water 24+ hours after rain',
+  'Soggy low spots near downspouts or fence lines',
+  'Water sitting against the foundation or slab',
+  'Mud on driveway or patio after every storm',
+  'Erosion channels forming in bare soil areas',
+  'Musty smell inside garage or near exterior walls',
+  'Sod or lawn that never fully dries on one side',
+  'Neighbor runoff crossing onto your property',
+];
+
+const faqs = [
+  {
+    q: 'How much does a French drain cost in Azle?',
+    a: 'Most residential French drains in Azle run $30-70 per linear foot installed, depending on depth, soil conditions, and discharge routing. Full systems typically fall in the $2,500-$7,000 range. Acreage drainage systems vary more widely. Every quote is itemized.',
+  },
+  {
+    q: 'Does Azle clay soil cause drainage problems?',
+    a: 'Yes — the expansive clay across western Tarrant County absorbs water slowly and becomes effectively impermeable when saturated. Water moves laterally across the surface rather than soaking in, which means any low point collects standing water after heavy rain. French drains give it a designed path out.',
+  },
+  {
+    q: 'Do I need a permit for drainage work in Azle?',
+    a: 'Standard residential French drains and surface drains in Azle generally do not require a permit. Work that affects drainage easements, right-of-way, or significant grade changes may need review. We verify before starting any work.',
+  },
+  {
+    q: 'Can you fix an Azle acreage property with poor drainage?',
+    a: 'Yes. Larger lots need larger drainage solutions — interceptor drains along slope breaks, swales to route water to a discharge point, and sometimes dry creek beds to handle high-volume flow. Lucas walks every site in person to design the right system for the specific property.',
+  },
+  {
+    q: 'How long does French drain installation take in Azle?',
+    a: 'A standard 80-120 linear foot residential system takes 2-3 days. Larger acreage systems can take a week or more depending on scope. The written proposal includes a full schedule.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'French Drain Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Azle', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'French Drains Azle' }]} />
+
+  <section class="container-x py-12">
+    <h1>French Drain Installation in Azle, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      French drains, catch basins, downspout extensions, and regrading for Azle and western Tarrant County. We fix standing water for good — designed for Texas clay soil, not generic kit installs. In-person site diagnosis, itemized written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/french-drain-gallery.webp" alt="French drain contractor in Azle, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Azle</h2>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-green-dark font-bold mt-0.5">✓</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Azle drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Azle, Aledo, Weatherford, Fort Worth, Springtown, and surrounding western Tarrant and Parker County communities.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Azle?" />
+</Base>

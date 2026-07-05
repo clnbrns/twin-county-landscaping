@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'French Drain Installation in Benbrook, TX | Twin County Outdoor Services';
+const description = 'French drain installation in Benbrook, TX. Fix standing water, foundation drainage, and soggy yards on southwest Tarrant County lots. Free in-person quote.';
+const path = '/french-drains-benbrook-tx';
+
+const services = [
+  { name: 'French drains', body: 'Perforated PVC in a crushed-rock envelope wrapped with filter fabric. Sized to your Benbrook lot, soil conditions, and discharge options.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water before it reaches a patio edge or sits against the foundation.' },
+  { name: 'Downspout extensions', body: 'Buried PVC lines that carry roof water out past the foundation slab. The most common fix for foundation moisture on older Benbrook lots.' },
+  { name: 'Regrading & swales', body: 'Reshape the grade so water flows away from the house. Critical on older Benbrook properties where soil settlement has reversed the original drainage slope.' },
+  { name: 'Combined drainage systems', body: 'Many Benbrook lots need a surface drain, French drain, and downspout extension working together. We design the full system and install it as one coordinated project.' },
+];
+
+const symptoms = [
+  'Standing water 24+ hours after rain',
+  'Soggy corner of the yard that never fully dries',
+  'Water pooling against the foundation or in the garage',
+  'Patio edge or pavers settling on the low side',
+  'Downspouts dumping directly into foundation beds',
+  'Erosion channels forming along the fence line',
+  'Musty smell in a garage or crawlspace',
+  'Lawn scalping during dry spells — compacted wet soil',
+];
+
+const faqs = [
+  {
+    q: 'How much does a French drain cost in Benbrook?',
+    a: 'Most Benbrook residential French drains run $30-70 per linear foot installed. Full systems typically land in the $2,500-$7,000 range depending on length, depth, soil conditions, and discharge routing. Every quote is itemized with materials and labor broken out separately.',
+  },
+  {
+    q: 'My Benbrook yard is flat — does it still need a French drain?',
+    a: 'Flat yards often have drainage problems that are worse than sloped ones, because there is no natural grade to move water away from the house. We can install a French drain with a slight engineered fall to a discharge point even on nearly level lots — the key is proper design for the site.',
+  },
+  {
+    q: 'How does Benbrook clay affect drainage?',
+    a: 'The heavy clay in southwest Tarrant County saturates quickly and becomes nearly impermeable when wet. Surface water has nowhere to go except pool at the lowest point. A French drain intercepts that water before it reaches the foundation or collects in the yard.',
+  },
+  {
+    q: 'Do I need a permit for drainage work in Benbrook?',
+    a: 'Standard residential French drains and surface drains in Benbrook typically do not require a permit. Work that affects drainage easements or public right-of-way may need review. We verify before starting.',
+  },
+  {
+    q: 'How long does installation take?',
+    a: 'A typical 80-120 linear foot system on a Benbrook residential lot takes 2-3 days. Combined systems with regrading or multiple drain types can take 3-5 days. Lucas walks through the full timeline in the written proposal.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'French Drain Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Benbrook', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'French Drains Benbrook' }]} />
+
+  <section class="container-x py-12">
+    <h1>French Drain Installation in Benbrook, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      French drains, catch basins, downspout extensions, and regrading for Benbrook and southwest Tarrant County. We fix standing water and soggy yards permanently — engineered for Benbrook's heavy clay soil, not generic kit installs. In-person diagnosis, written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/french-drain-gallery.webp" alt="French drain contractor in Benbrook, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Benbrook</h2>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-green-dark font-bold mt-0.5">✓</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Benbrook drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Benbrook, Aledo, Fort Worth, Weatherford, and surrounding southwest Tarrant County communities.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Benbrook?" />
+</Base>

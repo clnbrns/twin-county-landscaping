@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Paver Patio Contractors in Weatherford, TX | Twin County Outdoor Services';
+const description = 'Paver patio installation in Weatherford, TX. Belgard, Pavestone, and flagstone patios on a properly compacted base — engineered for Parker County clay soil. Free in-person quote.';
+const path = '/paver-patios-weatherford-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard, Pavestone, and Acker-Stone segmental pavers on 6-8 inches of compacted base. Patterns, borders, and banding — built to drain and stay flat through Parker County freeze-thaw cycles.' },
+  { name: 'Flagstone patios', body: 'SilverMist, Oklahoma, and Texas-quarried flagstone with mortared or polymeric-sand joints. The right look for Weatherford acreage and established properties.' },
+  { name: 'Walkways & paths', body: 'Driveway-to-door and side-yard paver paths with the same base prep and edge restraint as the patio itself.' },
+  { name: 'Steps & elevation changes', body: 'Stone steps and short wall courses for sloped Weatherford lots. Integrated into the patio system — not bolted on as an afterthought.' },
+  { name: 'Outdoor living surfaces', body: 'Covered patio slabs, pergola bases, and outdoor kitchen pads — all on an engineered base that handles the load.' },
+];
+
+const whyItFails = [
+  { title: 'Skipped base prep', body: 'Cheap installs go straight onto dirt or 2 inches of base. Ours go on 6-8 inches of compacted crushed stone, screeded flat in lifts.' },
+  { title: 'No edge restraint', body: 'Without concrete or steel edge holding the field, outer rows shift and gap within a year. Non-negotiable on every job.' },
+  { title: 'No drainage', body: 'Water trapped under a patio softens the base and the whole thing settles unevenly. We slope every patio to drain and add subsurface drainage where the grade demands it.' },
+  { title: 'Wrong sand', body: 'Standard masonry sand washes out. We use polymeric joint sand that locks the pavers and resists weeds and ants.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does a paver patio cost in Weatherford?',
+    a: 'Most paver patios in Weatherford run $15-30 per square foot installed, depending on paver selection, pattern, base depth, and steps. Flagstone runs $25-45 per square foot. Most full Weatherford patio projects land in the $8,000-$25,000 range.',
+  },
+  {
+    q: 'Why do pavers work better than poured concrete in Parker County?',
+    a: 'Parker County clay expands and contracts significantly with moisture changes. Poured concrete tries to move as a single slab and cracks. Pavers flex slightly with the base and individual pavers can be reset if settling occurs — without jackhammering the whole surface.',
+  },
+  {
+    q: 'Do you do flagstone patios for Weatherford properties?',
+    a: 'Yes. Flagstone is a natural fit for Weatherford acreage and older properties where a paver patio would look too uniform. SilverMist, Oklahoma flagstone, and Texas limestone are all options we install. Lucas walks you through both at the in-person quote.',
+  },
+  {
+    q: 'How long will a properly installed patio last?',
+    a: 'A patio built on 6-8 inches of compacted base with edge restraint and polymeric joint sand should perform 20+ years with no settling. The pavers themselves last essentially forever — what fails on cheap installs is always the base prep.',
+  },
+  {
+    q: 'How long does installation take?',
+    a: 'A 300-500 sq ft patio takes 2-4 days. Larger patios with steps, drainage, and walls can take a week. Flagstone takes longer than pavers due to the cut-and-fit work. Full timeline is in the written proposal.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Paver Patio Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Weatherford', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Paver Patios Weatherford' }]} />
+
+  <section class="container-x py-12">
+    <h1>Paver Patio Contractors in Weatherford, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone patios, walkways, and outdoor living surfaces — installed across Weatherford and Parker County with the base prep and drainage that make a patio actually last. Lucas walks every site in person before writing a proposal.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp" alt="Paver patio contractor in Weatherford, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we install in Weatherford</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why most patios fail (and why ours don't)</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {whyItFails.map((w) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{w.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent patio work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {[
+              { src: '/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp', alt: 'Flagstone patio with steps' },
+              { src: '/images/projects/benbrook-flagstone-patio/img-2232-gallery.webp', alt: 'SilverMist flagstone joints' },
+              { src: '/images/projects/benbrook-flagstone-patio/img-2234-gallery.webp', alt: 'Flagstone patio detail' },
+              { src: '/images/services/hardscaping/img-0040-gallery.webp', alt: 'Paver patio installation' },
+              { src: '/images/services/hardscaping/img-1158-gallery.webp', alt: 'Paver walkway' },
+              { src: '/images/services/hardscaping/img-1160-gallery.webp', alt: 'Hardscape project' },
+            ].map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Weatherford paver patio FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Weatherford, Aledo, Benbrook, Fort Worth, and surrounding Parker County communities.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a patio in Weatherford?" />
+</Base>

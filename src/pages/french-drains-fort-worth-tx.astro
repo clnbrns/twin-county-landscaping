@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'French Drain Installation in Fort Worth, TX | Twin County Outdoor Services';
+const description = 'French drain installation in Fort Worth, TX (west side). Fix standing water, foundation drainage, and soggy yards on Tarrant County clay. Free in-person quote from Twin County.';
+const path = '/french-drains-fort-worth-tx';
+
+const services = [
+  { name: 'French drains', body: 'Perforated PVC in a crushed-rock envelope with filter fabric. Designed for the specific drainage challenge on your Fort Worth lot — not a one-size kit.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water and downspout overflow before it sits against the foundation or backs up onto a patio.' },
+  { name: 'Downspout extensions', body: 'Buried PVC runs that carry roof water well past the slab perimeter. The fastest fix for recurring foundation moisture on Fort Worth suburban lots.' },
+  { name: 'Regrading & swales', body: 'Correct builder-grade slopes that drain toward the house. Common on Fort Worth newer subdivisions where grade was set too flat.' },
+  { name: 'Combined drainage systems', body: 'Most Fort Worth drainage problems require more than one solution. We design French drains, surface drains, and downspout routing as one integrated system.' },
+];
+
+const symptoms = [
+  'Water pooling in the yard after every storm',
+  'Foundation beds that stay wet for days',
+  'Water in the garage or against the slab',
+  'Patio settling or separating on the low end',
+  'Erosion trenches forming in turf or landscaping',
+  'Soggy back corner that kills grass every year',
+  'Downspouts dumping directly into mulch beds',
+  'Slab foundation showing moisture staining',
+];
+
+const faqs = [
+  {
+    q: 'How much does a French drain cost in Fort Worth?',
+    a: 'Most residential French drains in Fort Worth run $30-70 per linear foot installed. Full residential systems typically land in the $2,500-$8,000 range depending on lot size, soil conditions, discharge options, and whether regrading is needed. Every quote is itemized.',
+  },
+  {
+    q: 'Which parts of Fort Worth do you serve?',
+    a: 'We primarily serve west and southwest Fort Worth — neighborhoods in the 76008, 76116, 76132, 76133, 76134, and adjacent zip codes. If you are in Benbrook, Westover Hills, Ridgmar, or western suburbs, we cover your area.',
+  },
+  {
+    q: 'Why does Fort Worth clay cause so many drainage problems?',
+    a: 'Tarrant County clay absorbs water slowly and becomes nearly impermeable when wet. Builders often grade lots to minimum code slope — enough in dry conditions, not enough in a 3-inch rain. Once water backs up against a slab, it finds every crack and seam. A properly designed French drain intercepts it before it gets there.',
+  },
+  {
+    q: 'Will a French drain hurt my foundation?',
+    a: 'Done correctly, a French drain protects the foundation by removing standing water before hydrostatic pressure builds up. We design discharge routes to avoid dumping water near any foundation — the system is engineered so water flows away from all structures on the property.',
+  },
+  {
+    q: 'How long does French drain installation take?',
+    a: 'A standard 80-120 linear foot system takes 2-3 days. Larger systems with regrading or multiple drain types can take 4-6 days. The written proposal includes a full project timeline before any work is scheduled.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'French Drain Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Fort Worth', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'French Drains Fort Worth' }]} />
+
+  <section class="container-x py-12">
+    <h1>French Drain Installation in Fort Worth, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      French drains, catch basins, downspout extensions, and regrading for west and southwest Fort Worth. We fix foundation drainage and standing water for good — designed for Tarrant County clay, in-person diagnosis, written proposals before any work starts.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/french-drain-gallery.webp" alt="French drain contractor in Fort Worth, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Fort Worth</h2>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-green-dark font-bold mt-0.5">✓</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Fort Worth drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving west and southwest Fort Worth, Benbrook, Aledo, Weatherford, and surrounding western Tarrant County.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Fort Worth?" />
+</Base>

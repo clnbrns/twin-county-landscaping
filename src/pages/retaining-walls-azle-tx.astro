@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Retaining Wall Contractors in Azle, TX | Twin County Outdoor Services';
+const description = 'Retaining wall installation in Azle, TX. Engineered block and stone walls for slope lots, drainage control, and garden terracing across western Tarrant County. Free in-person quote.';
+const path = '/retaining-walls-azle-tx';
+
+const services = [
+  { name: 'Segmental block walls', body: 'Belgard, Pavestone, and Keystone systems with engineered batter, geogrid reinforcement where needed, and a full drainage envelope behind every course.' },
+  { name: 'Natural stone walls', body: 'Hand-set Oklahoma flagstone, limestone, and sandstone. The right look for Azle acreage properties and established neighborhoods where block walls would feel out of place.' },
+  { name: 'Terraced garden walls', body: 'Multi-level wall systems that turn sloped lots into usable garden tiers. Drainage built in, drip irrigation ready.' },
+  { name: 'Erosion-control walls', body: 'Walls at the base of slopes and in drainage channels to lock soil in place. Often paired with stone-armored swales and French drains.' },
+  { name: 'Acreage & property walls', body: 'Long-run walls for Azle acreage — driveway approaches, pasture grade transitions, and entry walls built for ranch traffic and Texas weather.' },
+  { name: 'Foundation-protection walls', body: 'Short walls and grade transitions that move water and soil away from the foundation perimeter — common on sloped Azle lots.' },
+];
+
+const galleryImages = [
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp', alt: 'Terraced retaining wall installation' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2002-gallery.webp', alt: 'Multi-level garden retaining walls' },
+  { src: '/images/projects/benbrook-terraced-garden-walls/img-2005-gallery.webp', alt: 'Block retaining wall with garden tiers' },
+  { src: '/images/services/retaining-walls/img-1033-gallery.webp', alt: 'Retaining wall construction' },
+  { src: '/images/services/retaining-walls/img-1081-gallery.webp', alt: 'Block retaining wall detail' },
+  { src: '/images/services/retaining-walls/img-1429-gallery.webp', alt: 'Retaining wall project' },
+];
+
+const drainagePoints = [
+  'Crushed-rock drainage envelope behind every course',
+  'Perforated drain pipe at the base, daylighted to grade',
+  'Filter fabric between native soil and gravel envelope',
+  'Engineered batter (lean back) for long-term stability',
+  'Geogrid reinforcement on walls over 3 ft',
+  'Compacted backfill placed in lifts — not dumped',
+];
+
+const faqs = [
+  {
+    q: 'How much does a retaining wall cost in Azle?',
+    a: 'Segmental block walls in Azle typically run $40-80 per face-foot installed. Natural stone runs $70-150 per face-foot. Final cost depends on height, length, block choice, and drainage requirements. Every quote is itemized — no surprises.',
+  },
+  {
+    q: 'Do I need a permit for a retaining wall in Azle?',
+    a: 'Walls under 4 ft generally do not require a permit in Azle or unincorporated Tarrant/Parker County. Walls 4 ft and taller typically need an engineered drawing and a building permit. We handle that paperwork as part of the project.',
+  },
+  {
+    q: 'Can you build walls on Azle acreage properties?',
+    a: 'Yes — acreage and rural lot walls are something we do regularly across western Tarrant and eastern Parker County. Entry walls, driveway approaches, pasture grade transitions. Same drainage engineering as any structural wall, sized for the load.',
+  },
+  {
+    q: 'What happens without drainage behind a retaining wall?',
+    a: 'Hydrostatic pressure builds behind the wall, the soil saturates, and the wall tips forward — sometimes suddenly. Every wall we build gets a crushed-rock envelope and a perforated drain pipe that exits through the wall face or to a daylighted discharge. Non-negotiable.',
+  },
+  {
+    q: 'How long does retaining wall construction take?',
+    a: 'Small garden walls under 30 ft take 1-2 days. Larger walls with excavation and drainage take 3-7 days. Multi-tier acreage systems can run 2-3 weeks. Lucas walks through the full timeline in the written proposal.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Retaining Wall Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Azle', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Retaining Walls Azle' }]} />
+
+  <section class="container-x py-12">
+    <h1>Retaining Wall Contractors in Azle, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Segmental block, natural stone, and engineered retaining walls for Azle and western Tarrant County. Every wall is drainage-engineered from the ground up — no band-aid fixes after the fact. Lucas walks every site in person before a proposal is written.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-terraced-garden-walls/img-1999-gallery.webp" alt="Retaining wall contractor in Azle, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Azle</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why drainage engineering comes first</h2>
+          <p class="mt-2 text-brand-muted">A retaining wall without drainage is decorative at best. Every wall we build in Azle includes:</p>
+          <ul class="mt-3 space-y-2 text-brand-muted">
+            {drainagePoints.map((point) => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-green-dark font-bold mt-0.5">•</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2>Recent retaining wall work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Azle retaining wall FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Azle, Aledo, Weatherford, Fort Worth, Springtown, and surrounding western Tarrant and Parker County communities.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Need a retaining wall in Azle?" />
+</Base>

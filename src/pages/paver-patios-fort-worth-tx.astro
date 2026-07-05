@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Paver Patio Contractors in Fort Worth, TX | Twin County Outdoor Services';
+const description = 'Paver patio installation in Fort Worth, TX (west side). Belgard, Pavestone, and flagstone patios installed on a proper compacted base. In-person quotes, written proposals.';
+const path = '/paver-patios-fort-worth-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard, Pavestone, and Acker-Stone segmental pavers on a properly compacted base. Patterns, borders, and banding — built to drain and stay flat for decades.' },
+  { name: 'Flagstone patios', body: 'SilverMist, Oklahoma, and Texas-quarried flagstone set in mortar or polymeric sand. Natural, character-rich, and the right look for established Fort Worth neighborhoods.' },
+  { name: 'Walkways & paths', body: 'Front-walk and side-yard paths in paver or flagstone. Same base prep and edge restraint as the main patio.' },
+  { name: 'Pool decks', body: 'Pool surrounds and coping on a compacted base with expansion gaps. Cool-tone pavers for Texas summer comfort.' },
+  { name: 'Steps & grade transitions', body: 'Stone steps integrated into the patio system for sloped Fort Worth lots. Built as part of the project, not added on separately.' },
+];
+
+const whyItFails = [
+  { title: 'Thin base', body: 'Budget installs use 2-3 inches of base. We use 6-8 inches of compacted crushed stone screeded flat in lifts — the only way to guarantee no settling on Fort Worth clay.' },
+  { title: 'No edge restraint', body: 'Without a concrete or steel edge holding the field, outer pavers shift and gap within a year. We install edge restraint on every perimeter.' },
+  { title: 'No drainage', body: 'We slope every patio surface to drain and add subsurface drainage where the grade or soil requires it — so water never pools on or under the patio.' },
+  { title: 'Wrong joint material', body: 'Standard sand washes out and becomes a weed bed. We use polymeric joint sand that locks in place and resists both weeds and fire ants.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does a paver patio cost in Fort Worth?',
+    a: 'Most paver patios on the west side of Fort Worth run $15-30 per square foot installed. Flagstone runs $25-45 per square foot. A full backyard patio project typically lands in the $8,000-$25,000 range depending on size, material, steps, and drainage needs.',
+  },
+  {
+    q: 'Which parts of Fort Worth do you serve?',
+    a: 'We serve west and southwest Fort Worth — Benbrook, Ridgmar, Westover Hills, southwest suburbs, and neighborhoods in the 76008, 76116, 76132, 76133, and adjacent zip codes.',
+  },
+  {
+    q: 'Pavers or flagstone — which should I choose?',
+    a: 'Pavers (Belgard, Pavestone) are more uniform, slightly less expensive, and easier to maintain. Flagstone has more character, varies in color, and reads as higher-end — a natural fit for established Fort Worth homes with mature landscaping. Lucas walks through both options at the site visit.',
+  },
+  {
+    q: 'How do pavers hold up in Fort Worth summers?',
+    a: 'Pavers handle Texas heat better than poured concrete — no single slab that can crack from thermal expansion. The clay soil movement during wet and dry cycles is the bigger factor, which is why base prep is everything. A properly compacted base absorbs that movement without visible settling.',
+  },
+  {
+    q: 'How long does installation take?',
+    a: 'A standard 300-500 sq ft patio takes 2-4 days. Larger patios with steps, walls, and drainage can take a week. Flagstone takes longer than pavers due to cut-and-fit. Full timeline is in the written proposal before any work is scheduled.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Paver Patio Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Fort Worth', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Paver Patios Fort Worth' }]} />
+
+  <section class="container-x py-12">
+    <h1>Paver Patio Contractors in Fort Worth, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone patios, walkways, and pool decks for west and southwest Fort Worth. The base prep is what separates a 20-year patio from one that needs releveling in three. Lucas walks every site in person — no quotes over the phone.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/projects/benbrook-flagstone-patio/img-2230-gallery.webp" alt="Paver patio contractor in Fort Worth, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we install in Fort Worth</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why most patios fail (and why ours don't)</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {whyItFails.map((w) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{w.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Fort Worth paver patio FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving west and southwest Fort Worth, Benbrook, Aledo, Weatherford, and surrounding Tarrant County.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a patio in Fort Worth?" />
+</Base>

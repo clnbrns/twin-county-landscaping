@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Sod Installation in Weatherford, TX | Twin County Outdoor Services';
+const description = 'Sod installation in Weatherford, TX. Bermuda, Zoysia, and St. Augustine graded, prepped, and laid right on Parker County clay. $3,000 minimum. Free in-person quote.';
+const path = '/sod-installation-weatherford-tx';
+
+const grasses = [
+  { name: 'Bermuda (Tifway 419, Celebration)', body: 'Heat-loving, drought-tolerant, and the default choice for sun-exposed Weatherford and Parker County yards. Recovers fast from traffic and goes dormant cleanly in winter.' },
+  { name: 'Zoysia (Empire, Palisades)', body: 'Dense, soft, more shade-tolerant than Bermuda. Slower growth means less mowing. A premium look for established Weatherford lots with mature tree canopy.' },
+  { name: 'St. Augustine (Raleigh, Floratam)', body: 'Best for shadier yards. Broad-blade, lush, and the only warm-season grass that handles significant shade on Parker County lots.' },
+  { name: 'Buffalo grass', body: 'Native Texas grass for acreage and ranch landscapes where low water input is the priority. Minimal mowing, no fertilizer needed.' },
+];
+
+const process = [
+  { step: '1', title: 'Site walk & quote', body: 'Lucas measures the area, evaluates sun exposure and soil, recommends the right variety, and writes a detailed proposal with everything itemized.' },
+  { step: '2', title: 'Removal & prep', body: 'Existing turf stripped or killed. Soil tilled or amended where needed. Final grade set with a positive slope away from the foundation.' },
+  { step: '3', title: 'Sod laid fresh', body: 'Pallets cut and delivered same-day. Laid in a brick pattern with tight seams. Edged clean against beds and hardscape.' },
+  { step: '4', title: 'Roll, water, walk-through', body: 'Rolled for soil contact, deep-watered, and you get a full 2-week watering schedule before we leave the site.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does sod installation cost in Weatherford?',
+    a: 'Sod installation in Weatherford starts at $3,000 minimum. Most full yards run $4,500-$14,000 depending on square footage, grass variety, existing turf removal, and soil prep needed. Bermuda is most affordable; Zoysia runs about 25% higher. Every quote is itemized.',
+  },
+  {
+    q: 'What grass is best for Parker County soil?',
+    a: 'Bermuda is the workhorse for sunny Weatherford yards — it handles the heat, clay soil, and dry stretches better than any other warm-season grass. For yards with significant shade from oaks or other established trees, St. Augustine is often the better call. Lucas assesses the light conditions at the site visit.',
+  },
+  {
+    q: 'When is the best time to lay sod in Weatherford?',
+    a: 'Spring (March-May) and early fall (September-October) are ideal. We install year-round — summer installs need a strict watering regimen, and dormant winter sod takes longer to root. We will tell you honestly if the timing creates risk.',
+  },
+  {
+    q: 'Do you remove existing dead grass and weeds?',
+    a: 'Yes — removal is included in the quote. We strip dead turf, treat persistent weeds, or till as the situation requires. Some Weatherford yards benefit from soil amendment before sod goes down — we will flag that if we see it.',
+  },
+  {
+    q: 'How soon can we mow and use the new lawn?',
+    a: 'Light foot traffic is fine after 2 weeks. Full use — mowing, kids, pets, heavy traffic — wait 3-4 weeks. Bermuda roots fully in 6-8 weeks during the growing season. We walk you through the watering and mowing schedule before we leave.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Sod Installation',
+  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  areaServed: { '@type': 'City', name: 'Weatherford', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Sod Installation Weatherford' }]} />
+
+  <section class="container-x py-12">
+    <h1>Sod Installation in Weatherford, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Bermuda, Zoysia, St. Augustine, and Buffalo grass — installed on properly graded and prepped Parker County soil by a crew that knows Texas clay. $3,000 minimum so we can do it right. In-person quotes, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/sod-installation/after-1-gallery.webp" alt="Sod installation in Weatherford, TX — fresh Bermuda lawn" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Grass varieties we install in Weatherford</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {grasses.map((g) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{g.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{g.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Our sod install process</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {process.map((p) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <div class="text-brand-green-dark font-bold text-2xl">{p.step}</div>
+                <h3 class="text-lg font-semibold text-brand-ink mt-1">{p.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Weatherford sod FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Weatherford, Aledo, Benbrook, Fort Worth, Brock, and surrounding Parker County communities.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a new lawn in Weatherford?" />
+</Base>

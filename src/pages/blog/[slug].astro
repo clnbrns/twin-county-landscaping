@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import CTABanner from '../../components/CTABanner.astro';
 import { BLOG_POSTS, BLOG_BY_SLUG } from '../../data/blog';
 import type { BlogPost } from '../../data/blog';
+import { SERVICE_BY_SLUG } from '../../data/services';
 
 export async function getStaticPaths() {
   return BLOG_POSTS.map((post) => ({
@@ -17,6 +18,21 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
+// Pass authority from posts to money pages: map category -> service hub
+// and the geo pages under it.
+const SERVICES_FOR_CATEGORY: Record<string, string[]> = {
+  'Retaining Walls': ['retaining-walls'],
+  'Drainage': ['french-drains'],
+  'Hardscaping': ['hardscaping'],
+  'Lawn & Sod': ['sod-installation'],
+};
+const relatedServices = (SERVICES_FOR_CATEGORY[post.category] ?? [])
+  .map((s) => SERVICE_BY_SLUG[s])
+  .filter(Boolean);
+const morePosts = BLOG_POSTS.filter((p) => p.slug !== post.slug)
+  .sort((a, b) => (a.category === post.category ? -1 : 1) - (b.category === post.category ? -1 : 1))
+  .slice(0, 3);
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('en-US', {
@@ -101,6 +117,29 @@ const schema = post.faqs && faqSchema ? [articleSchema, faqSchema] : articleSche
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {relatedServices.length > 0 && (
+        <div class="mt-10 bg-brand-green-tint/30 rounded-lg p-5">
+          <h2 class="text-brand-ink text-xl">Need this done, not just explained?</h2>
+          <p class="mt-2 text-brand-muted text-sm">We handle this work in person across Aledo, Weatherford, Benbrook, Fort Worth, and Western DFW — free quotes, written proposals.</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {relatedServices.map((s) => (
+              <a href={`/services/${s.slug}`} class="px-3 py-1 bg-white border border-brand-green-tint rounded-full text-sm hover:border-brand-green-dark no-underline">{s.name} →</a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {morePosts.length > 0 && (
+        <div class="mt-10">
+          <h2 class="text-brand-ink text-xl">Keep reading</h2>
+          <ul class="mt-3 space-y-2">
+            {morePosts.map((p) => (
+              <li><a href={`/blog/${p.slug}`}>{p.title}</a></li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

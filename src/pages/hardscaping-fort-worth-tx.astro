@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
 
 const title = 'Hardscape Contractors in Fort Worth, TX | Twin County Outdoor Services';
 const description = 'Hardscaping in Fort Worth, TX — paver patios, flagstone, walkways, retaining walls, and outdoor living. In-person quotes, detailed written proposals, no remote bids.';
@@ -90,17 +91,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Hardscaping',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'Twin County Outdoor Services',
-    telephone: '(817) 818-9028',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Aledo',
-      addressRegion: 'TX',
-      addressCountry: 'US',
-    },
-  },
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
   areaServed: {
     '@type': 'City',
     name: 'Fort Worth',
@@ -200,6 +191,8 @@ const faqSchema = {
             ))}
           </div>
         </div>
+
+        <GeoLinks currentPath={path} />
       </div>
 
       <aside class="lg:sticky lg:top-24 lg:self-start">

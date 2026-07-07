@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
 
 const title = 'Hardscape Contractors in Aledo, TX | Twin County Outdoor Services';
 const description = 'Hardscape contractors in Aledo, TX. Paver patios, flagstone, walkways, and outdoor living surfaces — properly built for Aledo neighborhoods like Walsh, Morningstar, and Parks of Aledo. Free quote.';
@@ -51,7 +52,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Hardscaping',
-  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
   areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
   description,
 };
@@ -135,6 +136,8 @@ const faqSchema = {
         </div>
 
         <p class="text-sm text-brand-muted">Serving Aledo, Walsh Ranch, Morningstar, Parks of Aledo, Silverado, Bella Ranch, and surrounding western Parker County.</p>
+
+        <GeoLinks currentPath={path} />
       </div>
 
       <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>

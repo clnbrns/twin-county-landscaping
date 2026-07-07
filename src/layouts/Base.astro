@@ -17,20 +17,28 @@ export interface Props {
 }
 
 const { title, description, path, image, schema, noindex } = Astro.props;
+const socialLinks = [SITE.social.facebook, SITE.social.instagram, SITE.googleReviewsUrl].filter(Boolean);
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'HomeAndConstructionBusiness',
+  '@id': `${SITE.url}/#business`,
   name: SITE.name,
   url: SITE.url,
   telephone: SITE.phone,
+  email: SITE.email,
+  image: `${SITE.url}/images/logo.png`,
+  logo: `${SITE.url}/images/logo.png`,
+  founder: { '@type': 'Person', name: SITE.owner },
   address: {
     '@type': 'PostalAddress',
     addressLocality: SITE.city,
     addressRegion: SITE.state,
     addressCountry: 'US',
   },
+  geo: { '@type': 'GeoCoordinates', latitude: 32.696, longitude: -97.602 },
   areaServed: AREAS.map((a) => ({ '@type': 'City', name: a.city })),
   priceRange: '$$',
+  ...(socialLinks.length > 0 ? { sameAs: socialLinks } : {}),
 };
 ---
 <!doctype html>

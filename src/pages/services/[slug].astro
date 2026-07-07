@@ -7,6 +7,8 @@ import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 import { SERVICES, SERVICE_BY_SLUG } from '../../data/services';
 import { SERVICE_IMAGES } from '../../data/serviceImages';
 import { BEFORE_AFTER } from '../../data/beforeAfter';
+import { GEO_PAGES_BY_SERVICE } from '../../data/geoPages';
+import { BLOG_POSTS } from '../../data/blog';
 
 export function getStaticPaths() {
   return SERVICES.map((s) => ({ params: { slug: s.slug } }));
@@ -61,6 +63,18 @@ const SEO_OVERRIDES: Record<string, { title?: string; description?: string; aka?
     aka: ['lawn edging', 'stone landscape edging', 'natural stone borders'],
   },
 };
+
+// Hub-and-spoke: link this service hub to its city-specific landing pages.
+const cityPages = GEO_PAGES_BY_SERVICE[service.slug] ?? [];
+
+// Related blog posts, matched by category.
+const BLOG_CATEGORY_FOR_SERVICE: Record<string, string> = {
+  'retaining-walls': 'Retaining Walls',
+  'french-drains': 'Drainage',
+  'hardscaping': 'Hardscaping',
+  'sod-installation': 'Lawn & Sod',
+};
+const relatedPosts = BLOG_POSTS.filter((p) => p.category === BLOG_CATEGORY_FOR_SERVICE[service.slug]);
 
 const seo = SEO_OVERRIDES[service.slug] ?? {};
 const title = seo.title ?? `${service.name} in Aledo, TX | Twin County Outdoor Services`;
@@ -128,6 +142,32 @@ const aka = seo.aka ?? [];
           <h3>Why Lucas</h3>
           <p class="mt-2 text-brand-ink">Every {service.name.toLowerCase()} job starts with an in-person walkthrough and a detailed written proposal. Lucas is on every job — Aledo local, owner-operated, no random crews.</p>
         </div>
+
+        {cityPages.length > 0 && (
+          <div>
+            <h2>{service.name} by city</h2>
+            <p class="mt-2 text-brand-muted text-sm">Detailed local pages with city-specific pricing, permits, and FAQs.</p>
+            <div class="mt-4 grid sm:grid-cols-2 gap-4">
+              {cityPages.map((p) => (
+                <a href={p.href} class="block bg-white border border-brand-green-tint rounded-lg p-4 hover:border-brand-green-dark transition-colors no-underline">
+                  <div class="font-semibold text-brand-ink">{p.title} →</div>
+                  <p class="mt-1 text-brand-muted text-sm">{p.blurb}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {relatedPosts.length > 0 && (
+          <div>
+            <h3>Guides &amp; pricing articles</h3>
+            <ul class="mt-3 space-y-2">
+              {relatedPosts.map((p) => (
+                <li><a href={`/blog/${p.slug}`}>{p.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {related.length > 0 && (
           <div>

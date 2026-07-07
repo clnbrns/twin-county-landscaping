@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
 
 const title = 'Sod Installation in Aledo, TX | Twin County Outdoor Services';
 const description = 'Sod installation in Aledo, TX. Bermuda, Zoysia, and St. Augustine — graded, prepped, and laid right. $3,000 minimum. In-person quotes from your local Aledo crew.';
@@ -41,7 +42,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Sod Installation',
-  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
   areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
   description,
 };
@@ -117,6 +118,8 @@ const faqSchema = {
             ))}
           </div>
         </div>
+
+        <GeoLinks currentPath={path} />
       </div>
 
       <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>

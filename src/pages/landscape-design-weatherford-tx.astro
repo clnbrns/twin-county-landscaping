@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
 
 const title = 'Landscape & Backyard Design in Weatherford, TX | Twin County Outdoor Services';
 const description = 'Landscape design and backyard design in Weatherford, TX. Full plans, plant selection, hardscape, drainage, and installation by one crew. In-person quotes, written proposals.';
@@ -45,7 +46,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Landscape Design and Installation',
-  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
   areaServed: { '@type': 'City', name: 'Weatherford', containedInPlace: { '@type': 'State', name: 'Texas' } },
   description,
 };
@@ -121,6 +122,8 @@ const faqSchema = {
             ))}
           </div>
         </div>
+
+        <GeoLinks currentPath={path} />
       </div>
 
       <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>

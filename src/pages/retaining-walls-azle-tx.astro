@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
 
 const title = 'Retaining Wall Contractors in Azle, TX | Twin County Outdoor Services';
 const description = 'Retaining wall installation in Azle, TX. Engineered block and stone walls for slope lots, drainage control, and garden terracing across western Tarrant County. Free in-person quote.';
@@ -62,7 +63,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Retaining Wall Installation',
-  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
   areaServed: { '@type': 'City', name: 'Azle', containedInPlace: { '@type': 'State', name: 'Texas' } },
   description,
 };
@@ -140,6 +141,8 @@ const faqSchema = {
         </div>
 
         <p class="text-sm text-brand-muted">Serving Azle, Aledo, Weatherford, Fort Worth, Springtown, and surrounding western Tarrant and Parker County communities.</p>
+
+        <GeoLinks currentPath={path} />
       </div>
 
       <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>

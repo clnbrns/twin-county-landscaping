@@ -5,6 +5,8 @@ import CTABanner from '../../components/CTABanner.astro';
 import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
 import { PROJECTS, PROJECT_BY_SLUG } from '../../data/projects';
 import { SERVICE_BY_SLUG } from '../../data/services';
+import { AREAS } from '../../data/areas';
+import { GEO_PAGES } from '../../data/geoPages';
 
 export function getStaticPaths() {
   return PROJECTS.map((p) => ({ params: { slug: p.slug } }));
@@ -16,6 +18,12 @@ const services = project.services.map((s) => SERVICE_BY_SLUG[s]).filter(Boolean)
 
 const title = `${project.title} | ${project.city}, TX | Twin County Outdoor Services`;
 const description = project.summary;
+
+// Reciprocal links: project -> its city's area page and geo landing pages.
+const area = AREAS.find((a) => a.city === project.city);
+const cityGeoPages = GEO_PAGES.filter(
+  (g) => g.city === project.city && project.services.includes(g.serviceSlug)
+);
 ---
 <Base title={title} description={description} path={`/projects/${project.slug}`}>
   <Breadcrumb items={[
@@ -54,7 +62,20 @@ const description = project.summary;
           {services.map((s) => <li><a href={`/services/${s.slug}`}>{s.name}</a></li>)}
         </ul>
         <div class="mt-5 text-sm font-semibold uppercase tracking-wider text-brand-green-dark">Location</div>
-        <p class="mt-1 text-brand-ink">{project.neighborhood ? `${project.neighborhood} · ` : ''}{project.city}, TX</p>
+        <p class="mt-1 text-brand-ink">
+          {project.neighborhood ? `${project.neighborhood} · ` : ''}
+          {area ? <a href={`/areas/${area.slug}`}>{project.city}, TX</a> : `${project.city}, TX`}
+        </p>
+        {cityGeoPages.length > 0 && (
+          <>
+            <div class="mt-5 text-sm font-semibold uppercase tracking-wider text-brand-green-dark">Get this in {project.city}</div>
+            <ul class="mt-2 space-y-1 text-sm">
+              {cityGeoPages.map((g) => (
+                <li><a href={g.href}>{g.title}</a></li>
+              ))}
+            </ul>
+          </>
+        )}
       </aside>
     </div>
 

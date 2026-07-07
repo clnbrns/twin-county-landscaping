@@ -1,0 +1,75 @@
+---
+// Internal-link block for geo+service landing pages: links to the same
+// service in nearby cities, other services in the same city, the parent
+// service hub, and real project pages in the city. Driven by the
+// GEO_PAGES registry so new pages link up automatically.
+import { GEO_PAGES } from '../data/geoPages';
+import { PROJECTS } from '../data/projects';
+import { SERVICE_BY_SLUG } from '../data/services';
+
+export interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const current = GEO_PAGES.find((p) => p.href === currentPath);
+
+const sameService = current
+  ? GEO_PAGES.filter((p) => p.serviceSlug === current.serviceSlug && p.href !== current.href)
+  : [];
+const sameCity = current
+  ? GEO_PAGES.filter((p) => p.citySlug === current.citySlug && p.href !== current.href)
+  : [];
+const cityProjects = current ? PROJECTS.filter((p) => p.city === current.city).slice(0, 3) : [];
+const hubService = current ? SERVICE_BY_SLUG[current.serviceSlug] : undefined;
+---
+{current && (
+  <div class="space-y-6">
+    {cityProjects.length > 0 && (
+      <div>
+        <h2>Recent work in {current.city}</h2>
+        <div class="mt-4 grid sm:grid-cols-3 gap-4">
+          {cityProjects.map((p) => (
+            <a href={`/projects/${p.slug}`} class="block bg-white border border-brand-green-tint rounded-lg overflow-hidden hover:border-brand-green-dark transition-colors no-underline">
+              <div class="aspect-[4/3] bg-brand-green-tint">
+                <img src={p.hero} alt={p.title} loading="lazy" width="800" height="600" class="w-full h-full object-cover" />
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold text-brand-ink">{p.title}</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="bg-brand-green-tint/30 rounded-lg p-5 text-sm">
+      {hubService && (
+        <p class="text-brand-muted">
+          Learn more about our <a href={`/services/${hubService.slug}`}>{hubService.name.toLowerCase()}</a> work,
+          or see everything we do in <a href={`/areas/${current.citySlug}`}>{current.city}, TX</a>.
+        </p>
+      )}
+      {sameService.length > 0 && (
+        <p class="mt-3 text-brand-muted">
+          <span class="font-semibold text-brand-ink">{current.serviceName} nearby:</span>{' '}
+          {sameService.map((p, i) => (
+            <>
+              <a href={p.href}>{p.city}</a>{i < sameService.length - 1 ? ' · ' : ''}
+            </>
+          ))}
+        </p>
+      )}
+      {sameCity.length > 0 && (
+        <p class="mt-3 text-brand-muted">
+          <span class="font-semibold text-brand-ink">More in {current.city}:</span>{' '}
+          {sameCity.map((p, i) => (
+            <>
+              <a href={p.href}>{p.serviceName}</a>{i < sameCity.length - 1 ? ' · ' : ''}
+            </>
+          ))}
+        </p>
+      )}
+    </div>
+  </div>
+)}

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
 
 const title = 'French Drain Installation in Saginaw, TX | Twin County Outdoor Services';
 const description = 'French drain installation in Saginaw, TX. Fix standing water, downspout overflow, and foundation drainage on Tarrant County lots. In-person diagnosis, free quote.';
@@ -45,7 +46,7 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'French Drain Installation',
-  provider: { '@type': 'LocalBusiness', name: 'Twin County Outdoor Services', telephone: '(817) 818-9028', address: { '@type': 'PostalAddress', addressLocality: 'Aledo', addressRegion: 'TX', addressCountry: 'US' } },
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
   areaServed: { '@type': 'City', name: 'Saginaw', containedInPlace: { '@type': 'State', name: 'Texas' } },
   description,
 };
@@ -115,6 +116,8 @@ const faqSchema = {
             ))}
           </div>
         </div>
+
+        <GeoLinks currentPath={path} />
       </div>
 
       <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>

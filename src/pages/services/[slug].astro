@@ -9,6 +9,8 @@ import { SERVICE_IMAGES } from '../../data/serviceImages';
 import { BEFORE_AFTER } from '../../data/beforeAfter';
 import { GEO_PAGES_BY_SERVICE } from '../../data/geoPages';
 import { BLOG_POSTS } from '../../data/blog';
+import { AREAS } from '../../data/areas';
+import { SITE } from '../../data/site';
 
 export function getStaticPaths() {
   return SERVICES.map((s) => ({ params: { slug: s.slug } }));
@@ -80,8 +82,17 @@ const seo = SEO_OVERRIDES[service.slug] ?? {};
 const title = seo.title ?? `${service.name} in Aledo, TX | Twin County Outdoor Services`;
 const description = seo.description ?? `${service.short} Serving Aledo, Benbrook, Weatherford, Fort Worth, and Western DFW. Free in-person quotes from Twin County Outdoor Services.`;
 const aka = seo.aka ?? [];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: service.name,
+  provider: { '@id': `${SITE.url}/#business` },
+  areaServed: AREAS.map((a) => ({ '@type': 'City', name: a.city, containedInPlace: { '@type': 'State', name: a.state } })),
+  description,
+};
 ---
-<Base title={title} description={description} path={`/services/${service.slug}`}>
+<Base title={title} description={description} path={`/services/${service.slug}`} schema={schema}>
   <Breadcrumb items={[
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },

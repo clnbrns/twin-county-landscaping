@@ -11,7 +11,12 @@ export interface Props {
 
 const { title, description, path = '', image = '/images/og-default.svg', schema } = Astro.props;
 const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
-const canonical = new URL(path, SITE.url).toString();
+// Astro's static build emits every route as a directory (index.html), and the
+// sitemap lists every URL with a trailing slash to match. The canonical tag
+// must agree, or Google indexes the trailing- and non-trailing-slash forms
+// as separate duplicate URLs and splits ranking signals between them.
+const normalizedPath = path === '' || path === '/' ? '/' : path.endsWith('/') ? path : `${path}/`;
+const canonical = new URL(normalizedPath, SITE.url).toString();
 const ogImage = new URL(image, SITE.url).toString();
 ---
 

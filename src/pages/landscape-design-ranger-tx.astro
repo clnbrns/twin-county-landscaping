@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Landscaping & Landscape Design in Ranger, TX | Twin County Outdoor Services';
+const description = 'Landscaping and landscape design in Ranger, TX and Eastland County. Acreage landscaping, ranch entrances, sod, drainage, and full yard design. Free in-person quote.';
+const path = '/landscape-design-ranger-tx';
+
+const services = [
+  { name: 'Acreage landscape design', body: 'Ranger and Eastland County properties are often acreage, not standard subdivision lots. We design for the scale — big sod areas, long drainage runs, and plantings sized to the property.' },
+  { name: 'Ranch entrance landscaping', body: 'Entrance beds, stone accents, and plantings that make a ranch or acreage entrance look intentional from the road.' },
+  { name: 'Lake Leon area landscaping', body: 'Weekend and lake-adjacent properties near Lake Leon get the same in-person quote and detailed proposal as our Aledo work.' },
+  { name: 'Sod installation', body: 'Bermuda, Zoysia, and St. Augustine on properly graded soil. We have done Ranger-area lawns well beyond a typical suburban yard.' },
+  { name: 'Drainage integration', body: 'Eastland County clay and caliche soil need drainage planned in up front — French drains and grading before anything gets planted.' },
+  { name: 'Tree and shrub installation', body: 'Wind-tolerant, drought-hardy trees and shrubs selected for the exposure that comes with open acreage.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/landscape-design/favorite-1-gallery.webp', alt: 'Landscape design installation' },
+  { src: '/images/services/landscape-design/favorite-2-gallery.webp', alt: 'Full yard landscape design' },
+  { src: '/images/services/landscape-design/img-0268-gallery.webp', alt: 'Landscape installation detail' },
+  { src: '/images/services/landscape-design/img-1013-gallery.webp', alt: 'Plant bed and lawn installation' },
+  { src: '/images/services/landscape-design/img-1061-gallery.webp', alt: 'Backyard landscape design' },
+  { src: '/images/services/landscape-design/img-1260-gallery.webp', alt: 'Landscape design project' },
+];
+
+const faqs = [
+  { q: 'Do you actually work in Ranger, TX?', a: 'Yes — Ranger and the surrounding Eastland County area are part of our regular service area, not a one-off exception. Same in-person quote and detailed written proposal as our Aledo home base.' },
+  { q: 'How much does landscaping cost on a Ranger-area acreage property?', a: 'Acreage landscaping varies more than a subdivision lot — a targeted entrance and yard-area project typically runs $5,000-$20,000, while full property landscaping with large sod areas and drainage runs can go higher. Every quote is itemized after an in-person walk.' },
+  { q: 'Can you handle a ranch entrance or long driveway approach?', a: 'Yes. Entrance landscaping, stone accents, and driveway-approach plantings are common requests on Eastland County ranch and acreage properties.' },
+  { q: 'Do you do lawn care or just landscape installation?', a: 'Our focus is installation — sod, design, drainage, and hardscape — rather than ongoing mowing service. If your project includes a new lawn, we grade, prep, and lay the sod as part of the install.' },
+  { q: 'How far out is Ranger from your Aledo base?', a: 'It is a longer drive than our core Aledo/Parker County work, which is why we scope Ranger-area projects by the job rather than taking on small one-off requests. Lucas still walks the property in person before writing a proposal.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Landscape Design and Installation',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Ranger', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Landscaping Ranger' }]} />
+
+  <section class="container-x py-12">
+    <h1>Landscaping & Landscape Design in Ranger, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Acreage landscaping, ranch entrances, sod, and full landscape design across Ranger and Eastland County. Lucas walks every property in person before writing a detailed proposal — same process as our Aledo work, sized for acreage.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/landscape-design/favorite-1-gallery.webp" alt="Landscaping and landscape design in Ranger, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we design and install in Ranger</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Ranger areas we serve</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {['Ranger proper', 'Lake Leon area', 'Eastland County'].map((n) => (
+              <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent landscape design work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Ranger landscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Ranger, Eastland County, and the surrounding acreage communities as part of our extended western service area.</p>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Planning a landscape project in Ranger?" />
+</Base>

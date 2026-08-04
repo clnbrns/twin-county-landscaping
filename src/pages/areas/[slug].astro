@@ -9,6 +9,7 @@ import { SERVICES } from '../../data/services';
 import { SERVICE_IMAGES } from '../../data/serviceImages';
 import { GEO_PAGES_BY_CITY } from '../../data/geoPages';
 import { PROJECTS } from '../../data/projects';
+import { SITE } from '../../data/site';
 
 export function getStaticPaths() {
   return AREAS.map((a) => ({ params: { slug: a.slug } }));
@@ -20,12 +21,21 @@ const area = AREA_BY_SLUG[slug as string];
 const title = `Landscaping & Hardscape Services in ${area.city}, ${area.state} | Twin County Outdoor Services`;
 const description = `Landscape design, retaining walls, hardscaping, sod, and drainage services in ${area.city}, ${area.state}. Free in-person quotes from Twin County Outdoor Services.`;
 
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Landscaping & Hardscape Services',
+  provider: { '@id': `${SITE.url}/#business` },
+  areaServed: { '@type': 'City', name: area.city, containedInPlace: { '@type': 'State', name: area.state } },
+  description,
+};
+
 // City-specific landing pages, driven by the central registry so new
 // geo pages surface here automatically.
 const featured = GEO_PAGES_BY_CITY[area.slug] ?? [];
 const cityProjects = PROJECTS.filter((p) => p.city === area.city);
 ---
-<Base title={title} description={description} path={`/areas/${area.slug}`}>
+<Base title={title} description={description} path={`/areas/${area.slug}`} schema={schema}>
   <Breadcrumb items={[
     { label: 'Home', href: '/' },
     { label: 'Service Areas', href: '/areas' },

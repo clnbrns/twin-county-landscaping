@@ -216,6 +216,24 @@ export const GEO_PAGES: GeoPage[] = [
     title: 'Sod Installation in Weatherford',
     blurb: 'New lawns on properly graded Parker County soil — Bermuda, Zoysia, St. Augustine.',
   },
+  {
+    href: '/landscape-design-ranger-tx',
+    citySlug: 'ranger-tx',
+    city: 'Ranger',
+    serviceSlug: 'landscape-design',
+    serviceName: 'Landscape Design',
+    title: 'Landscaping in Ranger',
+    blurb: 'Acreage landscape design, ranch entrances, and sod for Ranger and Eastland County.',
+  },
+  {
+    href: '/hardscaping-cresson-tx',
+    citySlug: 'cresson-tx',
+    city: 'Cresson',
+    serviceSlug: 'hardscaping',
+    serviceName: 'Hardscaping',
+    title: 'Hardscaping in Cresson',
+    blurb: 'Paver patios, flagstone, and entrance hardscape for Cresson-area acreage properties.',
+  },
 ];
 
 export const GEO_PAGES_BY_CITY = GEO_PAGES.reduce<Record<string, GeoPage[]>>((acc, p) => {

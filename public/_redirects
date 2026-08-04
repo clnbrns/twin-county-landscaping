@@ -29,3 +29,111 @@
 # --- Page renames ---
 /about-us                         /about/                      301
 /portfolio                        /projects/                   301
+
+# --- Trailing-slash canonicalization (non-trailing -> trailing) ---
+# Sitemap + canonical tag both declare the trailing-slash form as canonical
+# (Astro directory build output). These force fast consolidation instead of
+# waiting on Google to pick up the corrected canonical tag on its own.
+/about       /about/       301
+/contact     /contact/     301
+/services    /services/    301
+/areas       /areas/       301
+/projects    /projects/    301
+/blog        /blog/        301
+
+# Areas
+/areas/aledo-tx                     /areas/aledo-tx/	301
+/areas/benbrook-tx                  /areas/benbrook-tx/	301
+/areas/weatherford-tx               /areas/weatherford-tx/	301
+/areas/fort-worth-tx                /areas/fort-worth-tx/	301
+/areas/brock-tx                     /areas/brock-tx/	301
+/areas/possum-kingdom-lake-tx       /areas/possum-kingdom-lake-tx/	301
+/areas/hudson-oaks-tx               /areas/hudson-oaks-tx/	301
+/areas/willow-park-tx               /areas/willow-park-tx/	301
+/areas/springtown-tx                /areas/springtown-tx/	301
+/areas/graford-tx                   /areas/graford-tx/	301
+/areas/cresson-tx                   /areas/cresson-tx/	301
+/areas/granbury-tx                  /areas/granbury-tx/	301
+/areas/mineral-wells-tx             /areas/mineral-wells-tx/	301
+/areas/azle-tx                      /areas/azle-tx/	301
+/areas/dallas-tx                    /areas/dallas-tx/	301
+/areas/north-richland-hills-tx      /areas/north-richland-hills-tx/	301
+/areas/white-settlement-tx          /areas/white-settlement-tx/	301
+/areas/lake-worth-tx                /areas/lake-worth-tx/	301
+/areas/arlington-tx                 /areas/arlington-tx/	301
+/areas/irving-tx                    /areas/irving-tx/	301
+/areas/saginaw-tx                   /areas/saginaw-tx/	301
+/areas/alliance-tx                  /areas/alliance-tx/	301
+/areas/keller-tx                    /areas/keller-tx/	301
+/areas/colleyville-tx               /areas/colleyville-tx/	301
+/areas/stephenville-tx              /areas/stephenville-tx/	301
+/areas/ranger-tx                    /areas/ranger-tx/	301
+/areas/breckenridge-tx              /areas/breckenridge-tx/	301
+/areas/grapevine-tx                 /areas/grapevine-tx/	301
+
+# Services
+/services/landscape-design             /services/landscape-design/	301
+/services/retaining-walls              /services/retaining-walls/	301
+/services/hardscaping                  /services/hardscaping/	301
+/services/sod-installation             /services/sod-installation/	301
+/services/french-drains                /services/french-drains/	301
+/services/plant-installation           /services/plant-installation/	301
+/services/tree-services                /services/tree-services/	301
+/services/irrigation                   /services/irrigation/	301
+/services/stone-borders                /services/stone-borders/	301
+/services/rock-beds                    /services/rock-beds/	301
+/services/mulch-installation           /services/mulch-installation/	301
+/services/leveling-grading             /services/leveling-grading/	301
+/services/residential-concrete         /services/residential-concrete/	301
+/services/flower-beds                  /services/flower-beds/	301
+
+# Geo landing pages
+/drainage-aledo-tx              /drainage-aledo-tx/	301
+/french-drains-azle-tx          /french-drains-azle-tx/	301
+/french-drains-benbrook-tx      /french-drains-benbrook-tx/	301
+/french-drains-fort-worth-tx    /french-drains-fort-worth-tx/	301
+/french-drains-saginaw-tx       /french-drains-saginaw-tx/	301
+/french-drains-weatherford-tx   /french-drains-weatherford-tx/	301
+/retaining-walls-azle-tx        /retaining-walls-azle-tx/	301
+/retaining-walls-benbrook-tx    /retaining-walls-benbrook-tx/	301
+/retaining-walls-keller-tx      /retaining-walls-keller-tx/	301
+/retaining-walls-weatherford-tx /retaining-walls-weatherford-tx/	301
+/hardscaping-aledo-tx           /hardscaping-aledo-tx/	301
+/hardscaping-benbrook-tx        /hardscaping-benbrook-tx/	301
+/hardscaping-fort-worth-tx      /hardscaping-fort-worth-tx/	301
+/hardscaping-north-richland-hills-tx /hardscaping-north-richland-hills-tx/	301
+/paver-patios-aledo-tx          /paver-patios-aledo-tx/	301
+/paver-patios-benbrook-tx       /paver-patios-benbrook-tx/	301
+/paver-patios-fort-worth-tx     /paver-patios-fort-worth-tx/	301
+/paver-patios-weatherford-tx    /paver-patios-weatherford-tx/	301
+/landscape-design-aledo-tx      /landscape-design-aledo-tx/	301
+/landscape-design-weatherford-tx /landscape-design-weatherford-tx/	301
+/sod-installation-aledo-tx      /sod-installation-aledo-tx/	301
+/sod-installation-weatherford-tx /sod-installation-weatherford-tx/	301
+/landscape-design-ranger-tx     /landscape-design-ranger-tx/	301
+/hardscaping-cresson-tx         /hardscaping-cresson-tx/	301
+
+# Projects
+/projects/benbrook-terraced-garden-walls         /projects/benbrook-terraced-garden-walls/	301
+/projects/benbrook-flagstone-patio               /projects/benbrook-flagstone-patio/	301
+/projects/aledo-pool-walkway                     /projects/aledo-pool-walkway/	301
+/projects/aledo-retaining-wall-slope             /projects/aledo-retaining-wall-slope/	301
+/projects/weatherford-retaining-wall-driveway    /projects/weatherford-retaining-wall-driveway/	301
+/projects/fort-worth-flower-bed-installation     /projects/fort-worth-flower-bed-installation/	301
+/projects/aledo-french-drain-foundation          /projects/aledo-french-drain-foundation/	301
+/projects/benbrook-hardscape-walkway             /projects/benbrook-hardscape-walkway/	301
+/projects/aledo-hardscape-patio                  /projects/aledo-hardscape-patio/	301
+/projects/aledo-sod-installation-bermuda         /projects/aledo-sod-installation-bermuda/	301
+/projects/fort-worth-landscape-design            /projects/fort-worth-landscape-design/	301
+/projects/aledo-stone-borders-tree-rings         /projects/aledo-stone-borders-tree-rings/	301
+/projects/weatherford-mulch-installation         /projects/weatherford-mulch-installation/	301
+/projects/aledo-grading-drainage                 /projects/aledo-grading-drainage/	301
+/projects/aledo-rock-bed-renovation              /projects/aledo-rock-bed-renovation/	301
+
+# Blog posts
+/blog/retaining-wall-cost-texas                  /blog/retaining-wall-cost-texas/	301
+/blog/why-north-texas-yard-floods                /blog/why-north-texas-yard-floods/	301
+/blog/french-drain-vs-dry-creek-bed              /blog/french-drain-vs-dry-creek-bed/	301
+/blog/best-sod-for-texas-clay-soil               /blog/best-sod-for-texas-clay-soil/	301
+/blog/how-long-do-pavers-last                    /blog/how-long-do-pavers-last/	301
+/blog/paver-patio-vs-concrete-which-is-better    /blog/paver-patio-vs-concrete-which-is-better/	301

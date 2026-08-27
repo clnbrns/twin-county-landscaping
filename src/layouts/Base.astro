@@ -39,6 +39,15 @@ const localBusinessSchema = {
   areaServed: AREAS.map((a) => ({ '@type': 'City', name: a.city })),
   priceRange: '$$',
   ...(socialLinks.length > 0 ? { sameAs: socialLinks } : {}),
+  ...(SITE.reviewCount && SITE.ratingValue
+    ? {
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: SITE.ratingValue,
+          reviewCount: SITE.reviewCount,
+        },
+      }
+    : {}),
 };
 ---
 <!doctype html>

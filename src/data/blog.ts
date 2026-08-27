@@ -12,9 +12,9 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'retaining-wall-cost-texas',
-    title: 'How Much Does a Retaining Wall Cost in Texas?',
+    title: 'Retaining Wall Cost in Texas: $40–$150 Per Face-Foot',
     description:
-      'Retaining wall costs in Texas range from $40–$80 per face-foot for block to $70–$150 for stone. Learn what drives the price — and why cheap quotes usually fall apart.',
+      'Retaining wall costs in Texas: $40–$80/face-foot for block, $70–$150 for stone. See what drives the price — and why the cheapest quote usually costs more later.',
     publishDate: '2026-06-20',
     category: 'Retaining Walls',
     readTime: '6 min read',

@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Landscape Design & Landscaping in Grapevine, TX | Twin County Outdoor Services';
+const description = 'Landscape design and landscaping in Grapevine, TX and the DFW corridor near Southlake and Colleyville. Full design, plant selection, hardscape, and drainage — installed in-house. Free in-person quote.';
+const path = '/landscape-design-grapevine-tx';
+
+const services = [
+  { name: 'Full landscape design', body: 'CAD-designed plans for Grapevine lots — plant selection, bed layout, and hardscape planned as one system, not add-ons over time.' },
+  { name: 'Backyard design & installation', body: 'Complete backyard transformations for established Grapevine and Silver Lake neighborhoods, from design through in-house installation.' },
+  { name: 'Plant & bed installation', body: 'Foundation beds, seasonal color, and privacy plantings selected for DFW-corridor heat and clay soil.' },
+  { name: 'Sod installation', body: 'Bermuda, Zoysia, and St. Augustine on properly graded soil — new lawns and reseed-and-replace jobs alike.' },
+  { name: 'Hardscape integration', body: 'Patios, walkways, and stone borders designed alongside the planting plan, not bolted on afterward.' },
+  { name: 'Drainage built in', body: 'Grading and French drains sized to Grapevine-area clay soil, planned before anything gets planted.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/landscape-design/favorite-1-gallery.webp', alt: 'Landscape design installation' },
+  { src: '/images/services/landscape-design/favorite-2-gallery.webp', alt: 'Full yard landscape design' },
+  { src: '/images/services/landscape-design/img-0268-gallery.webp', alt: 'Landscape installation detail' },
+  { src: '/images/services/landscape-design/img-1013-gallery.webp', alt: 'Plant bed and lawn installation' },
+  { src: '/images/services/landscape-design/img-1061-gallery.webp', alt: 'Backyard landscape design' },
+  { src: '/images/services/landscape-design/img-1260-gallery.webp', alt: 'Landscape design project' },
+];
+
+const faqs = [
+  { q: 'Do you work in Grapevine, TX?', a: 'Yes — Grapevine and the surrounding Northeast Tarrant area, including the neighborhoods bordering Colleyville and Southlake, are part of our regular service zone.' },
+  { q: 'How much does landscape design cost in Grapevine?', a: 'A full design-and-install project typically runs $8,000-$25,000 depending on bed size, plant selection, and whether hardscape or drainage is included. Every quote is itemized after Lucas walks the property in person.' },
+  { q: 'Can you redesign an existing yard, not just build from scratch?', a: 'Yes — a lot of Grapevine work is refreshing an established yard: replacing overgrown beds, adding structure, or reworking a layout that was never designed in the first place.' },
+  { q: 'Do you handle the plant selection or do I need to pick everything myself?', a: 'We handle plant selection as part of the design, matched to your sun exposure and the clay soil common across Grapevine and the DFW corridor. You approve the plan before anything goes in the ground.' },
+  { q: 'Is drainage included, or is that a separate project?', a: 'If your yard needs grading or a French drain, we plan it into the design from the start rather than treating it as an afterthought — common on Grapevine lots with runoff from neighboring properties.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Landscape Design and Installation',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Grapevine', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Landscaping Grapevine' }]} />
+
+  <section class="container-x py-12">
+    <h1>Landscape Design & Landscaping in Grapevine, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Full landscape design, plant installation, and backyard transformations across Grapevine and the neighborhoods bordering Colleyville and Southlake. Lucas walks every property in person before writing a detailed proposal.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/landscape-design/favorite-1-gallery.webp" alt="Landscape design and landscaping in Grapevine, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we design and install in Grapevine</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Grapevine areas we serve</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {['Grapevine proper', 'Silver Lake', 'Southlake (border)', 'DFW corridor'].map((n) => (
+              <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent landscape design work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Grapevine landscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Grapevine, Colleyville, Southlake, and the surrounding DFW corridor communities.</p>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Planning a landscape project in Grapevine?" />
+</Base>

@@ -18,8 +18,17 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const area = AREA_BY_SLUG[slug as string];
 
-const title = `Landscaping & Hardscape Services in ${area.city}, ${area.state} | Twin County Outdoor Services`;
-const description = `Landscape design, retaining walls, hardscaping, sod, and drainage services in ${area.city}, ${area.state}. Free in-person quotes from Twin County Outdoor Services.`;
+// Per-city overrides for area hubs that already rank well under a specific
+// query cluster (per GSC) that the generic template doesn't match.
+const SEO_OVERRIDES: Record<string, { title?: string; description?: string }> = {
+  'ranger-tx': {
+    title: 'Landscaper & Lawn Care in Ranger, TX | Twin County Outdoor Services',
+    description: 'Landscaper and lawn care in Ranger, TX and Eastland County — acreage landscaping, sod, and full landscape design. Lucas walks every property in person. Free quote.',
+  },
+};
+const areaSeo = SEO_OVERRIDES[area.slug] ?? {};
+const title = areaSeo.title ?? `Landscaping & Hardscape Services in ${area.city}, ${area.state} | Twin County Outdoor Services`;
+const description = areaSeo.description ?? `Landscape design, retaining walls, hardscaping, sod, and drainage services in ${area.city}, ${area.state}. Free in-person quotes from Twin County Outdoor Services.`;
 
 const schema = {
   '@context': 'https://schema.org',

@@ -234,6 +234,24 @@ export const GEO_PAGES: GeoPage[] = [
     title: 'Hardscaping in Cresson',
     blurb: 'Paver patios, flagstone, and entrance hardscape for Cresson-area acreage properties.',
   },
+  {
+    href: '/landscape-design-grapevine-tx',
+    citySlug: 'grapevine-tx',
+    city: 'Grapevine',
+    serviceSlug: 'landscape-design',
+    serviceName: 'Landscape Design',
+    title: 'Landscape Design in Grapevine',
+    blurb: 'Full design, plant selection, and backyard installs near Southlake and Colleyville.',
+  },
+  {
+    href: '/landscape-design-keller-tx',
+    citySlug: 'keller-tx',
+    city: 'Keller',
+    serviceSlug: 'landscape-design',
+    serviceName: 'Landscape Design',
+    title: 'Landscape Design in Keller',
+    blurb: 'Full design, plant selection, and backyard installs for Hidden Lakes and Marshall Ridge.',
+  },
 ];
 
 export const GEO_PAGES_BY_CITY = GEO_PAGES.reduce<Record<string, GeoPage[]>>((acc, p) => {

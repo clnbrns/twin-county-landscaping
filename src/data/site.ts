@@ -12,6 +12,12 @@ export const SITE = {
   owner: 'Lucas Bartholomew',
   builtBy: 'Burns Built',
   googleReviewsUrl: 'https://g.page/r/CfDUQXjHz84NEBM/review',
+  // Set both once Lucas has the current Google review count and average
+  // rating — leave null until then. Fabricated review schema is a Google
+  // structured-data policy violation, so aggregateRating stays unrendered
+  // (see Base.astro) until these are real numbers.
+  reviewCount: null as number | null,
+  ratingValue: null as number | null,
   // Set these once you have the IDs from Google. Empty = not rendered.
   gaMeasurementId: 'G-GRN9D34RB8', // Google Analytics 4 Measurement ID
   googleSiteVerification: 'JOkhY9tyjtifKszaE6SsxAF9h5zd0KCzRi7ZSZxRTo4', // GSC HTML meta tag value

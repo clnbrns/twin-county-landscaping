@@ -14,6 +14,31 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: 'aledo-pergola-paver-patio',
+    title: 'Aledo Paver Patio & Pergola Rebuild',
+    city: 'Aledo',
+    services: ['hardscaping', 'stone-borders', 'flower-beds'],
+    hero: '/images/projects/aledo-pergola-paver-patio/dsc05756-gallery.webp',
+    summary:
+      'A dirt patch and a rotting pergola became a full outdoor living space — custom paver patio, rebuilt pergola, curved stone border, and flower bed.',
+    story: [
+      'The homeowners in Aledo had a backyard area that was going to waste — bare dirt under an old pergola that had rotted and started falling apart. They wanted to turn it into somewhere they could actually grill, set up a table and chairs, and spend time outside with family.',
+      'We started with the pergola itself. Rather than tear it down, we rebuilt the structure and gave it a fresh stain, turning it back into a sturdy, shaded space that will hold up through the Texas heat for years to come.',
+      'The main focus of the job was underneath it: a custom paver patio, properly prepped and leveled before a single paver went down. That base work is what keeps a patio flat and tight instead of shifting and gapping a couple of summers in. The finished surface gives the homeowners a solid, attractive spot for the grill, outdoor furniture, and entertaining.',
+      'Alongside the patio, we built a natural stone border and flower bed. The border curves rather than running in a straight line, which reads a lot better against the patio but is more work to build — every paver along that curve had to be individually measured and cut to follow the stone line cleanly. That attention is what makes the transition between patio and landscaping look finished instead of patched together.',
+      'What was a dirt patch under a failing pergola is now a complete outdoor living space: custom paver patio, rebuilt pergola, curved stone border, and a new flower bed. It is the kind of project that changes how a family actually uses their backyard.',
+    ],
+    gallery: [
+      '/images/projects/aledo-pergola-paver-patio/dsc05756-gallery.webp',
+      '/images/projects/aledo-pergola-paver-patio/dsc05765-gallery.webp',
+      '/images/projects/aledo-pergola-paver-patio/dsc05777-gallery.webp',
+      '/images/projects/aledo-pergola-paver-patio/dsc05772-gallery.webp',
+      '/images/projects/aledo-pergola-paver-patio/dsc05762-gallery.webp',
+      '/images/projects/aledo-pergola-paver-patio/dsc05790-gallery.webp',
+      '/images/projects/aledo-pergola-paver-patio/dsc05784-gallery.webp',
+    ],
+  },
+  {
     slug: 'benbrook-terraced-garden-walls',
     title: 'Benbrook Terraced Garden Retaining Walls',
     city: 'Benbrook',

@@ -1,0 +1,198 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroSection from '../components/HeroSection.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import CTABanner from '../components/CTABanner.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { SITE } from '../data/site';
+
+const PACKAGE_ITEMS = [
+  {
+    name: 'Pergola',
+    description: 'Custom-built pergolas that anchor the space and give you real shade over a patio, kitchen, or seating area.',
+    href: null,
+    images: [],
+  },
+  {
+    name: 'Electrical',
+    description: 'Outdoor lighting, outlets, and appliance hookups coordinated with a licensed electrician so everything is done to code.',
+    href: null,
+    images: [],
+  },
+  {
+    name: 'Countertops',
+    description: 'Weather-rated outdoor kitchen countertops built to anchor your grill, sink, and prep space.',
+    href: null,
+    images: [],
+  },
+  {
+    name: 'Hardscape',
+    description: 'Patios, walkways, and concrete surfaces built for daily use — the foundation the rest of the space sits on.',
+    href: '/services/hardscaping',
+    images: [
+      '/images/services/hardscaping/img-2230-gallery.webp',
+      '/images/services/hardscaping/img-2234-gallery.webp',
+    ],
+  },
+  {
+    name: 'Retaining Walls',
+    description: 'Engineered walls that shape the grade, hold back slope, and define the edges of your outdoor living area.',
+    href: '/services/retaining-walls',
+    images: [
+      '/images/services/retaining-walls/favorite-gallery.webp',
+      '/images/services/retaining-walls/img-1524-gallery.webp',
+    ],
+  },
+  {
+    name: 'Rock',
+    description: 'Decorative rock beds around the hardscape — clean, low-maintenance, and finished with proper fabric so it stays weed-free.',
+    href: '/services/rock-beds',
+    images: [
+      '/images/services/rock-beds/favorite-gallery.webp',
+      '/images/services/rock-beds/img-1059-gallery.webp',
+    ],
+  },
+  {
+    name: 'Pavers',
+    description: 'Paver patios and walkways that handle Texas clay soil movement and stay level and crack-free for the long haul.',
+    href: '/services/hardscaping',
+    images: [
+      '/images/services/hardscaping/img-0040-gallery.webp',
+      '/images/services/hardscaping/img-1158-gallery.webp',
+    ],
+  },
+];
+
+const SHOWCASE_GALLERY = [
+  '/images/services/hardscaping/img-2230-gallery.webp',
+  '/images/services/retaining-walls/favorite-gallery.webp',
+  '/images/services/rock-beds/img-1059-gallery.webp',
+  '/images/services/hardscaping/img-0040-gallery.webp',
+  '/images/services/retaining-walls/img-1524-gallery.webp',
+  '/images/services/hardscaping/img-1158-gallery.webp',
+  '/images/services/rock-beds/favorite-gallery.webp',
+  '/images/services/hardscaping/img-1800-gallery.webp',
+  '/images/services/retaining-walls/img-1033-gallery.webp',
+];
+
+const title = 'Backyard in a Box | Complete Outdoor Living Package | Twin County Outdoor Services';
+const description = 'A full backyard outdoor living package from Twin County Outdoor Services: pergola, electrical, countertops, hardscape, retaining walls, rock, and pavers — done in one turn by one crew.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Backyard in a Box',
+  serviceType: 'Outdoor Living Package',
+  provider: { '@id': `${SITE.url}/#business` },
+  description,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Backyard in a Box',
+    itemListElement: PACKAGE_ITEMS.map((item) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: item.name, description: item.description },
+    })),
+  },
+};
+---
+<Base title={title} description={description} path="/backyard-in-a-box" schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Backyard in a Box' }]} />
+
+  <HeroSection
+    eyebrow="Complete Outdoor Living Package"
+    title="Backyard in a Box"
+    subtitle="Pergola. Electrical. Countertops. Hardscape. Retaining walls. Rock. Pavers. One crew, one turn, one finished backyard — all done by Twin County Outdoor Services."
+    image="/images/services/hardscaping/img-2230-gallery.webp"
+  />
+
+  <section class="container-x py-16">
+    <div class="max-w-3xl">
+      <h2>Your whole backyard, built in one turn</h2>
+      <p class="mt-4 text-brand-muted">
+        Most outdoor living projects get stitched together across half a dozen contractors — a hardscape crew, a landscaper, an electrician, someone for the countertops, and someone else entirely for the pergola. Schedules slip, nobody owns the finish line, and you end up managing the project yourself.
+      </p>
+      <p class="mt-3 text-brand-muted">
+        Backyard in a Box is the alternative: Lucas and the Twin County crew scope, coordinate, and build the entire outdoor living space — structure, surfaces, and finishes — so it comes together as one project instead of seven.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {PACKAGE_ITEMS.map((item) => (
+        <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-brand-green-tint flex flex-col">
+          {item.images.length > 0 ? (
+            <div class="aspect-[4/3] grid grid-cols-2 gap-px bg-brand-green-tint overflow-hidden">
+              {item.images.map((src) => (
+                <div class="overflow-hidden bg-brand-green-tint">
+                  <img src={src} alt={`${item.name} project in Aledo, TX`} width="400" height="300" loading="lazy" class="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div class="aspect-[4/3] bg-brand-green-tint flex items-center justify-center">
+              <span class="text-brand-green-dark font-heading font-bold text-lg">{item.name}</span>
+            </div>
+          )}
+          <div class="p-5 flex-1 flex flex-col">
+            <h3 class="text-brand-ink">{item.name}</h3>
+            <p class="text-sm text-brand-muted mt-2 flex-1">{item.description}</p>
+            {item.href && (
+              <a href={item.href} class="inline-block mt-3 text-brand-green-dark font-semibold text-sm no-underline">See {item.name.toLowerCase()} work →</a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-brand-bg border-y border-brand-green-tint">
+    <div class="container-x py-16">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2>Recent outdoor living work</h2>
+        <p class="text-brand-muted mt-2">Hardscape, retaining walls, and rock work from real Western DFW backyards.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        {SHOWCASE_GALLERY.map((src) => (
+          <div class="aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+            <img src={src} alt="Outdoor living project photo" width="800" height="800" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/projects" class="btn-secondary no-underline">See full project gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-6">
+        <h2>How it works</h2>
+        <div class="grid sm:grid-cols-3 gap-5">
+          {[
+            { t: '1. Walkthrough', d: 'Lucas walks the property in person and talks through what you want the space to do.' },
+            { t: '2. One proposal', d: 'A single detailed written proposal covering every piece of the package — no separate bids to chase down.' },
+            { t: '3. One build', d: 'The crew builds it in sequence, start to finish, so the whole yard comes together at once.' },
+          ].map((s) => (
+            <div class="bg-white p-5 rounded-lg border border-brand-green-tint">
+              <div class="font-heading font-bold text-brand-green-dark">{s.t}</div>
+              <p class="text-sm text-brand-muted mt-2">{s.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="bg-brand-green-tint p-6 rounded-lg">
+          <h3>Why Lucas</h3>
+          <p class="mt-2 text-brand-ink">Twin County is owner-operated — Lucas is on every job, and any electrical work is coordinated with a licensed electrician so it's done to code, not just done fast. No random subs handed the keys to your backyard.</p>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Aledo, Benbrook, Weatherford, Fort Worth, Brock, and surrounding areas.</p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 self-start">
+        <QuoteForm compact />
+      </aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready to build your backyard in a box?" subtitle="Free in-person quote for the full outdoor living package." />
+</Base>

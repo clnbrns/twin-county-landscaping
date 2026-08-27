@@ -25,6 +25,7 @@ const FOLDER_TO_SLUG = {
   'Sod Installation': 'sod-installation',
   'Stone Borders': 'stone-borders',
   'Tree Service': 'tree-services',
+  'Water Features': 'water-features',
 };
 
 const IMG_EXT = /\.(jpe?g|png|heic|webp)$/i;

@@ -37,7 +37,22 @@ export const SERVICES: Service[] = [
       'Serving Aledo, Keller, Saginaw, NRH, Azle, Benbrook, Weatherford & more',
       'Optional landscape lighting integration',
     ],
-    related: ['hardscaping', 'french-drains', 'landscape-design'],
+    related: ['hardscaping', 'water-features', 'landscape-design'],
+  },
+  {
+    slug: 'water-features',
+    name: 'Water Features & Ponds',
+    short: 'Waterfalls, dry creeks, and ponds built into the landscape.',
+    intro:
+      'Stone waterfalls, dry creek channels, and full ponds with fountain aeration — built into the natural grade of your yard. We tie the stonework into retaining walls and stairs where the site calls for it, and integrate lighting so the feature reads just as well after dark.',
+    included: [
+      'Site evaluation and grade analysis',
+      'Stacked-stone waterfalls and dry creek channels',
+      'Pond excavation, liner, and fountain aeration',
+      'Integrated stonework with stairs and retaining walls',
+      'Low-voltage accent lighting for night viewing',
+    ],
+    related: ['retaining-walls', 'rock-beds', 'landscape-design'],
   },
   {
     slug: 'hardscaping',
@@ -153,7 +168,7 @@ export const SERVICES: Service[] = [
       'Decorative rock selection (river rock, lava, granite, etc.)',
       'Clean install around plantings',
     ],
-    related: ['flower-beds', 'mulch-installation', 'landscape-design'],
+    related: ['water-features', 'flower-beds', 'mulch-installation'],
   },
   {
     slug: 'mulch-installation',

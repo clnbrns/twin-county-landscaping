@@ -75,19 +75,19 @@ const SHOWCASE_GALLERY = [
   '/images/services/retaining-walls/img-1033-gallery.webp',
 ];
 
-const title = 'Backyard in a Box | Complete Outdoor Living Package | Twin County Outdoor Services';
-const description = 'A full backyard outdoor living package from Twin County Outdoor Services: pergola, electrical, countertops, hardscape, retaining walls, rock, and pavers — done in one turn by one crew.';
+const title = 'Outdoor Living Space Design & Build in Aledo, TX | Twin County Outdoor Services';
+const description = 'Complete outdoor living space design and build in Aledo, Fort Worth, Weatherford, and Western DFW: pergolas, outdoor kitchen countertops, electrical, hardscape, retaining walls, rock, and pavers — one crew, one project, free in-person quote.';
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Backyard in a Box',
-  serviceType: 'Outdoor Living Package',
+  name: 'Outdoor Living Space Design & Build',
+  serviceType: 'Outdoor Living Space',
   provider: { '@id': `${SITE.url}/#business` },
   description,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Backyard in a Box',
+    name: 'Outdoor Living Space Package',
     itemListElement: PACKAGE_ITEMS.map((item) => ({
       '@type': 'Offer',
       itemOffered: { '@type': 'Service', name: item.name, description: item.description },
@@ -95,24 +95,24 @@ const schema = {
   },
 };
 ---
-<Base title={title} description={description} path="/backyard-in-a-box" schema={schema}>
-  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Backyard in a Box' }]} />
+<Base title={title} description={description} path="/outdoor-living-space" schema={schema}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Outdoor Living Space' }]} />
 
   <HeroSection
-    eyebrow="Complete Outdoor Living Package"
-    title="Backyard in a Box"
-    subtitle="Pergola. Electrical. Countertops. Hardscape. Retaining walls. Rock. Pavers. One crew, one turn, one finished backyard — all done by Twin County Outdoor Services."
+    eyebrow="Outdoor Living Space Design & Build"
+    title="Outdoor Living Spaces Built by One Crew, Start to Finish"
+    subtitle="Pergolas. Electrical. Outdoor kitchen countertops. Hardscape. Retaining walls. Rock. Pavers. Twin County Outdoor Services designs, coordinates, and builds the whole outdoor living space in one project."
     image="/images/services/hardscaping/img-2230-gallery.webp"
   />
 
   <section class="container-x py-16">
     <div class="max-w-3xl">
-      <h2>Your whole backyard, built in one turn</h2>
+      <h2>Your whole outdoor living space, built in one project</h2>
       <p class="mt-4 text-brand-muted">
         Most outdoor living projects get stitched together across half a dozen contractors — a hardscape crew, a landscaper, an electrician, someone for the countertops, and someone else entirely for the pergola. Schedules slip, nobody owns the finish line, and you end up managing the project yourself.
       </p>
       <p class="mt-3 text-brand-muted">
-        Backyard in a Box is the alternative: Lucas and the Twin County crew scope, coordinate, and build the entire outdoor living space — structure, surfaces, and finishes — so it comes together as one project instead of seven.
+        Twin County is the alternative: Lucas and the crew scope, coordinate, and build the entire outdoor living space — structure, surfaces, and finishes — so it comes together as one project instead of seven.
       </p>
     </div>
 
@@ -171,7 +171,7 @@ const schema = {
           {[
             { t: '1. Walkthrough', d: 'Lucas walks the property in person and talks through what you want the space to do.' },
             { t: '2. One proposal', d: 'A single detailed written proposal covering every piece of the package — no separate bids to chase down.' },
-            { t: '3. One build', d: 'The crew builds it in sequence, start to finish, so the whole yard comes together at once.' },
+            { t: '3. One build', d: 'The crew builds it in sequence, start to finish, so the whole space comes together at once.' },
           ].map((s) => (
             <div class="bg-white p-5 rounded-lg border border-brand-green-tint">
               <div class="font-heading font-bold text-brand-green-dark">{s.t}</div>
@@ -182,7 +182,7 @@ const schema = {
 
         <div class="bg-brand-green-tint p-6 rounded-lg">
           <h3>Why Lucas</h3>
-          <p class="mt-2 text-brand-ink">Twin County is owner-operated — Lucas is on every job, and any electrical work is coordinated with a licensed electrician so it's done to code, not just done fast. No random subs handed the keys to your backyard.</p>
+          <p class="mt-2 text-brand-ink">Twin County is owner-operated — Lucas is on every job, and any electrical work is coordinated with a licensed electrician so it's done to code, not just done fast. No random subs handed the keys to your outdoor living space.</p>
         </div>
 
         <p class="text-sm text-brand-muted">Serving Aledo, Benbrook, Weatherford, Fort Worth, Brock, and surrounding areas.</p>
@@ -194,5 +194,5 @@ const schema = {
     </div>
   </section>
 
-  <CTABanner title="Ready to build your backyard in a box?" subtitle="Free in-person quote for the full outdoor living package." />
+  <CTABanner title="Ready to design your outdoor living space?" subtitle="Free in-person quote for the full outdoor living package." />
 </Base>

@@ -29,6 +29,7 @@
 # --- Page renames ---
 /about-us                         /about/                      301
 /portfolio                        /projects/                   301
+/backyard-in-a-box                /outdoor-living-space/       301
 
 # --- Trailing-slash canonicalization (non-trailing -> trailing) ---
 # Sitemap + canonical tag both declare the trailing-slash form as canonical

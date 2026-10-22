@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const title = 'Flagstone Patio & Hardscape Contractors in Parker County, TX | Twin County Outdoor Services';
+const description = 'Flagstone patios and hardscape contractors serving Parker County, TX — Aledo, Weatherford, Willow Park, Hudson Oaks, and Annetta. Free in-person quote, detailed written proposal.';
+const path = '/hardscaping-parker-county-tx';
+
+const services = [
+  { name: 'Flagstone patios', body: 'Oklahoma flagstone and Texas-quarried stone with mortared or polymeric-sand joints — the material of choice for Parker County acreage and ranch-style properties.' },
+  { name: 'Paver patios', body: 'Belgard and Pavestone segmental pavers on a properly compacted base, sized for both standard lots and larger acreage footprints.' },
+  { name: 'Entrance & walkway hardscape', body: 'Stone and paver walkways connecting driveways, entries, and outbuildings on larger Parker County properties.' },
+  { name: 'Outdoor living installations', body: 'Seating walls, fire pits, and pergola-ready patios built as one integrated system across our whole Parker County service area.' },
+  { name: 'Drainage built in', body: 'Every patio includes grading or a French drain sized to Parker County clay — built in from the start, not added after water starts pooling.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/hardscaping/img-9143-gallery.webp', alt: 'Flagstone patio in Parker County' },
+  { src: '/images/services/hardscaping/img-1804-gallery.webp', alt: 'Paver patio project' },
+  { src: '/images/services/hardscaping/img-1881-gallery.webp', alt: 'Stone walkway installation' },
+  { src: '/images/services/hardscaping/img-2230-gallery.webp', alt: 'Backyard hardscape patio' },
+  { src: '/images/services/hardscaping/img-1160-gallery.webp', alt: 'Outdoor living hardscape' },
+  { src: '/images/services/hardscaping/img-1058-gallery.webp', alt: 'Hardscape patio detail' },
+];
+
+const faqs = [
+  { q: 'What areas of Parker County do you serve?', a: 'Aledo, Weatherford, Willow Park, Hudson Oaks, Annetta, Springtown, Cresson, and Brock — all of Parker County is our home base. Lucas grew up here.' },
+  { q: 'How much does a flagstone patio cost in Parker County?', a: 'Flagstone patios typically run $25-$50 per square foot installed depending on stone selection and joint type. Paver patios run $15-$32 per square foot. Acreage properties with larger footprints or entrance walkways scale from there.' },
+  { q: 'Do you handle larger acreage and ranch-style properties, not just standard subdivision lots?', a: 'Yes — acreage hardscape is common Parker County work: entrance walkways, larger patios, and outdoor living spaces sized to the property rather than a standard backyard.' },
+  { q: 'Do you handle drainage as part of the hardscape project?', a: 'Yes. Every patio and walkway includes grading or a French drain sized to the property — Parker County clay holds water, and we design for it from the start.' },
+  { q: 'Do you offer free quotes across Parker County?', a: 'Yes. Lucas walks every property in person and writes a detailed proposal at no charge, no matter where in the county you are.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'AdministrativeArea', name: 'Parker County', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Hardscaping Parker County' }]} />
+
+  <section class="container-x py-12">
+    <h1>Flagstone Patio & Hardscape Contractors in Parker County, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Flagstone patios, paver patios, and full hardscape installations across Parker County — Aledo, Weatherford, Willow Park, Hudson Oaks, and Annetta. This is home turf; Lucas grew up here.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/hardscaping/img-9143-gallery.webp" alt="Hardscape contractor in Parker County, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build across Parker County</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent hardscape work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Parker County hardscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">
+          Serving all of Parker County: <a href="/areas/aledo-tx">Aledo</a>, <a href="/areas/weatherford-tx">Weatherford</a>, <a href="/areas/willow-park-tx">Willow Park</a>, <a href="/areas/hudson-oaks-tx">Hudson Oaks</a>, <a href="/areas/springtown-tx">Springtown</a>, and <a href="/areas/cresson-tx">Cresson</a>. See our <a href="/services/hardscaping/">full hardscaping services</a> or <a href="/paver-patios-aledo-tx">paver patios in Aledo</a>.
+        </p>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your Parker County hardscape project?" />
+</Base>

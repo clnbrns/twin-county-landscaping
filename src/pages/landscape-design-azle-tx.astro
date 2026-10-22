@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Landscape Design in Azle, TX | Twin County Outdoor Services';
+const description = 'Landscape design and backyard design in Azle, TX. Lakefront landscape plans, plant selection, hardscape, drainage, and installation by one local crew. In-person quotes, written proposals.';
+const path = '/landscape-design-azle-tx';
+
+const services = [
+  { name: 'Full landscape design', body: 'Walk, measure, plan. Plant palette, hardscape layout, drainage integration — written proposal with everything itemized.' },
+  { name: 'Lakefront landscape design', body: 'Eagle Mountain Lake lots designed with grading and drainage as part of the plan, not an afterthought once water starts pooling.' },
+  { name: 'Backyard transformations', body: 'Complete backyard remodels — patio, walls, plantings, sod, drainage, lighting. One crew, one timeline, no subcontractor handoffs.' },
+  { name: 'Front yard refreshes', body: 'Curb appeal projects — new beds, stone borders, layered seasonal color, refreshed entry approach. Most done in 2–4 days.' },
+  { name: 'Plant selection for Azle', body: 'Texas natives and clay-tolerant ornamentals suited to Azle\'s soil and summer heat.' },
+  { name: 'Integrated drainage', body: 'We already do heavy French drain work in Azle — every landscape design accounts for drainage from the start, not as a separate add-on.' },
+];
+
+const process = [
+  { step: '1', title: 'In-person walkthrough', body: 'Lucas comes to your Azle property, walks the yard, takes measurements and photos, listens to how you use the space.' },
+  { step: '2', title: 'Written proposal', body: 'Detailed scope, plant palette, hardscape materials, phasing options, realistic timeline. You see exactly what you are paying for.' },
+  { step: '3', title: 'Design refinement', body: 'We iterate together. Easy to adjust before any work starts.' },
+  { step: '4', title: 'One-crew installation', body: 'Same team handles excavation, hardscape, drainage, plantings, sod, cleanup. No surprise upcharges, no finger-pointing between trades.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/landscape-design/img-1013-gallery.webp', alt: 'Landscape design project in Azle' },
+  { src: '/images/services/landscape-design/img-1015-gallery.webp', alt: 'Backyard transformation in Azle' },
+  { src: '/images/services/landscape-design/img-1063-gallery.webp', alt: 'Full landscape installation' },
+  { src: '/images/services/landscape-design/img-1260-gallery.webp', alt: 'Front yard flower bed design' },
+  { src: '/images/services/french-drains/french-drain-gallery.webp', alt: 'Integrated drainage on an Azle landscape project' },
+  { src: '/images/services/landscape-design/favorite-gallery.webp', alt: 'Backyard patio and landscape design' },
+];
+
+const neighborhoods = ['Eagle Mountain Lake', 'Pelican Bay', 'Cross Timbers', 'Lakeside (border)'];
+
+const faqs = [
+  { q: 'How much does a landscape design cost in Azle?', a: 'Most full landscape designs in Azle run $8,000–$40,000 installed depending on scope. Front-yard refreshes start around $3,500. Full backyard transformations with patio, walls, plantings, and drainage typically land $25,000–$75,000.' },
+  { q: 'Do you charge for the design?', a: 'No. Design is included in the project. Lucas walks the property and writes a detailed proposal at no cost.' },
+  { q: 'Can you design for lakefront lots around Eagle Mountain Lake?', a: 'Yes — lakefront grading and drainage are common Azle work. We design the landscape around the slope and water flow instead of planting first and dealing with drainage later.' },
+  { q: 'You already do a lot of French drain work here — is drainage part of the design?', a: 'Yes. Azle is one of our most common drainage markets, and every landscape design accounts for it from the start rather than treating it as a separate project.' },
+  { q: 'How long does a full backyard project take?', a: 'A small refresh can be 3–5 days. A medium backyard with patio, plantings, and drainage is typically 1–2 weeks. Full transformations with multi-tier walls and outdoor living can run 3–6 weeks.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Landscape Design and Installation',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Azle', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Landscape Design Azle' }]} />
+
+  <section class="container-x py-12">
+    <h1>Landscape Design in Azle, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Full landscape design, lakefront design, backyard transformations, and front-yard refreshes across Azle and the Eagle Mountain Lake area.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/landscape-design/img-1013-gallery.webp" alt="Landscape design in Azle, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we design and install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Our design process</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {process.map((p) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <div class="text-brand-green-dark font-bold text-2xl">{p.step}</div>
+                <h3 class="text-lg font-semibold text-brand-ink mt-1">{p.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Azle areas we serve</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {neighborhoods.map((n) => <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>)}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent Azle-area work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Azle landscape design FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready to design your Azle yard?" />
+</Base>

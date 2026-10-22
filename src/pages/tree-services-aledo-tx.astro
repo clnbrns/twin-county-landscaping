@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Tree Trimming & Tree Planting in Aledo, TX | Twin County Outdoor Services';
+const description = 'Tree trimming, removal, and tree planting in Aledo, TX. Shaping, deadwood removal, and new tree installation sized for Walsh, Morningstar, and Parker County lots. Free in-person quote.';
+const path = '/tree-services-aledo-tx';
+
+const services = [
+  { name: 'Tree trimming & shaping', body: 'Structural trimming and canopy shaping for health, form, and safety — sized to the tree, not a flat-rate hack job.' },
+  { name: 'Deadwood & storm damage removal', body: 'Dead limbs and storm-damaged wood removed before they come down on a fence, roof, or vehicle.' },
+  { name: 'Tree removal', body: 'Full removals for trees that are dead, diseased, or planted too close to the house or foundation.' },
+  { name: 'New tree planting & installation', body: 'Trees selected and planted for Aledo clay and Texas heat — sized correctly for the space at maturity, not just today.' },
+  { name: 'Tree & shrub health care', body: 'Pruning and care for ornamentals and shrub lines as part of a full landscape, not a one-off drive-by trim.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does tree trimming cost in Aledo?',
+    a: 'Most residential tree trimming in Aledo runs $150-$600 per tree depending on size and access. Larger shade trees or storm-damage cleanup can run higher. Every quote is itemized after an in-person look at the tree.',
+  },
+  {
+    q: 'How much does tree removal cost in Aledo?',
+    a: 'Tree removal in Aledo typically runs $400-$1,500 per tree depending on size, proximity to structures, and whether stump removal is included. We walk the property before quoting — every tree and lot is different.',
+  },
+  {
+    q: 'What trees actually do well in Aledo?',
+    a: 'Live oak, Chinquapin oak, cedar elm, and Texas redbud handle our clay soil and summer heat well. We steer new plantings away from species that struggle with poor drainage or shallow caliche unless the site is graded for it.',
+  },
+  {
+    q: 'Do I need a permit to remove a tree in Aledo?',
+    a: 'Most residential removals on private Aledo lots do not require a permit. Some newer developments (Walsh, Morningstar) have HOA tree guidelines for street-facing or protected trees — we check before cutting anything down.',
+  },
+  {
+    q: "When's the best time to plant new trees in Aledo?",
+    a: 'Late fall through late winter is ideal — roots establish before summer heat hits. We also plant in spring for container-grown stock, just with a closer eye on watering through the first summer.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Tree Trimming, Removal & Planting',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Aledo', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Tree Services Aledo' }]} />
+
+  <section class="container-x py-12">
+    <h1>Tree Trimming & Tree Planting in Aledo, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Trimming, shaping, removals, and new tree planting across Aledo — Walsh, Morningstar, Parks of Aledo, Bella Ranch, and the rest of Parker County. Lucas was raised here and knows which trees hold up on this soil.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/tree-services/b5fb8346-0588-4965-b8ce-309ae61d22ae-gallery.webp" alt="Tree trimming and planting in Aledo, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we do</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent tree work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {[
+              '/images/services/tree-services/dsc05578-gallery.webp',
+              '/images/services/tree-services/dsc05579-gallery.webp',
+              '/images/services/tree-services/img-0608-gallery.webp',
+              '/images/services/tree-services/img-0609-gallery.webp',
+              '/images/services/tree-services/img-1165-gallery.webp',
+              '/images/services/tree-services/img-6435-gallery.webp',
+            ].map((src) => (
+              <a href={src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={src} alt="Tree service project in Aledo, TX" loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Aledo neighborhoods we serve</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {['Walsh', 'Walsh Ranch', 'Morningstar', 'Parks of Aledo', 'Bella Ranch', 'Bella Crossing', 'Bella Flora', 'La Madera', 'McDavid Springs', 'Annetta', 'Annetta North', 'Annetta South'].map((n) => (
+              <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Aledo tree service FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got trees that need attention in Aledo?" />
+</Base>

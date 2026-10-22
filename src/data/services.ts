@@ -74,10 +74,11 @@ export const SERVICES: Service[] = [
     name: 'Sod Installation',
     short: 'Fresh sod on a prepped, graded yard — up to 10,000+ sq ft.',
     intro:
-      'New sod, properly installed. We grade, prep the soil, and lay the sod so it takes root and stays green. We have done jobs as large as 10,000 sq ft in a single install. ($3,000 minimum.)',
+      'New sod, properly installed. We grade, prep the soil, and lay the sod so it takes root and stays green. We have done jobs as large as 10,000 sq ft in a single install. Hydroseeding is available as a lower-cost alternative on large or sloped acreage where full sod isn\'t practical. ($3,000 minimum.)',
     included: [
       'Site grading and soil prep',
       'Bermuda, Zoysia, and St. Augustine options',
+      'Hydroseeding for large or sloped areas',
       'Tight seam installation',
       'Initial watering instructions',
       'Cleanup and haul-off',

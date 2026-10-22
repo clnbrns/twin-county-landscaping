@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'French Drain Installation in Lakeside, TX | Twin County Outdoor Services';
+const description = 'French drain installation in Lakeside, TX. Fix standing water, foundation moisture, and soggy yards on Eagle Mountain Lake lots. Free in-person diagnosis and quote.';
+const path = '/french-drains-lakeside-tx';
+
+const services = [
+  { name: 'French drains', body: 'Perforated PVC in a crushed-rock envelope wrapped with filter fabric. Sized to your lot, soil, and discharge point — designed for Texas clay, not a kit install.' },
+  { name: 'Lake-lot grading & swales', body: 'Lakeside lots slope toward Eagle Mountain Lake, which means water often needs a designed path rather than just running downhill toward the shoreline unchecked.' },
+  { name: 'Surface drains & catch basins', body: 'Yard inlets that capture pooling water and downspout overflow before it sits against a slab or floods a patio.' },
+  { name: 'Downspout extensions', body: 'Buried PVC runs that carry roof water out past the foundation perimeter — a common fix for chronic foundation moisture on lakefront lots.' },
+  { name: 'Erosion control', body: 'Stone-armored swales and slope stabilization for shoreline-adjacent lots losing soil to runoff.' },
+];
+
+const symptoms = [
+  'Standing water 24+ hours after rain',
+  'Soggy low spots near downspouts or fence lines',
+  'Water sitting against the foundation or slab',
+  'Erosion channels forming toward the shoreline',
+  'Mud on driveway or patio after every storm',
+  'Runoff crossing from a neighboring lot',
+  'Musty smell inside garage or near exterior walls',
+  'Sod or lawn that never fully dries on one side',
+];
+
+const faqs = [
+  {
+    q: 'How much does a French drain cost in Lakeside?',
+    a: 'Most residential French drains in Lakeside run $30-70 per linear foot installed, depending on depth, soil conditions, and discharge routing. Full systems typically fall in the $2,500-$7,000 range. Lake-lot grading work varies more depending on slope.',
+  },
+  {
+    q: 'Does Lakeside clay soil cause drainage problems?',
+    a: 'Yes — the expansive clay common around Eagle Mountain Lake absorbs water slowly and becomes effectively impermeable when saturated. On sloped lake lots, that water moves toward the shoreline across the surface rather than soaking in, which is what creates standing water and erosion.',
+  },
+  {
+    q: 'Do you work on lakefront lots, not just standard yards?',
+    a: 'Yes — Lakeside and the rest of the Eagle Mountain Lake area is a regular part of our route, and lakefront grading and drainage is common work for us out here.',
+  },
+  {
+    q: 'How long does a French drain installation take?',
+    a: 'A typical 80-150 linear foot French drain takes 2-3 days. Larger multi-zone systems with regrading can take a week.',
+  },
+  {
+    q: 'Will you tear up my landscape?',
+    a: 'We remove sod in a strip just wide enough to dig the trench, then re-lay it after backfill. Cleanup is part of the job, not an extra.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'French Drain Installation',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Lakeside', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'French Drains Lakeside' }]} />
+
+  <section class="container-x py-12">
+    <h1>French Drain Installation in Lakeside, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Standing water, soggy yards, and lake-lot grading problems fixed for good — French drains, surface drains, and regrading systems built for Eagle Mountain Lake clay and slope.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/french-drains/favorite-gallery.webp" alt="French drain installation in Lakeside, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>Drainage problems we fix in Lakeside</h2>
+          <p class="mt-2 text-brand-muted text-sm">If any of these sound familiar, we should walk the property.</p>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-brand-muted">
+            {symptoms.map((s) => <li class="flex items-start gap-2"><span class="text-brand-green-dark font-bold mt-0.5">✓</span><span>{s}</span></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>What we install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Lakeside drainage FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Lakeside, Azle, Pelican Bay, and the rest of the Eagle Mountain Lake area.</p>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Got a drainage problem in Lakeside?" />
+</Base>

@@ -133,6 +133,22 @@ export const AREAS: Area[] = [
     neighborhoods: ['Eagle Mountain Lake', 'Pelican Bay', 'Cross Timbers', 'Lakeside (border)'],
   },
   {
+    slug: 'pelican-bay-tx',
+    city: 'Pelican Bay',
+    state: 'TX',
+    intro:
+      'Pelican Bay sits right on Eagle Mountain Lake, just outside Azle — a regular stop on our route. Lakefront lots here have their own drainage challenges from lake-adjacent grading, and it is some of our most requested French drain work.',
+    neighborhoods: ['Eagle Mountain Lake shoreline', 'Pelican Bay proper'],
+  },
+  {
+    slug: 'lakeside-tx',
+    city: 'Lakeside',
+    state: 'TX',
+    intro:
+      'Lakeside borders Azle and Eagle Mountain Lake, and we are out here regularly for drainage and landscape work. Lake-adjacent lots and heavy clay make standing water a common complaint we fix with French drains and regrading.',
+    neighborhoods: ['Eagle Mountain Lake shoreline', 'Lakeside proper'],
+  },
+  {
     slug: 'dallas-tx',
     city: 'Dallas',
     state: 'TX',

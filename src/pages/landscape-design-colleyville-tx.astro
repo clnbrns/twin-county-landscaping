@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Landscape Design in Colleyville, TX | Twin County Outdoor Services';
+const description = 'Landscape design and backyard transformations in Colleyville, TX. Full plans, plant selection, hardscape, drainage, and installation by one local crew. In-person quotes, written proposals.';
+const path = '/landscape-design-colleyville-tx';
+
+const services = [
+  { name: 'Full landscape design', body: 'Walk, measure, plan. Plant palette, hardscape layout, drainage integration — written proposal with everything itemized.' },
+  { name: 'Backyard transformations', body: 'Complete backyard remodels — patio, walls, plantings, sod, drainage, lighting. One crew, one timeline, no subcontractor handoffs.' },
+  { name: 'Larger-lot design', body: 'Colleyville lots run bigger than most of our service area — we design for the extra square footage instead of treating it like a standard suburban yard.' },
+  { name: 'Premium plant palettes', body: 'Upgraded ornamentals and specimen trees for clients who want the design to look finished on day one, not grow in over three years.' },
+  { name: 'Front yard refreshes', body: 'Curb appeal projects — new beds, stone borders, layered seasonal color, refreshed entry approach. Most done in 2–4 days.' },
+  { name: 'Integrated drainage', body: 'Every design includes drainage planning. French drains and surface drains routed before any planting — not bolted on after.' },
+];
+
+const process = [
+  { step: '1', title: 'In-person walkthrough', body: 'Lucas comes to your Colleyville property, walks the yard, takes measurements and photos, listens to how you use the space.' },
+  { step: '2', title: 'Written proposal', body: 'Detailed scope, plant palette, hardscape materials, phasing options, realistic timeline. You see exactly what you are paying for.' },
+  { step: '3', title: 'Design refinement', body: 'We iterate together. Want fewer beds, different patio shape, fire pit instead of a wall? Easy to adjust before any work starts.' },
+  { step: '4', title: 'One-crew installation', body: 'Same team handles excavation, hardscape, drainage, plantings, sod, cleanup. No surprise upcharges, no finger-pointing between trades.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/landscape-design/img-1015-gallery.webp', alt: 'Landscape design project in Colleyville' },
+  { src: '/images/services/landscape-design/img-1061-gallery.webp', alt: 'Backyard transformation in Colleyville' },
+  { src: '/images/services/landscape-design/img-1063-gallery.webp', alt: 'Full landscape installation' },
+  { src: '/images/services/landscape-design/img-1260-gallery.webp', alt: 'Front yard flower bed design' },
+  { src: '/images/services/landscape-design/img-1557-gallery.webp', alt: 'Larger-lot landscape design' },
+  { src: '/images/services/landscape-design/favorite-gallery.webp', alt: 'Backyard patio and landscape design' },
+];
+
+const neighborhoods = ['Colleyville proper', 'Whittier Heights', 'Creekside', 'Northeast Tarrant'];
+
+const faqs = [
+  { q: 'How much does a landscape design cost in Colleyville?', a: 'Most full landscape designs in Colleyville run $10,000–$45,000 installed — larger lots and premium plant palettes push the upper end of that range higher than our other service areas. Front-yard refreshes start around $4,000.' },
+  { q: 'Do you charge for the design?', a: 'No. Design is included in the project. Lucas walks the property and writes a detailed proposal at no cost. Once you sign, design refinements happen as part of the install.' },
+  { q: 'Can you handle Colleyville\'s larger lots and premium finishes?', a: "Yes — Colleyville lots typically run larger than our other service areas, and we design accordingly: specimen trees, upgraded hardscape materials, and plant palettes sized to fill the space properly, not stretched thin." },
+  { q: 'What does a full landscape project actually include?', a: 'Whatever your yard needs: patio, retaining walls, plant beds, sod, drainage, lighting, fire features, irrigation. We design and install as a complete system, not a list of disconnected upgrades.' },
+  { q: 'How long does a full backyard project take?', a: 'A small refresh can be 3–5 days. A medium backyard with patio, plantings, and drainage is typically 1–2 weeks. Full transformations with multi-tier walls and outdoor living can run 3–6 weeks.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Landscape Design and Installation',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Colleyville', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Landscape Design Colleyville' }]} />
+
+  <section class="container-x py-12">
+    <h1>Landscape Design in Colleyville, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Full landscape design, backyard transformations, and front-yard refreshes across Colleyville — larger lots, established neighborhoods, and premium finishes done right the first time.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/landscape-design/img-1015-gallery.webp" alt="Landscape design in Colleyville, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we design and install</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Our design process</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-4">
+            {process.map((p) => (
+              <div class="bg-brand-green-tint/30 rounded-lg p-5">
+                <div class="text-brand-green-dark font-bold text-2xl">{p.step}</div>
+                <h3 class="text-lg font-semibold text-brand-ink mt-1">{p.title}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Colleyville areas we serve</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {neighborhoods.map((n) => <span class="px-3 py-1 bg-brand-green-tint text-brand-ink rounded-full text-sm">{n}</span>)}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent Colleyville-area work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Colleyville landscape design FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready to design your Colleyville yard?" />
+</Base>

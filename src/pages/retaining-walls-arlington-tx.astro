@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Retaining Wall Contractors in Arlington, TX | Twin County Outdoor Services';
+const description = 'Retaining wall contractors in Arlington, TX. Engineered block, stone, and poured concrete walls for grade changes and drainage control. Free in-person quote.';
+const path = '/retaining-walls-arlington-tx';
+
+const services = [
+  { name: 'Segmental block walls', body: 'Belgard, Pavestone, and Keystone block systems engineered for the wall height and soil conditions on the property, not a generic stack.' },
+  { name: 'Poured concrete retaining walls', body: 'Formed and poured concrete walls for taller grade changes or where a clean, modern finish is the goal.' },
+  { name: 'Garden retaining walls', body: 'Smaller stone or block walls for raised beds, tiered plantings, and grade transitions between yard levels.' },
+  { name: 'Natural stone walls', body: 'Hand-set flagstone and limestone walls for a premium, natural finish on visible retaining walls.' },
+  { name: 'Erosion & slope control', body: 'Walls placed to stop soil loss on sloped Arlington lots, often paired with a French drain to manage the water actually causing the movement.' },
+  { name: 'Drainage-first construction', body: 'Every wall gets a crushed-rock drainage envelope, perforated drain pipe, and filter fabric — not just a stack of block with backfill dumped behind it.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/retaining-walls/img-1085-gallery.webp', alt: 'Retaining wall construction in Arlington' },
+  { src: '/images/services/retaining-walls/img-1430-gallery.webp', alt: 'Poured concrete retaining wall' },
+  { src: '/images/services/retaining-walls/img-1524-gallery.webp', alt: 'Garden retaining wall' },
+  { src: '/images/services/retaining-walls/img-1526-gallery.webp', alt: 'Block retaining wall with drainage' },
+  { src: '/images/services/retaining-walls/img-1769-gallery.webp', alt: 'Stone retaining wall' },
+  { src: '/images/services/retaining-walls/dsc05598-gallery.webp', alt: 'Completed retaining wall project' },
+];
+
+const drainagePoints = [
+  'Crushed-rock drainage envelope behind every course — not just the base',
+  'Perforated drain pipe at the footing, daylighted to a safe discharge point',
+  'Filter fabric between the native soil and gravel to prevent migration over time',
+  'Engineered batter (lean back) calculated for wall height and soil type',
+  'Geogrid reinforcement on walls over 3 ft to tie the mass into the hillside',
+  'Proper backfill compacted in lifts — not dumped and graded off',
+];
+
+const faqs = [
+  { q: 'How much does a retaining wall cost in Arlington?', a: 'Most segmental block walls in Arlington run $40–$80 per face-foot installed, depending on height, length, and drainage complexity. Poured concrete walls typically run $50–$100 per face-foot. Walls over 4 ft generally require an engineered drawing, which we include in the proposal.' },
+  { q: 'Do you build garden walls or just structural walls?', a: 'Both. Garden retaining walls for raised beds and tiered plantings are smaller-scale, lower-cost projects, while structural walls holding back significant soil mass need full drainage and engineering — we scope each correctly rather than treating every wall the same.' },
+  { q: 'Do you build poured concrete retaining walls?', a: 'Yes — poured concrete is an option for taller grade changes or a cleaner modern look, in addition to segmental block and natural stone.' },
+  { q: 'Do I need a permit for a retaining wall in Arlington?', a: 'Walls under 4 ft generally do not require a permit. Walls 4 ft and above typically require an engineered plan and a city permit. We handle the permit verification as part of every project.' },
+  { q: 'Do you offer free quotes for Arlington-area retaining wall projects?', a: 'Yes. Lucas walks the property in person, photographs the site, and writes a detailed proposal at no charge.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Retaining Wall Installation',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Arlington', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Retaining Walls Arlington' }]} />
+
+  <section class="container-x py-12">
+    <h1>Retaining Wall Contractors in Arlington, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Segmental block, poured concrete, garden, and natural stone retaining walls — engineered for drainage and grade control across Arlington. Lucas walks every site in person before a proposal goes out.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/retaining-walls/img-1085-gallery.webp" alt="Retaining wall contractor in Arlington, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Arlington</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent retaining wall work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Why drainage matters more than the block</h2>
+          <p class="mt-2 text-brand-muted">A retaining wall is just decorative until you account for water. Every wall we build gets:</p>
+          <ul class="mt-3 space-y-2 text-brand-muted">
+            {drainagePoints.map((p) => <li class="flex items-start gap-2"><span class="text-brand-green-dark font-bold mt-0.5">•</span><span>{p}</span></li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h2>Arlington retaining wall FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Arlington, West Arlington, Pantego, and Dalworthington Gardens for project-scope work.</p>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Need a retaining wall in Arlington?" />
+</Base>

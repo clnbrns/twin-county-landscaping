@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Hardscape Contractors in Granbury, TX | Twin County Outdoor Services';
+const description = 'Hardscape contractors in Granbury, TX — paver patios, flagstone, walkways, and retaining walls for lakefront and sloped lots around Lake Granbury. Free in-person quote.';
+const path = '/hardscaping-granbury-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard and Pavestone segmental pavers on a properly compacted base — built for lakefront and sloped Granbury lots.' },
+  { name: 'Flagstone patios & walkways', body: 'Oklahoma flagstone and Texas-quarried stone with mortared or polymeric-sand joints for a natural, lake-house look.' },
+  { name: 'Retaining walls', body: 'Block and stone walls that come standard with sloped Lake Granbury lots — terracing a hillside down toward the water.' },
+  { name: 'Lakefront outdoor living', body: 'Seating walls, fire pits, and patios positioned to take advantage of the lake view, built as one integrated system.' },
+  { name: 'Entrance walkways', body: 'Stone and paver walkways connecting driveways, entries, and dock paths on DeCordova and Pecan Plantation lots.' },
+  { name: 'Drainage built in', body: 'Every patio and wall includes grading or French drains — critical on Granbury\'s sloped terrain where runoff has to go somewhere specific.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/hardscaping/img-1804-gallery.webp', alt: 'Hardscape patio installation in Granbury' },
+  { src: '/images/services/hardscaping/img-1881-gallery.webp', alt: 'Flagstone patio project' },
+  { src: '/images/services/hardscaping/img-1882-gallery.webp', alt: 'Paver patio detail' },
+  { src: '/images/services/hardscaping/img-1885-gallery.webp', alt: 'Stone walkway installation' },
+  { src: '/images/services/hardscaping/img-2232-gallery.webp', alt: 'Lakefront-style hardscape patio' },
+  { src: '/images/services/hardscaping/img-2234-gallery.webp', alt: 'Hardscape and retaining wall combination' },
+];
+
+const faqs = [
+  { q: 'Do you take on hardscape projects in Granbury, TX?', a: 'Yes — Granbury and the Lake Granbury area are a regular service zone for us, including lakefront and sloped-lot projects.' },
+  { q: 'How much does a paver patio cost in Granbury?', a: 'Most paver patios run $15-$32 per square foot installed; flagstone runs $25-$48 per square foot. Sloped or lakefront lots that need retaining walls and extra grading typically run higher.' },
+  { q: 'Can you build on sloped or lakefront Granbury lots?', a: 'Yes — this is common work for us around Lake Granbury, DeCordova, and Pecan Plantation. We design the retaining wall and drainage before the patio goes in, not after.' },
+  { q: 'Do you handle the retaining wall side of the project too?', a: 'Yes. Most Granbury hardscape projects on sloped lots include a retaining wall component built in from the start rather than added later as a separate job.' },
+  { q: 'Do you offer free quotes for Granbury-area projects?', a: 'Yes. Lucas walks the property in person, photographs the site, and writes a detailed proposal at no charge — same process regardless of the drive.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Granbury', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Hardscaping Granbury' }]} />
+
+  <section class="container-x py-12">
+    <h1>Hardscape Contractors in Granbury, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone patios, retaining walls, and lakefront outdoor living for Granbury, Lake Granbury, DeCordova, and Pecan Plantation. In-person quotes, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/hardscaping/img-1804-gallery.webp" alt="Hardscape contractor in Granbury, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build in Granbury</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent hardscape work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Granbury hardscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Granbury, Lake Granbury, DeCordova, Pecan Plantation, and Historic Granbury.</p>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your Granbury hardscape project?" />
+</Base>

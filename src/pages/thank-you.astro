@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+---
+<Base
+  title={`Thanks — We'll Be in Touch | ${SITE.name}`}
+  description="Thanks for requesting a quote from Twin County Outdoor Services."
+  path="/thank-you"
+  noindex
+>
+  <section class="container-x py-16 md:py-24">
+    <div class="max-w-2xl">
+      <h1>Thanks — we got your request.</h1>
+      <p class="mt-4 text-lg text-brand-muted">Lucas will call or text within 24 hours to set up an in-person walkthrough.</p>
+      <p class="mt-3 text-brand-muted">Need to reach us sooner? Call or text <a href={SITE.phoneHref} class="font-semibold">{SITE.phone}</a>.</p>
+      <p class="mt-8"><a href="/projects" class="btn-secondary no-underline">See recent projects</a></p>
+    </div>
+  </section>
+
+  <script is:inline>
+    try {
+      if (!sessionStorage.getItem('lead_tracked') && typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { form_name: 'unknown', lead_source: document.referrer ? new URL(document.referrer).pathname : '' });
+      }
+      sessionStorage.setItem('lead_tracked', '1');
+    } catch (e) {}
+  </script>
+</Base>

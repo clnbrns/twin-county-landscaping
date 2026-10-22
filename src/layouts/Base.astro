@@ -97,5 +97,43 @@ const localBusinessSchema = {
     </main>
     <Footer />
     <MobileContactBar />
+    {SITE.gaMeasurementId && (
+      <script is:inline>
+        (function () {
+          function track(name, params) {
+            if (typeof gtag === 'function') gtag('event', name, params || {});
+          }
+          document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="sms:"]');
+            if (!a) return;
+            track(a.getAttribute('href').indexOf('tel:') === 0 ? 'phone_click' : 'sms_click', { link_location: location.pathname });
+          });
+          document.addEventListener('submit', function (e) {
+            var f = e.target;
+            if (!f.matches || !f.matches('form[data-netlify]') || f.dataset.sending) return;
+            var bot = f.querySelector('[name="bot-field"]');
+            if (bot && bot.value) return;
+            e.preventDefault();
+            f.dataset.sending = '1';
+            try { sessionStorage.removeItem('lead_tracked'); } catch (err) {}
+            var name = f.getAttribute('name') || 'unknown';
+            var done = false;
+            function go() { if (done) return; done = true; window.location.href = '/thank-you/'; }
+            fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(new FormData(f)).toString(),
+            }).then(function (r) {
+              if (!r.ok) throw new Error('submit failed');
+              try { sessionStorage.setItem('lead_tracked', '1'); } catch (err) {}
+              track('generate_lead', { form_name: name, lead_source: location.pathname, event_callback: go });
+              setTimeout(go, 1000);
+            }).catch(function () {
+              f.submit();
+            });
+          });
+        })();
+      </script>
+    )}
   </body>
 </html>

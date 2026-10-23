@@ -157,6 +157,22 @@ export const AREAS: Area[] = [
     neighborhoods: ['West Dallas', 'Oak Cliff', 'Park Cities (border)', 'Project-based scope'],
   },
   {
+    slug: 'frisco-tx',
+    city: 'Frisco',
+    state: 'TX',
+    intro:
+      'We take on Frisco projects for the right scope — full backyard transformations, paver and flagstone patios, and complete landscape designs where the job justifies the longer drive from our Aledo base. Lucas still walks every property in person and writes a detailed proposal.',
+    neighborhoods: ['Frisco proper', 'Collin County', 'Project-based scope'],
+  },
+  {
+    slug: 'mckinney-tx',
+    city: 'McKinney',
+    state: 'TX',
+    intro:
+      'We take on McKinney projects for the right scope — full backyard transformations, paver and flagstone patios, and complete landscape designs where the job justifies the longer drive from our Aledo base. Lucas still walks every property in person and writes a detailed proposal.',
+    neighborhoods: ['McKinney proper', 'Collin County', 'Project-based scope'],
+  },
+  {
     slug: 'north-richland-hills-tx',
     city: 'North Richland Hills',
     state: 'TX',

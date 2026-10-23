@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import CTABanner from '../components/CTABanner.astro';
+import GeoLinks from '../components/GeoLinks.astro';
+
+const title = 'Hardscape & Patio Contractors in Frisco, TX | Twin County Outdoor Services';
+const description = 'Hardscape and patio contractors serving Frisco, TX for project-scope work — paver patios, flagstone, walkways, and outdoor living. Free in-person quote.';
+const path = '/hardscaping-frisco-tx';
+
+const services = [
+  { name: 'Paver patios', body: 'Belgard and Pavestone segmental pavers on a properly compacted base, built to handle North Texas clay movement.' },
+  { name: 'Flagstone patios & walkways', body: 'Oklahoma flagstone and Texas-quarried stone with mortared or polymeric-sand joints for a natural finish.' },
+  { name: 'Outdoor living installations', body: 'Seating walls, fire pits, and pergola-ready patios built as one integrated system.' },
+  { name: 'Retaining walls', body: 'Block and stone walls for grade changes and drainage control, built with a proper drainage envelope behind every course.' },
+  { name: 'Pool-area hardscape', body: 'Paver and flagstone decking around pools and spas, detailed for drainage away from the pool shell.' },
+  { name: 'Drainage built in', body: 'Every patio includes grading or a French drain sized to the property, built in from the start.' },
+];
+
+const galleryImages = [
+  { src: '/images/services/hardscaping/img-1160-gallery.webp', alt: 'Hardscape project near Frisco' },
+  { src: '/images/services/hardscaping/img-1261-gallery.webp', alt: 'Paver patio detail' },
+  { src: '/images/services/hardscaping/img-1462-gallery.webp', alt: 'Flagstone patio project' },
+  { src: '/images/services/hardscaping/img-1800-gallery.webp', alt: 'Stone walkway installation' },
+  { src: '/images/services/hardscaping/img-2235-gallery.webp', alt: 'Outdoor living hardscape' },
+  { src: '/images/services/hardscaping/img-9148-gallery.webp', alt: 'Hardscape and patio combination' },
+];
+
+const faqs = [
+  { q: 'Do you take on hardscape and patio projects in Frisco, TX?', a: "Yes — for the right scope. Frisco is outside our regular Western DFW route, so we focus on full patio and outdoor living builds where the project justifies the drive from our Aledo base." },
+  { q: 'How much does a paver patio cost in Frisco?', a: 'Most paver patios run $15-$32 per square foot installed; flagstone runs $25-$48 per square foot. Full outdoor living installations with seating walls or a fire pit typically run $15,000-$40,000.' },
+  { q: 'Can you build a full outdoor living space, not just a patio slab?', a: 'Yes — seating walls, fire pits, and pergola-ready hardscape built as one integrated system, designed around how you actually use the backyard.' },
+  { q: 'Do you handle drainage as part of the hardscape project?', a: 'Yes. Every patio and walkway includes grading or a French drain sized to the property, built in from the start rather than added later.' },
+  { q: 'Do you offer free quotes for Frisco projects?', a: 'Yes. Lucas walks the property in person, photographs the site, and writes a detailed proposal at no charge — same process regardless of the drive.' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Hardscaping',
+  provider: { '@id': 'https://twincountyoutdoorservices.com/#business' },
+  areaServed: { '@type': 'City', name: 'Frisco', containedInPlace: { '@type': 'State', name: 'Texas' } },
+  description,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} path={path} schema={[schema, faqSchema]}>
+  <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }, { label: 'Hardscaping Frisco' }]} />
+
+  <section class="container-x py-12">
+    <h1>Hardscape & Patio Contractors in Frisco, TX</h1>
+    <p class="mt-4 text-lg text-brand-muted max-w-3xl">
+      Paver patios, flagstone patios, retaining walls, and full outdoor living installations for Frisco-area projects where the scope warrants the drive. In-person quotes, detailed written proposals.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 space-y-10">
+        <div class="aspect-[16/10] bg-brand-green-tint rounded-lg overflow-hidden">
+          <img src="/images/services/hardscaping/img-1160-gallery.webp" alt="Hardscape contractor in Frisco, TX" width="1600" height="1000" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2>What we build near Frisco</h2>
+          <div class="mt-5 grid sm:grid-cols-2 gap-5">
+            {services.map((s) => (
+              <div class="bg-white border border-brand-green-tint rounded-lg p-5">
+                <h3 class="text-lg font-semibold text-brand-ink">{s.name}</h3>
+                <p class="mt-2 text-brand-muted text-sm">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Recent hardscape work</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <a href={img.src} class="block aspect-square bg-brand-green-tint rounded-md overflow-hidden">
+                <img src={img.src} alt={img.alt} loading="lazy" width="800" height="800" class="w-full h-full object-cover" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>Frisco hardscaping FAQs</h2>
+          <div class="mt-4 space-y-5">
+            {faqs.map((f) => (
+              <div class="border-l-4 border-brand-green-dark pl-4">
+                <h3 class="text-lg font-semibold text-brand-ink">{f.q}</h3>
+                <p class="mt-2 text-brand-muted">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p class="text-sm text-brand-muted">Serving Frisco and the surrounding Collin County area for project-scope work.</p>
+
+        <GeoLinks currentPath={path} />
+      </div>
+
+      <aside class="lg:sticky lg:top-24 lg:self-start"><QuoteForm compact /></aside>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for your Frisco hardscape project?" />
+</Base>

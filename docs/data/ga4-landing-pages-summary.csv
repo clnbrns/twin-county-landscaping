@@ -1,0 +1,24 @@
+Landing page,Sessions,Active users,New users,Avg engagement time per session (s),Key events
+/,231,177,170,23.2,0
+/about,29,23,21,34.3,0
+/contact,20,19,17,2.8,0
+/services/landscape-design,18,7,6,8.5,0
+/services/rock-beds,17,7,6,1.0,0
+(not set),14,11,0,1.1,0
+/blog,11,9,8,5.0,0
+/outdoor-living-space,10,5,2,54.7,0
+/blog/french-drain-vs-dry-creek-bed,9,9,9,73.6,0
+/projects,6,4,1,11.0,0
+/retaining-walls-benbrook-tx,6,1,0,0.0,0
+/services,6,5,5,8.3,0
+/blog/best-sod-for-texas-clay-soil,5,5,5,185.8,0
+/services/retaining-walls,5,4,2,118.6,0
+/areas/aledo-tx,4,4,4,9.5,0
+/projects/aledo-pergola-paver-patio,4,3,1,7.8,0
+/services/french-drains,4,4,4,57.3,0
+/areas/arlington-tx,3,3,3,82.0,0
+/areas/saginaw-tx,3,3,3,78.7,0
+/blog/how-long-do-pavers-last,3,3,3,31.7,0
+/services/plant-installation,3,3,3,3.0,0
+/sod-installation-weatherford-tx,3,3,3,23.0,0
+# Remaining ~35 landing pages each had 1-2 sessions. Source: GA4 landing-page report, all users, Jul 24 - Oct 21, 2026 (account "Bearcat Turf", property "Twin County Outdoor Services"). Key events were 0 everywhere because tracking did not exist yet.
